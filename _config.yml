@@ -3,19 +3,19 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
+title: James Hickey
+subtitle: A technical blog powered by coffee
 description:
-keywords:
-author: John Doe
-language:
+keywords: james hickey, james hickey blog, .net blog, dotnet blog, dotnetcore blog, dotnet core blog, dot net core blog
+author: James Hickey
+language: English
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://blog.jamesmichaelhickey.com
 root: /
-permalink: :year/:month/:day/:title/
+permalink: :title/
 permalink_defaults:
 
 # Directory
