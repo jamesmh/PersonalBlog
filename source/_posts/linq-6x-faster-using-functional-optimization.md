@@ -15,6 +15,8 @@ date: 2018-03-25 02:26:21
 
 I really did make LINQ 6X faster! Even though the title is "click-bait-ish"... This was a little experiment to see if I could speed up LINQ queries by using the functional `pipe` technique. By "piping" LINQ queries, we can avoid the inherent issue with LINQ whereby each query will issue **a whole iteration over the collection**. This optimization allows us to issue the equivalent of **one iteration** and pass each element through the entire method chain. And, btw, the source code for all this is [here](https://github.com/jamesmh/csharp-linq-vs-enumerator-benchmark).
 
+<!--more-->
+
 Initial Benchmark Results
 =========================
 

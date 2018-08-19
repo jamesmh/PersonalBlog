@@ -5,7 +5,7 @@ tags:
   - javascript
   - mixins
   - typescript
-url: bind-constructor-parameters-automagically.html
+url: 109.html
 id: 109
 categories:
   - TypeScript
@@ -13,6 +13,8 @@ date: 2017-02-21 15:56:46
 ---
 
 Lately (at the time of publishing this article) I've been migrating a JavaScript framework I built over to TypeScript. The core UI components are built using [mixins](https://en.wikipedia.org/wiki/Mixin#In_JavaScript "mixins"). One issue I ran into is trying to clean up code that builds creates objects by combining mixins. By using TypeScript decorators I was able to clean this up to my liking. :)
+
+<!--more-->
 
 What It Looked Like Before
 ==========================

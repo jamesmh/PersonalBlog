@@ -17,6 +17,8 @@ date: 2018-03-07 16:25:04
 
 So your engineering team is convinced that you need to make some drastic changes. The direction of future development needs to improve. Things can't stay as they are. Management is also convinced that the product needs to move in a new direction. What's next? Well, before doing any actual changes or refactoring to your product, planning a refactor is your next step. In other words, you need a game plan. I'll also discuss some refactoring tips for you to get started!
 
+<!--more-->
+
 A Word From Our Sponsors...
 ===========================
 

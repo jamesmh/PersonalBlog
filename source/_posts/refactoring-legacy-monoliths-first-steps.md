@@ -17,6 +17,8 @@ date: 2018-01-09 20:20:05
 
 Where do you even begin when considering "fixing" or refactoring legacy monoliths? I've been thinking about this lately - as I've been doing it for the last month or so.
 
+<!--more-->
+
 What Is A Legacy Monolith?
 ==========================
 

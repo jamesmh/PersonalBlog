@@ -24,6 +24,8 @@ How do you convince management to invest time and money into refactoring your le
 
 Let's look at overcoming the next hurdle in this process.
 
+<!--more-->
+
 Roadblock
 =========
 

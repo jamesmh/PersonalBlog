@@ -585,3 +585,7 @@ figure.highlight>table tr {
 figure.highlight>table .gutter {
     display:none;
 }
+
+#header-big-imgs {
+  background-color: #DFDBE5;
+}

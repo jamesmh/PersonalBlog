@@ -10,7 +10,7 @@ tags:
   - object oriented design patterns
   - strategy
   - strategy pattern
-url: strategy-pattern-implementations.html
+url: 469.html
 id: 469
 categories:
   - 'C#'
@@ -21,6 +21,8 @@ date: 2017-12-09 04:10:43
 ---
 
 Let's look at some different ways you could implement the strategy pattern in C#. First, I'd like to briefly mention why we care about design patterns and where the strategy pattern fits in. _Note: [This is day #9 of the First C# Advent Calendar](https://crosscuttingconcerns.com/The-First-C-Advent-Calendar) @ [https://crosscuttingconcerns.com](https://crosscuttingconcerns.com)_
+
+<!--more-->
 
 Why Should I Know The Strategy Pattern?
 =======================================

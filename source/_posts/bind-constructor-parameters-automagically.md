@@ -13,6 +13,8 @@ date: 2017-03-06 19:24:43
 
 The more I use TypeScript the more I realize how powerful it really is. TypeScript decorators are one of those fantastic features that let you do things like automate common tasks and create isolated modules that can be reused. TypeScript constructor decorators allow you to do some really fancy stuff. Keep reading.
 
+<!--more-->
+
 Simple Example
 ==============
 

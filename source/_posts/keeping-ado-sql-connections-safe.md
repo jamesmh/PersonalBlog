@@ -15,7 +15,11 @@ categories:
 date: 2018-08-15 22:00:27
 ---
 
-What happens when you don't close your .NET `SqlConnection`s? Bad stuff. Bad stuff that will inevitably bring your IIS website crumbling down to ashes. Well... something like that. We all know that we should take extra care to always **close** our DB connections. Right? But what happens when developers try to get fancy with their DB connections and focus more on being able to re-use open DB connections rather than being safe? Well, the consequences were bestowed upon me a few weeks ago. Let me explain (briefly) what happened, what _could_ happen to you, and a way to fix it - while maintaining the flexibility of re-using open DB connections and being able to safely use DB transactions from your C# code (using ADO).
+What happens when you don't close your .NET `SqlConnection`s? Bad stuff. Bad stuff that will inevitably bring your IIS website crumbling down to ashes. Well... something like that. We all know that we should take extra care to always **close** our DB connections. Right? But what happens when developers try to get fancy with their DB connections and focus more on being able to re-use open DB connections rather than being safe? Well, the consequences were bestowed upon me a few weeks ago. 
+
+Let me explain (briefly) what happened, what _could_ happen to you, and a way to fix it - while maintaining the flexibility of re-using open DB connections and being able to safely use DB transactions from your C# code (using ADO).
+
+<!--more-->
 
 When Leaky Connections Strike
 =============================
@@ -108,3 +112,5 @@ Lately, I've been actively developing a set of tools for .Net Core apps. The ide
 
 Extras: Gist
 ============
+
+<script src="https://gist.github.com/jamesmh/9e1382a567e0891670c2d55b47ec3ba7.js"></script>

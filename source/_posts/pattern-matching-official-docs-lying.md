@@ -13,6 +13,8 @@ date: 2018-06-11 16:32:45
 
 During my day job, I had a case where I needed to use some pattern matching to do some type checking. If you don't know, pattern matching in C# allows you to test the type of an object and perform some additional "magic" at the same time. While having the chance to play around with this feature some questions arose from my usage. I want to bring you through some steps in typical pattern matching usage, and we'll ask some fun questions and test this feature to see how far we can bring it!
 
+<!--more-->
+
 Usage 1: If Statement
 =====================
 

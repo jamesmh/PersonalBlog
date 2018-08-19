@@ -18,6 +18,8 @@ date: 2017-08-25 03:04:04
 
 [**Update**: I created a YouTube video based on this post, if you are interested....](https://youtu.be/dfwBEIr5giY) During the past year and a half I have been making a point to learn about and develop my skills in functional programming. For the majority of this experience, I have been using JavaScript and [TypeScript](http://www.typescriptlang.org/). After moving onto another project at work, I was brought back to "C# and SQL world." Long story short, I noticed the way I was thinking about software problems in C# were totally different than before.
 
+<!--more-->
+
 ### A Twisted Mind
 
 I found myself using functional programming techniques in C# - combined with language features like [generics](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/) \- just "out-of-box", because my brain was already wired this way due to my experiences in the past year or so. And not because it makes "fancy" code, but because it makes my code more readable, maintainable and flexible. Especially when refactoring duplicated code - but that's another story (perhaps for a future post).

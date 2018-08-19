@@ -1,17 +1,17 @@
 navbar-links:
     Github: https://github.com/jamesmh
-    Twitter: https://twitter.com/jamesmh
+    Twitter: https://twitter.com/jamesmh_dev
     LinkedIn: https://www.linkedin.com/in/jamesmhickey/    
 
 avatar: /james.png
 favicon: /james.png
 
 header:
-    title: "James Hickey's Blog"
-    motto: Build a beautiful and simple website in minutes
-    bigimgs:
-        - src: /bigimgs/jamesbig.jpg
-          desc: james hickey
+    title: "Welcome!"
+    motto: Once a musician turned philosopher - now a senior software developer. Enjoy my unique personal stories and technical tips!
+    bigimgs: 
+        - src: /bigimgs/trianglify.png
+          desc: 
 
 rss: /atom.xml
 googlefonts:
@@ -34,7 +34,7 @@ footer:
     link: 'http://weibo.com/bisyao?is_all=1'
     title: Weibo
     icon: fa-weibo
-    enable: true
+    enable: false
   github:
     link: 'https://github.com/jamesmh'
     title: GitHub
@@ -46,7 +46,7 @@ footer:
     icon: fa-rss
     enable: true
   twitter:
-    link: 'https://twitter.com/jamesmh'
+    link: 'https://twitter.com/jamesmh_dev'
     title: Twitter
     icon: fa-twitter
     enable: true

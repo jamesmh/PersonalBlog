@@ -18,6 +18,8 @@ date: 2017-09-01 01:33:07
 
 Are fluent interfaces **evil**? (As some might suggest)... I don't think so. In fact, I think they are great. I plan on doing a few posts around this topic in the coming days / weeks (I'm pretty busy...). I wanted to start by addressing some common arguments I've come across. [First thing's first though...(if you don't know anything about fluent interfaces)](https://www.martinfowler.com/bliki/FluentInterface.html)
 
+<!--more-->
+
 ### Encapsulation Broken
 
 The first concern I've seen is that fluent interfaces somehow break encapsulation. Well...I disagree. If the only thing exposed by an object are methods "that do what you tell it to do", then it does stuff to it's private members - not the caller. Just because an object's method return's itself, you still have no access to it's private internals.

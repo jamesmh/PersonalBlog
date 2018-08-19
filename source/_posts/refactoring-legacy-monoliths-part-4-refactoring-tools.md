@@ -17,6 +17,8 @@ date: 2018-05-29 16:47:59
 
 As a software developer, it's important to know what tools are available to you. Tedious and repetitive tasks or large "one-off" time-consuming tasks can often be automated by third-party tooling. And yes - sometimes it's even worth purchasing some of these tools with your own money. Specifically, when refactoring, we should have some knowledge of what refactoring tools are available to us. Continuing my "Refactoring Legacy Monoliths" series - I want to go over a few tools that I've found super helpful and worth investing in. To make this blog post more useful than a list of products, I'll go through some high-level steps of a plan that you might also find helpful when tackling a major refactoring expedition on a large project, and highlight some of these tools along the way. :)
 
+<!--more-->
+
 Step 1: High-level Overview And Identification Of Problem Areas:
 ================================================================
 

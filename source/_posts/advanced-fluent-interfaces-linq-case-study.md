@@ -17,6 +17,8 @@ date: 2017-11-01 19:03:45
 
 In Martin Fowler's ["famous" article about fluent interfaces](https://www.martinfowler.com/bliki/FluentInterface.html), he talks about how it's beneficial (when using strongly typed languages) to have the return type of your fluent method be flexible. We'll be looking at this advanced fluent interface technique today.
 
+<!--more-->
+
 Why?
 ====
 
