@@ -63,10 +63,10 @@ footer:
     icon: fa-twitter
     enable: true
   mail:
-    link: 'mailto:jamesmichaelhickey@gmail.com'
+    link: ''
     title: Email me
     icon: fa-envelope
-    enable: true
+    enable: false
   linkin:
     link: https://www.linkedin.com/in/jamesmhickey/   
     title: LinkedIn
