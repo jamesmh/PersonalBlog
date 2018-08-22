@@ -6,9 +6,21 @@ navbar-links:
 avatar: /james.png
 favicon: /james.png
 
+who:
+    title: Who am I?
+    desc1: I'm a <strong>Microsoft certified</strong> senior developer who's lead successful projects for companies including one of the <strong>largest insurance companies in Canada</strong>. I've also worked on projects that processed financial data for automotive manufacturers like <strong>Mercedes Benz</strong>, <strong>Subaru</strong>, <strong>Mitsubishi</strong>, and more.
+    desc2: My technical writings have been featured on <strong>Microsoft’s .NET engineering team’s blog</strong>, <strong>dotNET Weekly</strong>, <strong>C# Digest</strong>, and many others!
+    desc3: My goal is to <strong>help you reach the next step of your career</strong> as a software developer!
+    signUpRef: https://tinyletter.com/jamesmh
+    signUp: Subscribe to my mail letter!
+    letterDesc1: Struggling to get to the <strong>next level</strong> of your development career? 
+    letterDesc2: Have questions but don't have any <strong>experienced mentors</strong> around?
+    letterDesc3: Wondering how to get <strong>known in the industry</strong> as a competent and skilled developer?
+    letterDesc4: You'll also receive updates about what I've been working on along with curated links that I've found the most helpful and useful!
+
 header:
     title: "Seeing Sharply"
-    motto: A technical blog offering unique personal stories and software development tips!
+    motto: Making you a better developer through my unique personal stories and software development tips!
     bigimgs: 
         - src: /bigimgs/trianglify.png
           desc: 

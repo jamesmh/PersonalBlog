@@ -589,3 +589,30 @@ figure.highlight>table .gutter {
 #header-big-imgs {
   background-color: #DFDBE5;
 }
+
+.btn-sign-up {
+  background-color: #2668A9;
+  color: #fff;
+  font-size: 24px;
+  margin-top:30px;
+  margin-bottom:18px;
+  transition: all .2s;
+}
+
+.btn-sign-up:hover {
+  color: #2668A9;
+  background-color: #f4faff;
+  border: 2px dashed #2668A9;
+}
+
+.who-am-I {
+  border: 2px dashed #ddd;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #f4faff;
+}
+
+.who-am-I ul li {
+  margin-bottom:18px;
+}
+
