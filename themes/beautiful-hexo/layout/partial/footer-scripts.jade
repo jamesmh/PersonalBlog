@@ -6,4 +6,9 @@ if theme.highlight.enable
     script(src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js")
     script hljs.initHighlightingOnLoad();
 
-include google_analytics
+script(async, src="https://www.googletagmanager.com/gtag/js?id=UA-71164109-2")
+script.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-71164109-2');
