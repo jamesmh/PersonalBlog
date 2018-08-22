@@ -7,8 +7,8 @@ avatar: /james.png
 favicon: /james.png
 
 header:
-    title: "Welcome!"
-    motto: Once a musician turned philosopher - now a senior software developer. Enjoy my unique personal stories and technical tips!
+    title: "Seeing Sharply"
+    motto: A technical blog offering unique personal stories and software development tips!
     bigimgs: 
         - src: /bigimgs/trianglify.png
           desc: 
