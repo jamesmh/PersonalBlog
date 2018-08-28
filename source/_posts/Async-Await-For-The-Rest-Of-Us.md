@@ -73,6 +73,7 @@ var result1 = await SomeAsyncIO1(); // OS is doing IO while "thread" will go do 
 
 var result2 = await SomeAsyncIO2(result1); // "Thread" goes to do something else.
 // One comes back...
+
 await SomeAsyncIO3(result2); // Goes away again...
 // Comes back to finish the method.
 ```
