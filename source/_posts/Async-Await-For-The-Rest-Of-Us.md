@@ -82,7 +82,7 @@ You might ask yourself at this point:
 
 > If the `async` keyword doesn't make a method asynchronous then what does?
 
-## What Makes a Method Asynchronous Then?
+## What Makes A Method Asynchronous Then?
 
 Well - it's not the `async` keyword as we learned. Go figure.
 
