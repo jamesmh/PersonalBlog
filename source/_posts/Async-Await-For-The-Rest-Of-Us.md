@@ -33,7 +33,7 @@ We:
 - Are not C# gurus
 - Admittedly forget how to use `async/await` properly at times. 
 - Might have to go back to Google and figure out why a method can return a `Task` but not use the `async` keyword. 
-- Might wonder why a method that's **not** marked as `async` can be awaited by it's caller? 
+- Might wonder why a method that's **not** marked as `async` can be awaited by it's caller
 
 This - I hope - is an article for "the rest of us" that's to the point and practical.
 
