@@ -207,9 +207,8 @@ There's so much more to be said and so many more concepts surrounding `async/awa
 **Let me know what you think - or if I've missed something etc. Thanks!**
 
 # P.S
-Tired of endless configuration and infrastructural setup in your .Net Core apps? Not sure where to start?
-I've been building a tool to make pieces like Task Scheduling, Queuing, Caching, Mailing, etc. a breeze!. 
-Take a look and let me know what you think - [it's called Coravel](https://github.com/jamesmh/coravel).
+
+Tired of endless configuration and infrastructural setup in your .Net Core apps? Not sure where to start? I've been building a tool to make pieces like Task Scheduling, Queuing, Caching, Mailing, etc. a breeze!. Take a look and let me know what you think - [it's called Coravel](https://github.com/jamesmh/coravel).
 
 Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
 
