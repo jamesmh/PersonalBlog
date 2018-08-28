@@ -53,11 +53,11 @@ So, just think of the `async` keyword as the `enableAwait` keyword.
 
 The `await` keyword is where the magic happens. It basically says (to the reader of the code):
 
-> I (the "thread") will make sure, if something asynchronous happens under here, that I'll go do something else (like handle HTTP requests). Some "thread" in the future will come back here once the asynchronous stuff is done.
+> I (the "thread") will make sure if something asynchronous happens under here, that I'll go do something else (like handle HTTP requests). Some "thread" in the future will come back here once the asynchronous stuff is done.
 
 _Note: Notice that "thread" is in quotes. .Net abstracts **real** threads away from you. But that's beyond this article._
 
-Generally, the most common usage of `await` is when you are doing IO - like getting results from a database query, or getting contents from a file.
+Generally, the most common usage of `await` is when you are doing IO - like getting results from a database query or getting contents from a file.
 
 When you `await` a method that does IO, it's **not your app** that does the IO - it's ultimately the operating system. So your "thread" is just sitting there...waiting...
 
@@ -151,7 +151,7 @@ That's it. **It's just waiting for a result to come back from the operating syst
 
 Performing a database query, for example, asks the operating system to connect to the database, send a message and get a message in return. But that is the OS making these requests - **not your app.**
 
-**IO takes time.** Time that the waiting thread (in your app) could be using to do other stuff - especially **handling other HTTP requests**.
+**IO takes time.** Time where the waiting thread (in your app) could be used to do other stuff - especially **handling other HTTP requests**.
 
 > Using `async/await` allows your .Net web apps to be able to handle **more HTTP requests while waiting for IO to complete.**
 
@@ -167,12 +167,12 @@ If we consider that HTTP requests in a web app are _just user input_, and deskto
 
 The IO issues and fixes still apply.
 
-However, the issue of CPU intensive tasks are another concern. In a nutshell, these types of tasks should not be done on the UI thread.
+However, the issue of CPU intensive tasks is another concern. In a nutshell, these types of tasks should not be done on the UI thread.
 
 The types of tasks would include:
 
-- Processing a large amount of items in a loop
-- Computing intensive aggregations for reporting
+- Processing a large number of items in a loop
+- Computing aggregations for reporting
 
  If your app does this (on the main/UI thread), then there's nothing to handle user input and UI stuff like animations, etc.
 
@@ -190,7 +190,7 @@ To summarize briefly:
 
 - Doing IO always results in blocking threads. This means your web apps can't process as many HTTP requests in parallel and freezing and laggy apps.
 
-- Using `async/await` helps us create code that will allow our "threads" to stop blocking  and do useful work while performing IO.
+- Using `async/await` helps us create code that will allow our "threads" to stop blocking and do useful work while performing IO.
 
 - This leads to web apps that can handle more requests per second and apps that are more responsive for their users.
 
