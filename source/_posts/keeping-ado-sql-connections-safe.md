@@ -137,7 +137,7 @@ Just remember:
 - Higher-order functions are a great way to encapsulate responsibilities of one domain/object while allowing the callers to still be flexible in how they can use those managed resources.
 
 # P.S
-Lately, I've been actively developing a set of tools for .Net Core apps. The idea is to make configuring and using infrastructural pieces like Task Scheduling, Queuing, Caching, Mailing etc. a breeze! It's in active development (not production use yet). Take a look and let me know what you think - [it's called Coravel](https://github.com/jamesmh/coravel).
+Lately, I've been actively developing a set of tools for .Net Core apps. The idea is to make configuring and using infrastructural pieces like Task Scheduling, Queuing, Caching, Mailing etc. a breeze! Take a look and let me know what you think - [it's called Coravel](https://github.com/jamesmh/coravel).
 
 Connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
 

@@ -306,6 +306,6 @@ Doing this using Reflection can offer some conveniences and perhaps more flexibi
 **Have any feedback or comments?** I'd love to hear what you think or if I missed something etc.
 
 # P.S
-Lately, I've been actively developing a set of tools for .Net Core apps. The idea is to make configuring and using infrastructural pieces like Task Scheduling, Queuing, Caching, Mailing etc. a breeze! It's in active development (not production use yet). Take a look and let me know what you think - [it's called Coravel](https://github.com/jamesmh/coravel).
+I've been creating a set of tools for .Net Core apps. The idea is to make configuring and using infrastructural pieces like Task Scheduling, Queuing, Caching, Mailing etc. a breeze!. Take a look and let me know what you think - [it's called Coravel](https://github.com/jamesmh/coravel).
 
 Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
