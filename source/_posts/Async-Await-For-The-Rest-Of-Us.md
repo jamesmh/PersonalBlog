@@ -16,6 +16,8 @@ date: 2018-08-28 02:26:21
 
 What's the deal with `async` and `await` in C#? Why should a .Net developer in 2018 **need** to know what it is and how to use it?
 
+<!--more-->
+
 Perhaps you've used `async/await` but find yourself having to go back and figure it out again? It's OK - I'm admittedly not an `async/await` guru either. 
 
 I've had to figure out the hard way that, for example, using `ConfigureAwait(false).GetResult()` (as many might suggest) doesn't magically make your async method "work" synchronously.
