@@ -117,7 +117,7 @@ It is possible to do something like this (notice the lack of `async` and `await`
 
 ```c#
 public Task<int> GetSomeData() {
-    return ThisReturnsATask();
+    return DoSomethingAsync();
 }
 ```
 
@@ -128,19 +128,19 @@ And then `await` that method:
 await GetSomeData();
 ```
 
-`GetSomeData` doesn't await - it just returns the `Task`. Remember that `await` doesn't care if a method is using the `async` keyword - **it just needs it to return a `Task`**. 
+`GetSomeData` doesn't await the call to `DoSomethingAsync` - it just returns the `Task`. Remember that `await` doesn't care if a method is using the `async` keyword - **it just requires that the method return a `Task`**. 
+
+It is possible to do this - create a method that calls an asynchronous method but doesn't await. And it works...
 
 ## It's A Best Practice
 
-However, this is considered - generally speaking - a bad practice. Why? 
+However, this is considered a bad practice. Why? 
 
 Since this article is supposed to be to the point and practical:
 
 **Using async/await "all the way down" simply captures exceptions in asynchronous methods better.**
 
 If you mark every method that returns a `Task` with the `async` keyword - which in turn enables the `await` keyword - it handles exceptions better and makes them understandable when looking at the exception's message and stack trace.
-
-_Note: As always, there are more answers to this question beyond the scope of this article - like calling asynchronous code from synchronous code. P.s. That's a bad thing._
 
 # Why Async?
 
