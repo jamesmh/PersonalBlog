@@ -173,7 +173,7 @@ await GetSomeData();
 
 `GetSomeData` doesn't await the call to `DoSomethingAsync` - it just returns the `Task`. Remember that `await` doesn't care if a method is using the `async` keyword - **it just requires that the method return a `Task`**. 
 
-It is possible to do this - create a method that calls an asynchronous method but doesn't await. And it works...
+It is possible to do this - create a method that calls an asynchronous method but doesn't await.
 
 ## It's A Best Practice
 
