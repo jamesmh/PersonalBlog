@@ -193,16 +193,19 @@ To summarize briefly:
 
 - Doing IO always results in blocking threads. This means your web apps can't process as many HTTP requests in parallel and freezing and laggy apps.
 
-- Using `async/await` helps us create code that will allow our "threads" to stop blocking and do useful work while performing IO.
+- Using `async/await` helps us create code that will allow our threads to stop blocking and do useful work while performing IO.
 
 - This leads to web apps that can handle more requests per second and apps that are more responsive for their users.
+
+I hope this is an understandable introduction to `async/await`. It's not an easy topic - and as always - gaining experience by using this feature will, over time, help us to understand what's going on.
 
 There's so much more to be said and so many more concepts surrounding `async/await`. Some include:
 
 - What is a `SynchronizationContext`? When should I be aware of this?
+- What about .Net Core vs .Net Framework - is there a difference I should be aware of?
 - Why can I mark a method as `async void`? What does this do? Should I do this?
 - How do I offload CPU intensive work to a background thread/task?
-- Is it possible to do work on a background thread and return to the UI thread at the end?
+- Is it possible to do work on a background thread and return to the UI thread at the very end?
 - How do I call a method marked with the `async` keyword from synchronous code? What happens when I do this?
 
 **Let me know what you think - or if I've missed something etc. Thanks!**
