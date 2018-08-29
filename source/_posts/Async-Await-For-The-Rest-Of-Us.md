@@ -177,7 +177,7 @@ The types of tasks would include:
 - Processing a large number of items in a loop
 - Computing aggregations for reporting
 
- If your app does this (on the main/UI thread), then there's nothing to handle user input and UI stuff like animations, etc.
+If your app does this (on the main/UI thread), then there's nothing to handle user input and UI stuff like animations, etc.
 
 This leads to freezing and laggy apps.
 
