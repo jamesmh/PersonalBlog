@@ -222,7 +222,7 @@ I also have an e-mail letter where I'll give you tips, stories and links to **he
 
 # P.S.
 
-Tired of endless configuration and infrastructural setup in your .Net Core apps? Not sure where to start? I've been building a tool to make pieces like Task Scheduling, Queuing, Caching, Mailing, etc. a breeze!. [It's called Coravel!](https://github.com/jamesmh/coravel).
+Tired of endless configuration and infrastructural setup in your .Net Core apps? Not sure where to start? I've been building a tool to make pieces like Task Scheduling, Queuing, Caching, Mailing, etc. a breeze!. [It's called Coravel!](https://github.com/jamesmh/coravel)
 
 
 
