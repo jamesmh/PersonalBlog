@@ -152,7 +152,7 @@ When you make IO calls - database queries, file reading, reading from HTTP reque
 
 That's it. **It's just waiting for a result to come back from the operating system.**
 
-Performing a database query, for example, asks the operating system to connect to the database, send a message and get a message in return. But that is the OS making these requests - **not your app.**
+Performing a database query, for example, ultimately asks the operating system to connect to the database, send a message and get a message in return. But that is the OS making these requests - **not your app.**
 
 **IO takes time.** Time where the waiting thread (in your app) could be used to do other stuff - especially **handling other HTTP requests**.
 
