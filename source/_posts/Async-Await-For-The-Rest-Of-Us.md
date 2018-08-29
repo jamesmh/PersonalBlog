@@ -39,7 +39,52 @@ This - I hope - is an article for "the rest of us" that's to the point and pract
 
 _P.S. If you do want to dig into this topic more the best starting point is [I'd suggest starting with this article.](https://blog.stephencleary.com/2012/02/async-and-await.html)_
 
+# Why Async?
+
+What's the benefit of using `async/await`? 
+
+## For Web Developers
+
+If you build web apps using .Net technologies - the answer is simple: **Scalability**.
+
+When you make IO calls - database queries, file reading, reading from HTTP requests, etc. - the  thread that is handling the current HTTP request is **just waiting**.
+
+That's it. **It's just waiting for a result to come back from the operating system.**
+
+Performing a database query, for example, ultimately asks the operating system to connect to the database, send a message and get a message in return. But that is the OS making these requests - **not your app.**
+
+**IO takes time.** Time where the waiting thread (in your app) could be used to do other stuff - especially **handling other HTTP requests**.
+
+> Using `async/await` allows your .Net web apps to be able to handle **more HTTP requests while waiting for IO to complete.**
+
+## For Desktop/App Developers
+
+But desktop apps don't handle HTTP requests...
+
+Well, desktop apps **do** handle user input (keyboard, mouse, etc.), animations, etc. And there's only **one UI thread** to do that.
+
+### User Input Is User Input
+
+If we consider that HTTP requests in a web app are _just user input_, and desktop (or app) keyboard and mouse events are _just user input_ - then it's actually worse for desktop/app developers! They only get **one thread** to handle user input!
+
+The IO issues and fixes still apply.
+
+However, the issue of CPU intensive tasks is another concern. In a nutshell, these types of tasks should not be done on the UI thread.
+
+The types of tasks would include:
+
+- Processing a large number of items in a loop
+- Computing aggregations for reporting
+
+If your app does this (on the main/UI thread), then there's nothing to handle user input and UI stuff like animations, etc.
+
+This leads to freezing and laggy apps.
+
+The solution is to offload CPU intensive tasks to a background task/thread. This starts to get into queuing up new threads/tasks, how to use `ConfigureAwait(false)` to keep asynchronous branches of your code on a non-UI context, etc. All things beyond the scope of our article.
+
 # The Async Keyword
+
+Let's start looking at the `async/await` keywords and how they are to be used.
 
 There's confusion over the async keyword. Why? Because it looks like it **makes** your method asynchronous. But, it doesn't.
 
@@ -139,49 +184,6 @@ Since this article is supposed to be to the point and practical:
 **Using async/await "all the way down" simply captures exceptions in asynchronous methods better.**
 
 If you mark every method that returns a `Task` with the `async` keyword - which in turn enables the `await` keyword - it handles exceptions better and makes them understandable when looking at the exception's message and stack trace.
-
-# Why Async?
-
-What's the benefit of using `async/await`? 
-
-## For Web Developers
-
-If you build web apps using .Net technologies - the answer is simple: **Scalability**.
-
-When you make IO calls - database queries, file reading, reading from HTTP requests, etc. - the  thread that is handling the current HTTP request is **just waiting**.
-
-That's it. **It's just waiting for a result to come back from the operating system.**
-
-Performing a database query, for example, ultimately asks the operating system to connect to the database, send a message and get a message in return. But that is the OS making these requests - **not your app.**
-
-**IO takes time.** Time where the waiting thread (in your app) could be used to do other stuff - especially **handling other HTTP requests**.
-
-> Using `async/await` allows your .Net web apps to be able to handle **more HTTP requests while waiting for IO to complete.**
-
-## For Desktop/App Developers
-
-But desktop apps don't handle HTTP requests...
-
-Well, desktop apps **do** handle user input (keyboard, mouse, etc.), animations, etc. And there's only **one UI thread** to do that.
-
-### User Input Is User Input
-
-If we consider that HTTP requests in a web app are _just user input_, and desktop (or app) keyboard and mouse events are _just user input_ - then it's actually worse for desktop/app developers! They only get **one thread** to handle user input!
-
-The IO issues and fixes still apply.
-
-However, the issue of CPU intensive tasks is another concern. In a nutshell, these types of tasks should not be done on the UI thread.
-
-The types of tasks would include:
-
-- Processing a large number of items in a loop
-- Computing aggregations for reporting
-
-If your app does this (on the main/UI thread), then there's nothing to handle user input and UI stuff like animations, etc.
-
-This leads to freezing and laggy apps.
-
-The solution is to offload CPU intensive tasks to a background task/thread. This starts to get into queuing up new threads/tasks, how to use `ConfigureAwait(false)` to keep asynchronous branches of your code on a non-UI context, etc. All things beyond the scope of our article.
 
 # Conclusion
 
