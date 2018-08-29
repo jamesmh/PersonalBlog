@@ -22,7 +22,7 @@ Perhaps you've used `async/await` but find yourself having to go back and figure
 
 I've had to figure out the hard way that, for example, using `ConfigureAwait(false).GetResult()` (as many might suggest) doesn't magically make your async method "work" synchronously.
 
-But this isn't an in-depth look at the internals of `async/await` and how get fancy with `async/await`.
+But this isn't an in-depth look at the internals of `async/await` and how to get fancy with `async/await`.
 
 This is _"Async/await for the rest of us"_. Who are _the rest of us_?
 
