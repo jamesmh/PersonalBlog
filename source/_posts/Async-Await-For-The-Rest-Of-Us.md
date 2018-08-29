@@ -94,7 +94,7 @@ For the purpose of this article, we'll assume that "asynchronous method" is a me
 
 ### When Does This Happen?
 
-When will we ever need to return a `Task` from a method? Again, it's usually when doing IO. Most IO libraries or built-in .Net APIs will have an "Async" version of a method. 
+When will we ever need to return a `Task` from a method? It's usually when doing IO. Most IO libraries or built-in .Net APIs will have an "Async" version of a method. 
 
 For example, the `SqlConnection` class has an `Open` method that will begin the connection. But, it also has an `OpenAsync` method. It also has an `ExecuteNonQueryAsync` method.
 
