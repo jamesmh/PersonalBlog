@@ -218,7 +218,7 @@ Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or
 
 I also have an e-mail letter where I'll give you tips, stories and links to **help you get to the next step of your career as a software developer**. I'll also give you updates about stuff that I've been working on ;) 
 
-[Subscribe if you haven't already!]("https://tinyletter.com/jamesmh)
+[Subscribe if you haven't already!](https://tinyletter.com/jamesmh)
 
 # P.S.
 
