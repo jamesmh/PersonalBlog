@@ -142,7 +142,7 @@ When will we ever need to return a `Task` from a method? It's usually when doing
 For example, the `SqlConnection` class has an `Open` method that will begin the connection. But, it also has an `OpenAsync` method. It also has an `ExecuteNonQueryAsync` method.
 
 ```c#
-public async Task<int> GetSomeData() {
+public async Task<int> IssueSqlCommandAsync() {
     using(var con = new SqlConnection(_connectionString))
     {
         // Some code to create an sql command "sqlCommand" would be here...
