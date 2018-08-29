@@ -163,10 +163,20 @@ That's the beauty of using functional programming techniques, they don't have to
 
 # If You Enjoyed This...
 
-I've been writing about functional programming lately - here are some selected posts you may enjoy:
+Here are some selected posts you may enjoy:
 
 + [Advanced Fluent Interfaces: LINQ Case Study](https://www.blog.jamesmichaelhickey.com/advanced-fluent-interfaces-linq-case-study/)
 + [3 Benefits Of Fluent Interfaces](https://www.blog.jamesmichaelhickey.com/3-benefits-fluent-interfaces/)
 + [Exploring Fluent Interfaces](https://www.blog.jamesmichaelhickey.com/exploring-fluent-interface/)
 
+# Keep In Touch
+
 Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
+
+I also have an e-mail letter where I'll give you tips, stories and links to **help you get to the next step of your career as a software developer**. I'll also give you updates about stuff that I've been working on ;) 
+
+[Subscribe if you haven't already!]("https://tinyletter.com/jamesmh)
+
+# P.S.
+
+Tired of endless configuration and infrastructural setup in your .Net Core apps? Not sure where to start? I've been building a tool to make pieces like Task Scheduling, Queuing, Caching, Mailing, etc. a breeze!. [It's called Coravel!](https://github.com/jamesmh/coravel).
