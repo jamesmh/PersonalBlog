@@ -131,7 +131,7 @@ Well - it's not the `async` keyword as we learned. Go figure.
 
 Any method that returns an "awaitable" - `Task` or `Task<T>` can be awaited using the `await` keyword.
 
-There are actually other awaitables types. And, and "awaitable" method doesn't strictly have to be an asynchronous method. But ignore that - this is meant to be for "the rest of us."
+There are actually other awaitables types. And, an "awaitable" method doesn't strictly have to be an asynchronous method. But ignore that - this is meant to be for "the rest of us."
 
 For the purpose of this article, we'll assume that "asynchronous method" is a method that returns `Task` or `Task<T>`.
 
