@@ -586,6 +586,8 @@ figure.highlight>table .gutter {
     display:none;
 }
 
+/* Added by James */
+
 #header-big-imgs {
   background-color: #DFDBE5;
 }
@@ -614,5 +616,12 @@ figure.highlight>table .gutter {
 
 .who-am-I ul li {
   margin-bottom:18px;
+}
+
+@media only screen and (min-width: 1200px)
+{
+  .container {
+    width: 80%;
+  }
 }
 
