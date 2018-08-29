@@ -55,23 +55,21 @@ So, just think of the `async` keyword as the `enableAwait` keyword.
 
 The `await` keyword is where the magic happens. It basically says (to the reader of the code):
 
-> I (the "thread") will make sure if something asynchronous happens under here, that I'll go do something else (like handle HTTP requests). Some "thread" in the future will come back here once the asynchronous stuff is done.
-
-_Note: Notice that "thread" is in quotes. .Net abstracts **real** threads away from you. But that's beyond this article._
+> I (the thread) will make sure if something asynchronous happens under here, that I'll go do something else (like handle HTTP requests). Some thread in the future will come back here once the asynchronous stuff is done.
 
 Generally, the most common usage of `await` is when you are doing IO - like getting results from a database query or getting contents from a file.
 
-When you `await` a method that does IO, it's **not your app** that does the IO - it's ultimately the operating system. So your "thread" is just sitting there...waiting...
+When you `await` a method that does IO, it's **not your app** that does the IO - it's ultimately the operating system. So your thread is just sitting there...waiting...
 
 `await` will tell the current thread to just go away and do something useful. Let the operating system and the .Net framework get another thread later - whenever it needs one.
 
 Consider this as a visual guide:
 
 ```c#
-var result1 = await SomeAsyncIO1(); // OS is doing IO while "thread" will go do something else.
-// A "thread" gets the results.
+var result1 = await SomeAsyncIO1(); // OS is doing IO while thread will go do something else.
+// A thread gets the results.
 
-var result2 = await SomeAsyncIO2(result1); // "Thread" goes to do something else.
+var result2 = await SomeAsyncIO2(result1); // Thread goes to do something else.
 // One comes back...
 
 await SomeAsyncIO3(result2); // Goes away again...
@@ -150,7 +148,7 @@ What's the benefit of using `async/await`?
 
 If you build web apps using .Net technologies - the answer is simple: **Scalability**.
 
-When you make IO calls - database queries, file reading, reading from HTTP requests, etc. - the thread that is handling the current HTTP request is **just waiting**.
+When you make IO calls - database queries, file reading, reading from HTTP requests, etc. - the  thread that is handling the current HTTP request is **just waiting**.
 
 That's it. **It's just waiting for a result to come back from the operating system.**
 
