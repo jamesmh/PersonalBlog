@@ -181,7 +181,7 @@ If your app does this (on the main/UI thread), then there's nothing to handle us
 
 This leads to freezing and laggy apps.
 
-The solution is to offload CPU intensive tasks to a background task/thread. This starts to get into queuing up new threads/tasks, using `ConfigureAwait(false)`, etc. Things beyond the scope of our article.
+The solution is to offload CPU intensive tasks to a background task/thread. This starts to get into queuing up new threads/tasks, how to use `ConfigureAwait(false)` to keep asynchronous branches of your code on a non-UI context, etc. All things beyond the scope of our article.
 
 # Conclusion
 
