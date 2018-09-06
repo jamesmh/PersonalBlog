@@ -5,11 +5,26 @@ meta(name="author", content=config.author)
 
 link(rel="icon", href=url_for(theme.favicon))
 
-title
-   block site_title
-       = config.title
-block description
-    meta(name="description", content=config.description)
+<title>Seeing Sharply - Technical Blog Of James Hickey</title>
+<meta name="description" content="Technical blog of Microsoft certified developer James Hickey. Helping you reach the next step of your career as a software developer!">
+
+<!-- Google / Search Engine Tags -->
+<meta itemprop="name" content="Seeing Sharply">
+<meta itemprop="description" content="Technical blog of Microsoft certified developer James Hickey. Helping you reach the next step of your career as a software developer!">
+<meta itemprop="image" content="https://www.blog.jamesmichaelhickey.com/bigimgs/trianglify.png">
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://www.blog.jamesmichaelhickey.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Seeing Sharply">
+<meta property="og:description" content="Technical blog of Microsoft certified developer James Hickey. Helping you reach the next step of your career as a software developer!">
+<meta property="og:image" content="https://www.blog.jamesmichaelhickey.com/bigimgs/trianglify.png">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Seeing Sharply">
+<meta name="twitter:description" content="Technical blog of Microsoft certified developer James Hickey. Helping you reach the next step of your career as a software developer!">
+<meta name="twitter:image" content="https://www.blog.jamesmichaelhickey.com/bigimgs/trianglify.png">
 
 link(rel="alternate", type="application/rss+xml", title=config.title, href=url_for("/atom.xml"))
 
