@@ -2,18 +2,19 @@
 title: How I Made LINQ 6X Faster Using A Functional Optimization!
 tags:
   - benchmarking
-  - 'c#'
+  - "c#"
   - functional programming
   - linq
   - optimisation
 url: 613.html
 id: 613
 categories:
-  - 'C#'
+  - "C#"
 date: 2018-03-25 02:26:21
 ---
 
-I really did make LINQ 6X faster! Even though the title is "click-bait-ish"... This was a little experiment to see if I could speed up LINQ queries by using the functional `pipe` technique. By "piping" LINQ queries, we can avoid the inherent issue with LINQ whereby each query will issue __a whole iteration over the collection__. This optimization allows us to issue the equivalent of __one iteration__ and pass each element through the entire method chain.
+I really did make LINQ 6X faster! Even though the title is "click-bait-ish"... This was a little experiment to see if I could speed up LINQ queries by using the functional `pipe` technique. By "piping" LINQ queries, we can avoid the inherent issue with LINQ whereby each query will issue **a whole iteration over the collection**. This optimization allows us to issue the equivalent of **one iteration** and pass each element through the entire method chain.
+
 <!--more-->
 
 And, btw, the source code for all this is [here](https://github.com/jamesmh/csharp-linq-vs-enumerator-benchmark).
@@ -23,9 +24,9 @@ And, btw, the source code for all this is [here](https://github.com/jamesmh/csha
 Benchmarking 3 chained LINQ queries proves to be 6X faster in mean execution time.
 
 ```markdown
-|    Method |      Mean |     Error |    StdDev | Rank |  Gen 0 | Allocated |
-|---------- |----------:|----------:|----------:|-----:|-------:|----------:|
-|      Linq | 103.69 ns | 0.7379 ns | 0.6903 ns |    2 | 0.0813 |     256 B |
+| Method    |      Mean |     Error |    StdDev | Rank |  Gen 0 | Allocated |
+| --------- | --------: | --------: | --------: | ---: | -----: | --------: |
+| Linq      | 103.69 ns | 0.7379 ns | 0.6903 ns |    2 | 0.0813 |     256 B |
 | Optimized |  17.15 ns | 0.3958 ns | 0.5147 ns |    1 | 0.0229 |      72 B |
 ```
 
@@ -65,7 +66,7 @@ The equivalent LINQ queries without the `OptimizedPipe()` is what we are benchma
 
 # What Happened?
 
-By iterating over the collection __once__ and passing each value into the method chain as __a one valued IEnumerable__, there is an optimization being done under the covers. In other words, the overhead of iterating over a single-valued collection is somehow optimized to just avoid the iteration (it seems).
+By iterating over the collection **once** and passing each value into the method chain as **a one valued IEnumerable**, there is an optimization being done under the covers. In other words, the overhead of iterating over a single-valued collection is somehow optimized to just avoid the iteration (it seems).
 
 # More Proof
 
@@ -111,16 +112,16 @@ The first one will iterate two times (`Select` and `Where`) over two items in th
 
 The second one will iterate 2 times (`Select` and `Where`) per collection (each having one value). So, for two collections having one value each, that's `2 * 2 = 4` iterations.
 
-But, that's not __really__ correct:
+But, that's not **really** correct:
 
 ```markdown
-|                    Method |      Mean |     Error |    StdDev | Rank |  Gen 0 | Allocated |
-|-------------------------- |----------:|----------:|----------:|-----:|-------:|----------:|
-|         ListWithTwoValues |  76.29 ns | 0.2022 ns | 0.1689 ns |    3 | 0.0407 |     128 B |
-| TwoSingleValuedListsPiped |  10.72 ns | 0.0659 ns | 0.0550 ns |    1 | 0.0127 |      40 B |
+| Method                    |     Mean |     Error |    StdDev | Rank |  Gen 0 | Allocated |
+| ------------------------- | -------: | --------: | --------: | ---: | -----: | --------: |
+| ListWithTwoValues         | 76.29 ns | 0.2022 ns | 0.1689 ns |    3 | 0.0407 |     128 B |
+| TwoSingleValuedListsPiped | 10.72 ns | 0.0659 ns | 0.0550 ns |    1 | 0.0127 |      40 B |
 ```
 
-The next question we need to ask is: Is this a __LINQ only__ optimization? Or is it something that is really being optimized not by LINQ but by - probably - the `Enumerator`?
+The next question we need to ask is: Is this a **LINQ only** optimization? Or is it something that is really being optimized not by LINQ but by - probably - the `Enumerator`?
 
 # Can we optimize a `foreach`?
 
@@ -139,7 +140,6 @@ private IEnumerable<Tout> Map<T, Tout>(IEnumerable<T> list, Func<T, Tout> projec
 The two benchmarks look like this:
 
 ```
-
 // this.numbers is a List<string> - with values like "5", "4", etc.
 
 [Benchmark]
@@ -157,25 +157,25 @@ public IEnumerable<string> MapStringOptimized()
     }
 }
 ```
+
 Again, it looks like the first benchmkark should be faster. But it's not:
 
 ```markdown
-|             Method |     Mean |     Error |    StdDev | Rank |  Gen 0 | Allocated |
-|------------------- |---------:|----------:|----------:|-----:|-------:|----------:|
-|          MapString | 18.99 ns | 0.3591 ns | 0.2998 ns |    2 | 0.0229 |      72 B |
+| Method             |     Mean |     Error |    StdDev | Rank |  Gen 0 | Allocated |
+| ------------------ | -------: | --------: | --------: | ---: | -----: | --------: |
+| MapString          | 18.99 ns | 0.3591 ns | 0.2998 ns |    2 | 0.0229 |      72 B |
 | MapStringOptimized | 13.90 ns | 0.4044 ns | 0.5928 ns |    1 | 0.0203 |      64 B |
-
 ```
 
 # Conclusion
 
 So, there you have it! At run-time, c# optimizes single valued collections so you can pipe them through a chain of functions - each expecting and returning a collection. This seems to be done at a lower level - probably in the `Enumerator` class for the collections. This claim needs more digging in the source code for dotnetcore...
 
-The performance gain of doing this is significant if chaining multiple methods/operations. 
+The performance gain of doing this is significant if chaining multiple methods/operations.
 
-What does this mean practically? 
+What does this mean practically?
 
-- Never __assume__ that code is "more performant" than other code because [insert reason here].
+- Never **assume** that code is "more performant" than other code because [insert reason here].
 
 - You could create functors in c# very easily without worrying about performance hits due to the nature of iterating over collections.
 
@@ -193,4 +193,14 @@ If you enjoyed this, you might enjoy these other articles from my blog:
 - [Refactoring Legacy Monoliths - Part 1: First Steps](https://www.blog.jamesmichaelhickey.com/refactoring-legacy-monoliths-first-steps/)
 - [3 Benefits Of Fluent Interfaces](https://www.blog.jamesmichaelhickey.com/3-benefits-fluent-interfaces/)
 
+# Keep In Touch
+
 Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
+
+I also have an e-mail letter where I'll give you tips, stories and links to **help you get to the next step of your career as a software developer**. I'll also give you updates about stuff that I've been working on ;)
+
+[Subscribe if you haven't already!](https://tinyletter.com/jamesmh)
+
+# P.S.
+
+I've been building tools for indie .NET Core developers needing to get their next groundbreaking app or side-project to market faster - without compromising code quality and elegance. [It's called Coravel!](https://github.com/jamesmh/coravel). Check it out and let me know what you think ;)

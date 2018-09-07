@@ -1,11 +1,11 @@
 ---
-title: 'Strategy Pattern Implementations In C#: Basic To Advanced'
+title: "Strategy Pattern Implementations In C#: Basic To Advanced"
 tags:
-  - 'c#'
-  - 'c# design patterns'
-  - 'c# patterns'
+  - "c#"
+  - "c# design patterns"
+  - "c# patterns"
   - functional programming
-  - 'functional programming c#'
+  - "functional programming c#"
   - object oriented design
   - object oriented design patterns
   - strategy
@@ -13,7 +13,7 @@ tags:
 url: 469.html
 id: 469
 categories:
-  - 'C#'
+  - "C#"
   - Functional Programming
   - Object Oriented Programming
   - Software Architecture And Design
@@ -61,7 +61,7 @@ Let's look a very basic implementation. I'm going to use a very "stupid simple" 
 
 - Add
 - Subtract
-- Multiply 
+- Multiply
 - Divide
 
 This is in an attempt to avoid distractions in trying to grasp this pattern, which can be applied to more complicated business problems.
@@ -106,10 +106,11 @@ This implementation is:
 But with more algorithms - let's say - dozens more, the file and/or class that hold all these methods and logic will become bloated very fast. And that switch statement starts to become a monster...
 
 ##### When To Use?
+
 This implementation is:
 
-+ A good step for those starting with the pattern
-+ Simple for using a very small number of choices
+- A good step for those starting with the pattern
+- Simple for using a very small number of choices
 
 # Basic With Switch Statement Removal
 
@@ -124,26 +125,27 @@ Dictionary<string, Func<int, int, int>> strategies = new Dictionary<string, Func
 };
 
 Func<int, int, int> selectedStrategy = strategies[userChoice]; // userChoice is either "+", "-", "*" or "/"
-int result = selectedStrategy(numOne, NumTwo);  
-``` 
+int result = selectedStrategy(numOne, NumTwo);
+```
 
 By using a Dictionary, instead of explicitly invoking the method we want, we store a lookup of a `key` and `value` - the `value` being a reference to the method we want to Invoke for that `key`.
 
 ##### When To Use?
+
 This way forces you to create other methods to handle each case, instead of inlining more logic in the current scope. You might want to use this implementation if:
 
-+ You have some `if` or `switch` statements that you want to be less verbose
-+ You have a "handful" of algorithms available to choose
+- You have some `if` or `switch` statements that you want to be less verbose
+- You have a "handful" of algorithms available to choose
 
 The dictionary definition may be too verbose for some. In which case, we could wrap each method (Add, Subtract, etc.) in an `Action` (i.e. lamda) like `() => Add(numOne, numTwo)`. We will look at using lamdas later though...
 
 # Using Interfaces
 
-The next step is to clean up the list of methods and generalize them. What if we had another class somewhere else in our system that needed to be available to our choices of algorithms? Not to say this is a good design practice or not, but stuff happens in the real world. 
+The next step is to clean up the list of methods and generalize them. What if we had another class somewhere else in our system that needed to be available to our choices of algorithms? Not to say this is a good design practice or not, but stuff happens in the real world.
 
 Using an interface to abstract the implementation away is what we'll do here. This is the usually considered the "proper" implementation of the strategy pattern.
 
-__First__, we create a new interface to abstract our math operations:
+**First**, we create a new interface to abstract our math operations:
 
 ```
 public interface IMathOperator
@@ -152,7 +154,7 @@ public interface IMathOperator
 }
 ```
 
-__Next__, we implement the interface for each algorithm (one example here):
+**Next**, we implement the interface for each algorithm (one example here):
 
 ```
 public class MathAdd : IMathOperator
@@ -164,7 +166,7 @@ public class MathAdd : IMathOperator
 }
 ```
 
-__Finally__, we can just use the interface type `IMathOperator` in our calling code:
+**Finally**, we can just use the interface type `IMathOperator` in our calling code:
 
 ```
 Dictionary<string, IMathOperator> strategies = new Dictionary<string, IMathOperator>() {
@@ -175,7 +177,7 @@ Dictionary<string, IMathOperator> strategies = new Dictionary<string, IMathOpera
 };
 
 IMathOperator selectedStrategy = strategies[userChoice];
-int result = selectedStrategy.Operation(numOne, numTwo);  
+int result = selectedStrategy.Operation(numOne, numTwo);
 ```
 
 Now we are able to separate each algorithm into its own class/file. This allows us to look at our file system and get a better overview of what our system can do. And, it's breaking up our code more which leads to having less visual noise per file.
@@ -184,9 +186,9 @@ Now we are able to separate each algorithm into its own class/file. This allows 
 
 As this is the most common pattern implementation, you might use this version because:
 
-+ It helps when working with a team of developers (either they already understand the pattern or when researching the pattern this is probably what they will come across)
-+ Number of algorithms are expanding
-+ You want to have each algorithm in its own file/class (maybe each algorithm is really complex, etc.)
+- It helps when working with a team of developers (either they already understand the pattern or when researching the pattern this is probably what they will come across)
+- Number of algorithms are expanding
+- You want to have each algorithm in its own file/class (maybe each algorithm is really complex, etc.)
 
 Again, you can get a better overview of your system since each algorithm is in its own file. Using interfaces you also allow some flexibility for existing classes to implement this abstraction.
 
@@ -210,16 +212,16 @@ IMathOperator selectedStrategy = strategies[userChoice](); // Invoke the Func to
 
 You are using the Dictionary technique and...
 
-+ You are using expensive objects (e.g. objects that are part of an inheritance hierarchy, objects that perform some expensive operation when instantiated, objects that hold a lot of data, etc.)
-+ There are many algorithms available (and don't want to allocate all that extra memory)
+- You are using expensive objects (e.g. objects that are part of an inheritance hierarchy, objects that perform some expensive operation when instantiated, objects that hold a lot of data, etc.)
+- There are many algorithms available (and don't want to allocate all that extra memory)
 
 # Dynamic Instantiation
 
 You may have noticed that the strategy pattern is basically the same as the factory pattern. The factory pattern in OOP generally follows the flow:
 
-1. Makes a decision to choose a concrete type of a higher level abstraction (interface, abstract class, etc.) 
+1. Makes a decision to choose a concrete type of a higher level abstraction (interface, abstract class, etc.)
 2. Instantiates it
-3. Returns the new object. 
+3. Returns the new object.
 
 The strategy pattern is similar in that it may do everything in the flow above, but adds one more step:
 
@@ -234,30 +236,29 @@ IMathOperator selectedStrategy = GetMathOperatorFromFullClassPath($"Strategy.Int
 Factory method:
 
 ```
- private static IMathOperator GetMathOperatorFromFullClassPath(string fullClassPath) => 
+ private static IMathOperator GetMathOperatorFromFullClassPath(string fullClassPath) =>
          // The true's mean throw exception and ignoreCase.
-         Activator.CreateInstance(Type.GetType(fullClassPath, true, true)) as IMathOperator; 
+         Activator.CreateInstance(Type.GetType(fullClassPath, true, true)) as IMathOperator;
 ```
 
 If we know the namespace of where our concrete implementations are, then we can dynamically instantiate the one we want based on the user's input, or a database result, etc.
 
 ##### When To Use?
 
-+ You have many concrete types 
-+ You want to generalize the factory logic to be more concise
-+ Quick to add new implementations since you don't need to go digging in the factory again (e.g. just add a new class and choice for the user corresponding to that class' name)
+- You have many concrete types
+- You want to generalize the factory logic to be more concise
+- Quick to add new implementations since you don't need to go digging in the factory again (e.g. just add a new class and choice for the user corresponding to that class' name)
 
 Cons are:
 
-+ You introduce the possibility of more runtime errors
-+ Need to consider error handling more closely
-+ Code may not be as intuitive for newcomers to your project
-+ Future refactoring becomes harder since you cannot find references to places your classes may be used
-
+- You introduce the possibility of more runtime errors
+- Need to consider error handling more closely
+- Code may not be as intuitive for newcomers to your project
+- Future refactoring becomes harder since you cannot find references to places your classes may be used
 
 # Last One: Advanced Factory
 
-One last step!  Let's introduce a more advanced/dynamic way of using reflection to dynamically "discover" which concrete implementation we may need inside our strategy pattern. But using reflection in C# we can find all the types in the current Assembly (i.e. project or library) that implement the interface we are looking for (IMathOperator). Here's what the strategy piece looks like:
+One last step! Let's introduce a more advanced/dynamic way of using reflection to dynamically "discover" which concrete implementation we may need inside our strategy pattern. But using reflection in C# we can find all the types in the current Assembly (i.e. project or library) that implement the interface we are looking for (IMathOperator). Here's what the strategy piece looks like:
 
 ```
 // I.e. I want a "IMathOperator" object with the class name "Math[Add]" or "Math[Subtract]", etc.
@@ -283,21 +284,21 @@ We could simplify this and filter all the Assembly Type by the class name alone.
 
 ##### When To Use?
 
-+ You want a reusable factory function that you can use everywhere
-+ You have a large number of concrete strategies available
-+ You are using the strategy pattern in other places and want a more generalized mechanism to handle them all
+- You want a reusable factory function that you can use everywhere
+- You have a large number of concrete strategies available
+- You are using the strategy pattern in other places and want a more generalized mechanism to handle them all
 
 Cons
 
-+ Potential for runtime errors
-+ Potential for naming conflicts between classes (i.e. two classes names "MathAdd" in different namespaces might cause runtime errors if you aren't careful with what types they implement)
-+ Not obvious how this piece may work to your project's newcomers
+- Potential for runtime errors
+- Potential for naming conflicts between classes (i.e. two classes names "MathAdd" in different namespaces might cause runtime errors if you aren't careful with what types they implement)
+- Not obvious how this piece may work to your project's newcomers
 
 # Conclusion
 
-__TL;DR__ The strategy pattern is helpful in eliminating a growing number of `if` and `switch` cases. By using interfaces or, in simpler cases, plain functions (i.e. static methods), we can introduce a more flexible, maintainable and predictable way of dealing with choosing specific algorithms or paths of logic.
+**TL;DR** The strategy pattern is helpful in eliminating a growing number of `if` and `switch` cases. By using interfaces or, in simpler cases, plain functions (i.e. static methods), we can introduce a more flexible, maintainable and predictable way of dealing with choosing specific algorithms or paths of logic.
 
-My preference is to use a Dictionary to map keys of possible incoming values ("input") to the corresponding interfaces or methods to be selected and executed. 
+My preference is to use a Dictionary to map keys of possible incoming values ("input") to the corresponding interfaces or methods to be selected and executed.
 
 Doing this using Reflection can offer some conveniences and perhaps more flexibility, but the issue of losing track of all references to where your specific implementations are being used (since the concrete implementations are dynamically instantiated) is a pretty huge consideration.
 
@@ -309,10 +310,10 @@ Doing this using Reflection can offer some conveniences and perhaps more flexibi
 
 Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
 
-I also have an e-mail letter where I'll give you tips, stories and links to **help you get to the next step of your career as a software developer**. I'll also give you updates about stuff that I've been working on ;) 
+I also have an e-mail letter where I'll give you tips, stories and links to **help you get to the next step of your career as a software developer**. I'll also give you updates about stuff that I've been working on ;)
 
-[Subscribe if you haven't already!]("https://tinyletter.com/jamesmh)
+[Subscribe if you haven't already!](https://tinyletter.com/jamesmh)
 
 # P.S.
 
-Tired of endless configuration and infrastructural setup in your .Net Core apps? Not sure where to start? I've been building a tool to make pieces like Task Scheduling, Queuing, Caching, Mailing, etc. a breeze!. [It's called Coravel!](https://github.com/jamesmh/coravel)
+I've been building tools for indie .NET Core developers needing to get their next groundbreaking app or side-project to market faster - without compromising code quality and elegance. [It's called Coravel!](https://github.com/jamesmh/coravel). Check it out and let me know what you think ;)

@@ -9,8 +9,8 @@ tags:
   - csharp async
   - C# async
 categories:
-  - 'Async/Await'
-  - 'C#'
+  - "Async/Await"
+  - "C#"
 date: 2018-08-28 02:26:21
 ---
 
@@ -18,7 +18,7 @@ What's the deal with `async` and `await` in C#? Why should a .Net developer in 2
 
 <!--more-->
 
-Perhaps you've used `async/await` but find yourself having to go back and figure it out again? It's OK - I'm admittedly not an `async/await` guru either. 
+Perhaps you've used `async/await` but find yourself having to go back and figure it out again? It's OK - I'm admittedly not an `async/await` guru either.
 
 I've had to figure out the hard way that, for example, using `ConfigureAwait(false).GetResult()` (as many might suggest) doesn't magically make your async method "work" synchronously.
 
@@ -31,8 +31,8 @@ We:
 - Might have never used `async/await`
 - Are not Microsoft gurus
 - Are not C# gurus
-- Admittedly forget how to use `async/await` properly at times. 
-- Might have to go back to Google and figure out why a method can return a `Task` but not use the `async` keyword. 
+- Admittedly forget how to use `async/await` properly at times.
+- Might have to go back to Google and figure out why a method can return a `Task` but not use the `async` keyword.
 - Might wonder why a method that's **not** marked as `async` can be awaited by it's caller
 
 This - I hope - is an article for "the rest of us" that's to the point and practical.
@@ -41,13 +41,13 @@ _P.S. If you do want to dig into this topic more the best starting point is [I'd
 
 # Why Async?
 
-What's the benefit of using `async/await`? 
+What's the benefit of using `async/await`?
 
 ## For Web Developers
 
 If you build web apps using .Net technologies - the answer is simple: **Scalability**.
 
-When you make IO calls - database queries, file reading, reading from HTTP requests, etc. - the  thread that is handling the current HTTP request is **just waiting**.
+When you make IO calls - database queries, file reading, reading from HTTP requests, etc. - the thread that is handling the current HTTP request is **just waiting**.
 
 That's it. **It's just waiting for a result to come back from the operating system.**
 
@@ -137,7 +137,7 @@ For the purpose of this article, we'll assume that an "asynchronous method" is a
 
 ### When Does This Happen?
 
-When will we ever need to return a `Task` from a method? It's usually when doing IO. Most IO libraries or built-in .Net APIs will have an "Async" version of a method. 
+When will we ever need to return a `Task` from a method? It's usually when doing IO. Most IO libraries or built-in .Net APIs will have an "Async" version of a method.
 
 For example, the `SqlConnection` class has an `Open` method that will begin the connection. But, it also has an `OpenAsync` method. It also has an `ExecuteNonQueryAsync` method.
 
@@ -171,13 +171,13 @@ And then `await` that method:
 await GetSomeData();
 ```
 
-`GetSomeData` doesn't await the call to `DoSomethingAsync` - it just returns the `Task`. Remember that `await` doesn't care if a method is using the `async` keyword - **it just requires that the method return a `Task`**. 
+`GetSomeData` doesn't await the call to `DoSomethingAsync` - it just returns the `Task`. Remember that `await` doesn't care if a method is using the `async` keyword - **it just requires that the method return a `Task`**.
 
 It is possible to do this - create a method that calls an asynchronous method but doesn't await.
 
 ## It's A Best Practice
 
-However, this is considered a bad practice. Why? 
+However, this is considered a bad practice. Why?
 
 Since this article is supposed to be to the point and practical:
 
@@ -189,7 +189,7 @@ If you mark every method that returns a `Task` with the `async` keyword - which 
 
 To summarize briefly:
 
-- The `async` keyword doesn't make methods asynchronous - it simply enables the `await` keyword. 
+- The `async` keyword doesn't make methods asynchronous - it simply enables the `await` keyword.
 
 - If a method returns a `Task` or `Task<T>` then it can be used by the `await` keyword to manage the asynchronous details of our code.
 
@@ -216,20 +216,10 @@ There's so much more to be said and so many more concepts surrounding `async/awa
 
 Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
 
-I also have an e-mail letter where I'll give you tips, stories and links to **help you get to the next step of your career as a software developer**. I'll also give you updates about stuff that I've been working on ;) 
+I also have an e-mail letter where I'll give you tips, stories and links to **help you get to the next step of your career as a software developer**. I'll also give you updates about stuff that I've been working on ;)
 
 [Subscribe if you haven't already!](https://tinyletter.com/jamesmh)
 
 # P.S.
 
-Tired of endless configuration and infrastructural setup in your .Net Core apps? Not sure where to start? I've been building a tool to make pieces like Task Scheduling, Queuing, Caching, Mailing, etc. a breeze!. [It's called Coravel!](https://github.com/jamesmh/coravel)
-
-
-
-
-
-
-
-
-
-
+I've been building tools for indie .NET Core developers needing to get their next groundbreaking app or side-project to market faster - without compromising code quality and elegance. [It's called Coravel!](https://github.com/jamesmh/coravel). Check it out and let me know what you think ;)

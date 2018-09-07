@@ -101,4 +101,14 @@ P.s. Here are some other posts you may enjoy:
 - [YouTube Video: First Class Functions - Beginning Functional Programming In C#](https://www.youtube.com/watch?v=L5bP4FgENJQ)
 - [Deck The Halls With Strategy Pattern Implementations In C#: Basic To Advanced](https://www.blog.jamesmichaelhickey.com/strategy-pattern-implementations/)
 
+# Keep In Touch
+
 Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
+
+I also have an e-mail letter where I'll give you tips, stories and links to **help you get to the next step of your career as a software developer**. I'll also give you updates about stuff that I've been working on ;)
+
+[Subscribe if you haven't already!](https://tinyletter.com/jamesmh)
+
+# P.S.
+
+I've been building tools for indie .NET Core developers needing to get their next groundbreaking app or side-project to market faster - without compromising code quality and elegance. [It's called Coravel!](https://github.com/jamesmh/coravel). Check it out and let me know what you think ;)

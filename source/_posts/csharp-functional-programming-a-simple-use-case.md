@@ -1,16 +1,16 @@
 ---
-title: 'Functional Programming With C#: Simple Use Case'
+title: "Functional Programming With C#: Simple Use Case"
 tags:
   - .net
-  - 'c#'
+  - "c#"
   - clean code
   - functional programming
-  - 'functional programming c#'
+  - "functional programming c#"
   - refactoring
 url: 298.html
 id: 298
 categories:
-  - 'C#'
+  - "C#"
   - Functional Programming
   - Software Architecture And Design
 date: 2017-08-25 03:04:04
@@ -18,7 +18,8 @@ date: 2017-08-25 03:04:04
 
 [**Update**: I created a YouTube video based on this post, if you are interested.](https://youtu.be/dfwBEIr5giY)
 
-During the past year and a half I have been making a point to learn about and develop my skills in functional programming. For the majority of this experience, I have been using JavaScript and [TypeScript](http://www.typescriptlang.org/). After moving onto another project at work, I was brought back to "C# and SQL world." Long story short, I noticed the way I was thinking about software problems in C# were totally different than before. 
+During the past year and a half I have been making a point to learn about and develop my skills in functional programming. For the majority of this experience, I have been using JavaScript and [TypeScript](http://www.typescriptlang.org/). After moving onto another project at work, I was brought back to "C# and SQL world." Long story short, I noticed the way I was thinking about software problems in C# were totally different than before.
+
 <!--more-->
 
 ### A Twisted Mind
@@ -93,19 +94,19 @@ StopWatch.LogEllapsedMs("This entire section of code took {0} ms", () => {
            ThisOtherThing();
            SomeOtherStuff();
 
-           StopWatch.LogEllapsedMs("This one piece took took {0} ms", () => 
+           StopWatch.LogEllapsedMs("This one piece took took {0} ms", () =>
                 SomeOtherThing());
      });
 });
 ```
 
-Imagine trying to have nested performance logging with the way I was doing it before? Well...since I was using a static utility class, it just wasn't possible. 
+Imagine trying to have nested performance logging with the way I was doing it before? Well...since I was using a static utility class, it just wasn't possible.
 
 Now watch this, using C# generics I am able to return the results of whatever is being logged:
 
 ```
 public Errors CheckForErrors() {
-     return StopWatch.LogEllapsedMs("This thing took {0} ms", () => 
+     return StopWatch.LogEllapsedMs("This thing took {0} ms", () =>
           DoSomeStuffAndReturnErrors());
 }
 ```
@@ -155,6 +156,7 @@ public class StopWatch
 ```
 
 Not very impressive, eh? By using a simple functional programming technique, all the code using this performance logging is now:
+
 1. Way easier to read
 2. Allows nested logging
 3. Allows logging code and returning a result **without having to use temporary variables** many times
@@ -165,18 +167,18 @@ That's the beauty of using functional programming techniques, they don't have to
 
 Here are some selected posts you may enjoy:
 
-+ [Advanced Fluent Interfaces: LINQ Case Study](https://www.blog.jamesmichaelhickey.com/advanced-fluent-interfaces-linq-case-study/)
-+ [3 Benefits Of Fluent Interfaces](https://www.blog.jamesmichaelhickey.com/3-benefits-fluent-interfaces/)
-+ [Exploring Fluent Interfaces](https://www.blog.jamesmichaelhickey.com/exploring-fluent-interface/)
+- [Advanced Fluent Interfaces: LINQ Case Study](https://www.blog.jamesmichaelhickey.com/advanced-fluent-interfaces-linq-case-study/)
+- [3 Benefits Of Fluent Interfaces](https://www.blog.jamesmichaelhickey.com/3-benefits-fluent-interfaces/)
+- [Exploring Fluent Interfaces](https://www.blog.jamesmichaelhickey.com/exploring-fluent-interface/)
 
 # Keep In Touch
 
 Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
 
-I also have an e-mail letter where I'll give you tips, stories and links to **help you get to the next step of your career as a software developer**. I'll also give you updates about stuff that I've been working on ;) 
+I also have an e-mail letter where I'll give you tips, stories and links to **help you get to the next step of your career as a software developer**. I'll also give you updates about stuff that I've been working on ;)
 
-[Subscribe if you haven't already!]("https://tinyletter.com/jamesmh)
+[Subscribe if you haven't already!](https://tinyletter.com/jamesmh)
 
 # P.S.
 
-Tired of endless configuration and infrastructural setup in your .Net Core apps? Not sure where to start? I've been building a tool to make pieces like Task Scheduling, Queuing, Caching, Mailing, etc. a breeze!. [It's called Coravel!](https://github.com/jamesmh/coravel)
+I've been building tools for indie .NET Core developers needing to get their next groundbreaking app or side-project to market faster - without compromising code quality and elegance. [It's called Coravel!](https://github.com/jamesmh/coravel). Check it out and let me know what you think ;)
