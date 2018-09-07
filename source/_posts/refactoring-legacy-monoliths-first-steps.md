@@ -1,5 +1,5 @@
 ---
-title: 'Refactoring Legacy Monoliths - Part 1: First Steps'
+title: "Refactoring Legacy Monoliths - Part 1: First Steps"
 tags:
   - maintainability
   - object oriented design
@@ -25,7 +25,9 @@ In the book [Working Effectively with Legacy Code](https://www.amazon.com/Workin
 
 > "Refactoring legacy software" means refactoring your system to allow for code testing, and then implementing those tests.
 
-A "monolith" is "all your code is one place." In other words, you have not separated different logical areas of your product into actual isolated areas. If you are working on a .NET based web application (for example) and all your code is in one project (the web project) - then you most definitely have a monolith. Even with multiple projects, if your business logic is inside your web project (which should be a project that just displays what your business logic outputs) then you have a monolith.
+A "monolith" is "all your code is one place." In other words, you have not separated different logical areas of your product into actual isolated areas. If you are working on a .NET based web application (for example) and all your code is in one project (the web project) - then you most definitely have a monolith.
+
+Even with multiple projects, if your business logic is inside your web project (which should be a project that just displays what your business logic outputs) then you have a monolith.
 
 # Realistic Goals
 
@@ -38,7 +40,7 @@ Problems that you may experience in legacy projects, I think, boil down to one c
 What are some of these standards?
 
 - Testing code
-- Separating business logic from presentation logic 
+- Separating business logic from presentation logic
 - Not re-inventing the wheel when reliable libraries exist to do the thing you need
 - Avoiding depreciated third-party software (whether deemed so by vendor or development community)
 
@@ -58,15 +60,15 @@ The most important point, which goes back to the definition of "legacy" software
 
 - A clearer definition of system requirements (since tests correspond to individual business requirement)
 - Forces your system to be modular (i.e. code that can be tested well is generally designed well)
-- Early safety net when you code something wrong
+- Early safety net when your code does something wrong
 
 But, to be able to test properly, you need to have your business code (i.e. "business logic") separate from your (for example) web project. You can't test business rules unless you can test business logic on its own. Splitting your code into (at least) 2 different layers (business logic and presentation logic) is necessary for web projects (using it as an example) because:
 
 > Your business code can rely on database access abstractions rather than database access implementations.
 
-What? Let me ask you a question: "Can you test your code without having an active database available?" In true "legacy" projects, that's answered 99% of the time with "no". 
+What? Let me ask you a question: "Can you test your code without having an active database available?" In true "legacy" projects, that's answered 99% of the time with "no".
 
-What we need is a way to make our code rely on an `interface` which exposes `methods` that provide database access. Then, we can create our production code against that interface. Our system needs to somehow automatically "pass in" a concrete implementation of that `interface` to our business code. 
+What we need is a way to make our code rely on an `interface` which exposes `methods` that provide database access. Then, we can create our production code against that interface. Our system needs to somehow automatically "pass in" a concrete implementation of that `interface` to our business code.
 
 Our tests, on the other hand, can use a stub or mock object which implement that `interface`. Our business code will still do what it does and not crash because there's no database connection.
 
