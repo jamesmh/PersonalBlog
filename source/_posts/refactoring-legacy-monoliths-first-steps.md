@@ -25,9 +25,11 @@ In the book [Working Effectively with Legacy Code](https://www.amazon.com/Workin
 
 > "Refactoring legacy software" means refactoring your system to allow for code testing, and then implementing those tests.
 
-A "monolith" is "all your code is one place." In other words, you have not separated different logical areas of your product into actual isolated areas. If you are working on a .NET based web application (for example) and all your code is in one project (the web project) - then you most definitely have a monolith.
+A "monolith" is basically "all your code is one place." In other words, you have not separated different logical areas of your **product** into isolated areas.
 
-Even with multiple projects, if your business logic is inside your web project (which should be a project that just displays what your business logic outputs) then you have a monolith.
+If you are working on a .NET based web application (for example) and all your code is in one project (the web project) - then you most definitely have a monolith.
+
+If your deploy process requires that the entire system is "pushed" when any new features are added or bugs are fixed - then that's a monolith.
 
 # Realistic Goals
 
