@@ -76,6 +76,6 @@ Our tests, on the other hand, can use a stub or mock object which implement that
 
 # We're Thinking...
 
-So we're thinking about the core issues and what we need to do to solve them. The next step I would like to look at is how to create a separate area for your business code (in .NET) in a more specific way.
+So we're thinking about the core issues and what we need to do to solve them. We'll keep moving along in the next part of the series.
 
 **Let me know what you think about the topic in the comments!** Thanks for reading!
