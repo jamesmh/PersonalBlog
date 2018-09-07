@@ -76,6 +76,6 @@ Our tests, on the other hand, can use a stub or mock object which implement that
 
 # We're Thinking...
 
-So we're thinking about the core issues and what we need to do to solve them. We'll keep moving along in the next part of the series.
+So we're thinking about the core issues and what we need to do to solve them. In the next part of the series, we'll look at trying to convince management that we do in fact need to change how software is made in our organization.
 
 **Let me know what you think about the topic in the comments!** Thanks for reading!
