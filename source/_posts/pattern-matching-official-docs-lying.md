@@ -1,13 +1,13 @@
 ---
-title: 'C# Pattern Matching: Are The Official Docs Lying?'
+title: "C# Pattern Matching: Are The Official Docs Lying?"
 tags:
-  - 'c#'
+  - "c#"
   - pattern matching
   - type checking
 url: 652.html
 id: 652
 categories:
-  - 'C#'
+  - "C#"
 date: 2018-06-11 16:32:45
 ---
 
@@ -61,7 +61,7 @@ switch (value)
 
 Looks good. Very convenient and useful.
 
-But, this is where my brain has some questions. The syntax `[var] is [type] [newVar]` is interesting. It is not really a statement. It's an expression. But... it's also a statement. Why? 
+But, this is where my brain has some questions. The syntax `[var] is [type] [newVar]` is interesting. It is not really a statement. It's an expression. But... it's also a statement. Why?
 
 It's an expression because it evaluated to a `boolean`. But, it also makes an assignment to a new variable...
 
@@ -77,7 +77,7 @@ bool isString = value is string str;
 // ... etc.
 ```
 
-This works. Each of these `boolean` values is set properly. In the [official docs](https://docs.microsoft.com/en-us/dotnet/csharp/pattern-matching#the-is-type-pattern-expression), the `is` operation is called the `is` **expression**. Fair enough. 
+This works. Each of these `boolean` values is set properly. In the [official docs](https://docs.microsoft.com/en-us/dotnet/csharp/pattern-matching#the-is-type-pattern-expression), the `is` operation is called the `is` **expression**. Fair enough.
 
 This means we might be able to do this?
 
@@ -86,7 +86,7 @@ object value = SomeFactory();
 
 bool isLong = value is long asLong;
 bool isInt = value is int asInt;
-bool isString = value is string str;  
+bool isString = value is string str;
 
 // Doesn't compile. "asLong" etc. are all in scope, but are "unassigned" (so Visual Studio tells me)
 return isLong ? asLong
@@ -101,7 +101,7 @@ So the assignment to `asLong`, `asInt` and `str` seem to be scoped to the outer 
 
 > If exp is true and `is` is used with an if statement, `varname` is assigned and has local scope within the if statement only.
 
- Alright. What if we did this?
+Alright. What if we did this?
 
 ```
 object value = SomeFactory();
@@ -137,7 +137,7 @@ Weird. `asLong` is actually in the function / outer scope. But not the other var
 
 # Going The Extra Mile!
 
-Ok... let's get super weird. Remember how in one of the code examples above we talked about the fact that the `is` operation is an expression? 
+Ok... let's get super weird. Remember how in one of the code examples above we talked about the fact that the `is` operation is an expression?
 
 ```
 bool isLong = value is long asLong;
@@ -185,7 +185,6 @@ else if(value is int)
 {
     int asInt = (int) value;
 }
-
 ```
 
 Neat.
@@ -216,7 +215,7 @@ Again, the [official C# docs](https://docs.microsoft.com/en-us/dotnet/csharp/lan
 
 If we removed the last word of that statement, then it would be true. The variable doesn't have local scope `only` within the if statement. But as it is, it's technically false.
 
-So - by being very technical and nit-picky - the docs are not totally 100% bang-on. 
+So - by being very technical and nit-picky - the docs are not totally 100% bang-on.
 
 # Conclusion + Looking Ahead To C# 8
 
@@ -262,9 +261,9 @@ else
 Console.Write(asInt);
 ```
 
-Yes, that compiles. The Console writes `5`! 
+Yes, that compiles. The Console writes `5`!
 
-Changing the first line to `object value = 5L;` outputs `101`. 
+Changing the first line to `object value = 5L;` outputs `101`.
 
 Changing it to `object value = 'g';` outputs `102`.
 
@@ -336,7 +335,7 @@ bool isInt = (byte)num2 != 0;
 Console.WriteLine(isLong == isInt);
 ```
 
-What? That's a mouthful. But, we can see that our conclusions about what __it seemed like the compiler is doing__ are true. 
+What? That's a mouthful. But, we can see that our conclusions about what **it seemed like the compiler is doing** are true.
 
 Fun!
 
@@ -344,9 +343,19 @@ Hopefully, you learned something new! Let me know what you think!
 
 _P.S. Here are some other articles you might enjoy!_
 
-+ [How I Made LINQ 6X Faster Using A Functional Optimization!](https://www.blog.jamesmichaelhickey.com/linq-6x-faster-using-functional-optimization/)
-+ [Refactoring Legacy Monoliths – Part 4: Refactoring Tools](https://www.blog.jamesmichaelhickey.com/refactoring-legacy-monoliths-part-4-refactoring-tools/)
-+ [Refactoring Legacy Monoliths Part 3: Refactoring Game Plan And Tips](https://www.blog.jamesmichaelhickey.com/refactoring-game-plan-and-tips/)
-+ [Deck The Halls With Strategy Pattern Implementations In C#: Basic To Advanced](https://www.blog.jamesmichaelhickey.com/strategy-pattern-implementations/)
+- [How I Made LINQ 6X Faster Using A Functional Optimization!](https://www.blog.jamesmichaelhickey.com/linq-6x-faster-using-functional-optimization/)
+- [Refactoring Legacy Monoliths – Part 4: Refactoring Tools](https://www.blog.jamesmichaelhickey.com/refactoring-legacy-monoliths-part-4-refactoring-tools/)
+- [Refactoring Legacy Monoliths Part 3: Refactoring Game Plan And Tips](https://www.blog.jamesmichaelhickey.com/refactoring-game-plan-and-tips/)
+- [Deck The Halls With Strategy Pattern Implementations In C#: Basic To Advanced](https://www.blog.jamesmichaelhickey.com/strategy-pattern-implementations/)
+
+# Keep In Touch
 
 Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
+
+I also have an e-mail letter where I'll give you tips, stories and links to **help ambitious and passionate developers become tech leaders.** I'll also give you updates about stuff that I've been working on ;)
+
+[Subscribe if you haven't already!](https://tinyletter.com/jamesmh)
+
+# P.S.
+
+I've been building a tool for indie .NET Core developers needing to get their next groundbreaking app or side-project to market faster - without compromising code quality and elegance. [It's called Coravel!](https://github.com/jamesmh/coravel). Check it out and let me know what you think ;)

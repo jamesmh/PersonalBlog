@@ -1,7 +1,7 @@
 ---
-title: 'Refactoring Legacy Monoliths – Part 4: Refactoring Tools'
+title: "Refactoring Legacy Monoliths – Part 4: Refactoring Tools"
 tags:
-  - 'c#'
+  - "c#"
   - legacy software
   - maintainability
   - refactoring
@@ -27,9 +27,9 @@ To make this blog post more useful than a list of products, I'll go through some
 
 Getting an overview of where pain-points are in your code-base has to be done. Why? Well, how do you know **for sure** that some code **ought** to be refactored? Because you _feel like it_? Because of _ugly code_?
 
-Unless you measure your code-base in the same way that you would measure - let's say -  the performance of a real application, you don't **really** know where issues really are. You might have _educated guesses_ about what needs to change. But not objectively quantifiable conclusions.
+Unless you measure your code-base in the same way that you would measure - let's say - the performance of a real application, you don't **really** know where issues really are. You might have _educated guesses_ about what needs to change. But not objectively quantifiable conclusions.
 
-The best tool I've found to get this kind of objective view of your code-base is [NDepend](https://www.ndepend.com/). 
+The best tool I've found to get this kind of objective view of your code-base is [NDepend](https://www.ndepend.com/).
 
 NDepend integrates right into Visual Studio and basically just adds it's own menu etc. It can be run via an external .exe if you want to.
 
@@ -39,7 +39,7 @@ NDepend has so many features it's almost overwhelming (which is a good thing). I
 
 This feature is called a [Treemap diagram](https://www.ndepend.com/features/code-complexity#Diagrams) but reminds me of a Heat Map for your code. It colours specific areas of the diagram (modules in your code) according to their code quality (red is bad...). It reminds me of hard disk usage diagrams that show you what applications in your system are using lots of space, etc.
 
-This is a super quick and reliable way to see where your investigation might want to start. Large red areas are immediate candidates for further investigation. And, most likely, represent some critical part of your app. Again, I said _most likely_. 
+This is a super quick and reliable way to see where your investigation might want to start. Large red areas are immediate candidates for further investigation. And, most likely, represent some critical part of your app. Again, I said _most likely_.
 
 In my professional experience, the large red areas almost always correspond to where most "bugs" in the software are eventually found.
 
@@ -61,7 +61,7 @@ This is a time-saver and gives you super-powers for gaining insight into how a c
 
 This can be a way of having others trust you quicker than they would have otherwise.
 
-## Roslyn Analysers In C#
+## Roslyn Analysers In C
 
 Roslyn analyzers are native C# code analyzers that you can use in Visual Studio. Visual Studio 2017 has the ability to run a code analysis on your entire solution and also has a feature that will calculate code metrics - similar to NDepend.
 
@@ -79,7 +79,7 @@ Once you know where the problem areas are, I would suggest tackling the smaller 
 
 Think of the system you are working with as a **"bug producing onion"**.
 
-> In the center is the largest, most horrible, horrendous piece of the system known to frighten even the mightiest at heart. As we move closer to the outside of the onion we encounter error-prone but less intimidating and less crucial pieces of the system. 
+> In the center is the largest, most horrible, horrendous piece of the system known to frighten even the mightiest at heart. As we move closer to the outside of the onion we encounter error-prone but less intimidating and less crucial pieces of the system.
 
 Let's start by unravelling the onion from the outside.
 
@@ -103,7 +103,7 @@ So, instead of going through each of the types one-by-one and extracting them in
 
 ### ReSharper Feature: Adjust (Solution) Namespaces
 
-I now had a few hundred extra files to deal with - all in the same folder. Next, I needed to structure the files as best as I could with a proper file/folder structure. This was manual work - but once all the files are in their proper place we still need to adjust all the namespaces for each type! ReSharper has that covered. Just run the "Adjust Namespaces" command on a specific project, file or the entire solution and the folder structure for each file will be automatically applied to the namespace of the file. Again, that saved me *at least* a few days of work.
+I now had a few hundred extra files to deal with - all in the same folder. Next, I needed to structure the files as best as I could with a proper file/folder structure. This was manual work - but once all the files are in their proper place we still need to adjust all the namespaces for each type! ReSharper has that covered. Just run the "Adjust Namespaces" command on a specific project, file or the entire solution and the folder structure for each file will be automatically applied to the namespace of the file. Again, that saved me _at least_ a few days of work.
 
 This feature shines when doing high-level re-organization refactorings (i.e. file structure and folder structure changes).
 
@@ -131,13 +131,23 @@ To recap, NDepend, ReSharper, and Stackify's Prefix are all fantastic tools that
 
 Visual Studio code analysis tools offer an area of great potential. Roslyn analyzers, in particular, are an area where I see future integrations into charts, dashboarding, etc. within Visual Studio to be a useful addition. If that ever happens... I don't know :|
 
-Thanks for reading and I hope you at least learned __something__. 
+Thanks for reading and I hope you at least learned **something**.
 
 P.s. Here are some other posts you may enjoy:
 
-+ [How I Made LINQ 6X Faster Using A Functional Optimization!](https://www.blog.jamesmichaelhickey.com/linq-6x-faster-using-functional-optimization/)
-+ [Refactoring Legacy Monoliths Part 3: Refactoring Game Plan And Tips](https://www.blog.jamesmichaelhickey.com/refactoring-game-plan-and-tips/)
-+ [Refactoring Legacy Monoliths - Part 2: Cost-Benefit Analysis Of Refactoring](https://www.blog.jamesmichaelhickey.com/refactoring-legacy-monoliths-part-2-convincing-management/)
-+ [Deck The Halls With Strategy Pattern Implementations In C#: Basic To Advanced](https://www.blog.jamesmichaelhickey.com/strategy-pattern-implementations/)
+- [How I Made LINQ 6X Faster Using A Functional Optimization!](https://www.blog.jamesmichaelhickey.com/linq-6x-faster-using-functional-optimization/)
+- [Refactoring Legacy Monoliths Part 3: Refactoring Game Plan And Tips](https://www.blog.jamesmichaelhickey.com/refactoring-game-plan-and-tips/)
+- [Refactoring Legacy Monoliths - Part 2: Cost-Benefit Analysis Of Refactoring](https://www.blog.jamesmichaelhickey.com/refactoring-legacy-monoliths-part-2-convincing-management/)
+- [Deck The Halls With Strategy Pattern Implementations In C#: Basic To Advanced](https://www.blog.jamesmichaelhickey.com/strategy-pattern-implementations/)
+
+# Keep In Touch
 
 Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
+
+I also have an e-mail letter where I'll give you tips, stories and links to **help ambitious and passionate developers become tech leaders.** I'll also give you updates about stuff that I've been working on ;)
+
+[Subscribe if you haven't already!](https://tinyletter.com/jamesmh)
+
+# P.S.
+
+I've been building a tool for indie .NET Core developers needing to get their next groundbreaking app or side-project to market faster - without compromising code quality and elegance. [It's called Coravel!](https://github.com/jamesmh/coravel). Check it out and let me know what you think ;)

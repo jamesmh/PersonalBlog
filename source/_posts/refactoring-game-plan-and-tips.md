@@ -1,5 +1,5 @@
 ---
-title: 'Refactoring Legacy Monoliths - Part 3: Game Plan And Refactoring Tips'
+title: "Refactoring Legacy Monoliths - Part 3: Game Plan And Refactoring Tips"
 tags:
   - legacy code
   - legacy software
@@ -8,7 +8,7 @@ tags:
 url: 581.html
 id: 581
 categories:
-  - 'C#'
+  - "C#"
   - Object Oriented Programming
   - Refactoring
   - Software Architecture And Design
@@ -26,7 +26,7 @@ P.s. This is part 3 of my "Refactoring Legacy Monoliths" series:
 [Refactoring Legacy Monoliths - Part 1: First Steps](https://www.blog.jamesmichaelhickey.com/refactoring-legacy-monoliths-first-steps/)
 [Refactoring Legacy Monoliths - Part 2: Cost-Benefit Analysis Of Refactoring](https://www.blog.jamesmichaelhickey.com/refactoring-legacy-monoliths-part-2-convincing-management/)
 
-# Does Refactoring Mean a Rewrite? 
+# Does Refactoring Mean a Rewrite?
 
 One comment I've seen come up on Reddit about this series (quite a bit...) is the accusation that I'm suggesting you ought to rewrite your entire codebase. I've never said that. Nor have I ever implied that you should. Really, you probably shouldn't.
 
@@ -68,9 +68,9 @@ Once you start, you find that you start telling yourself:
 
 > Well, in other to test [thing 1] I now need to have an instance of [thing 2]. But, [thing 2] needs an instance of [thing 3].
 
-"Thing 1" might be an entity you want to test - let's say, a `Report` entity (which models some tabular data). 
+"Thing 1" might be an entity you want to test - let's say, a `Report` entity (which models some tabular data).
 
-Now, imagine that "Thing 2" is another class - `LinkGenerator` (which generates links for the report). 
+Now, imagine that "Thing 2" is another class - `LinkGenerator` (which generates links for the report).
 
 `LinkGenerator` needs access to "Thing 3", which is, the `HttpSession`.
 
@@ -81,7 +81,7 @@ If you want to unit test the `Report` entity, you need:
 
 Uh Oh. How can you unit test when you need `HttpSession`? Unit tests don't run off a web server! (Well, they shouldn't...)
 
-Sorry to say (you already know...), it's going to take some work. You need to **break the chain of dependencies.** 
+Sorry to say (you already know...), it's going to take some work. You need to **break the chain of dependencies.**
 
 Fortunately for us, that's one of the primary goals of refactoring. Others have already done the hard lifting for us.
 
@@ -184,14 +184,26 @@ Good indicators of where to break up your code are:
 
 The primary areas you need to focus on are:
 
-- Building a game plan describing __where you want your system to be in 1 year__
-- Making your software __trustable__
-- Being able to have __confidence__ after changes are made to the code
+- Building a game plan describing **where you want your system to be in 1 year**
+- Making your software **trustable**
+- Being able to have **confidence** after changes are made to the code
 
 Dependencies will need to be broken. But this ultimately leads you to a place where:
 
 - Your code is testable
-- Your overall design is (overall) better 
+- Your overall design is (overall) better
 - You can trust the system/software after changes
 
 Thanks for reading :) Let me know what you think in the comments. Have you ever had to go through this process personally? Let me know!
+
+# Keep In Touch
+
+Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
+
+I also have an e-mail letter where I'll give you tips, stories and links to **help ambitious and passionate developers become tech leaders.** I'll also give you updates about stuff that I've been working on ;)
+
+[Subscribe if you haven't already!](https://tinyletter.com/jamesmh)
+
+# P.S.
+
+I've been building a tool for indie .NET Core developers needing to get their next groundbreaking app or side-project to market faster - without compromising code quality and elegance. [It's called Coravel!](https://github.com/jamesmh/coravel). Check it out and let me know what you think ;)

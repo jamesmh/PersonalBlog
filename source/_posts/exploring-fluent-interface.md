@@ -1,5 +1,5 @@
 ---
-title: 'Exploring Fluent Interfaces With C# (A.k.a. Fluent Interfaces Are Not Evil)'
+title: "Exploring Fluent Interfaces With C# (A.k.a. Fluent Interfaces Are Not Evil)"
 tags:
   - domain driven
   - domain driven design
@@ -9,7 +9,7 @@ tags:
 url: 316.html
 id: 316
 categories:
-  - 'C#'
+  - "C#"
   - Fluent Interfaces
   - Object Oriented Programming
   - Software Architecture And Design
@@ -59,7 +59,7 @@ One last argument I see is that fluent interfaces leave the user with too many m
 Going along with the validator theme:
 
 ```
-public IValidationResult Is(string someString) 
+public IValidationResult Is(string someString)
 {
    // Validation check of some kind
      return (IValidationResult) this; // IValidationResult defines ThenFail() and ThenPass().
@@ -75,16 +75,15 @@ validator.When("province") // Now we are dealing with some interface that only e
 (2) Have a collection of classes which pass the original context around to each other, with each class/type only exposing relevant methods.
 
 ```
-
 public FluentValidationResult Is(string someString)
 {
      // Validation check of some kind
-     return new FluentValidationResult(this.validator); 
-     
-     // Above keeps a reference to the validator so we can 
+     return new FluentValidationResult(this.validator);
+
+     // Above keeps a reference to the validator so we can
      // re-expose it later in the method chain. We just keep passing
      // the validator onto the next class we expose.
-} 
+}
 
 // In caller...
 
@@ -107,4 +106,14 @@ Want to see an example of how to use functional programming to improve your C# c
 
 [Functional Programming With C#: A Simple Use Case](https://www.blog.jamesmichaelhickey.com/csharp-functional-programming-a-simple-use-case/)
 
+# Keep In Touch
+
 Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
+
+I also have an e-mail letter where I'll give you tips, stories and links to **help ambitious and passionate developers become tech leaders.** I'll also give you updates about stuff that I've been working on ;)
+
+[Subscribe if you haven't already!](https://tinyletter.com/jamesmh)
+
+# P.S.
+
+I've been building a tool for indie .NET Core developers needing to get their next groundbreaking app or side-project to market faster - without compromising code quality and elegance. [It's called Coravel!](https://github.com/jamesmh/coravel). Check it out and let me know what you think ;)

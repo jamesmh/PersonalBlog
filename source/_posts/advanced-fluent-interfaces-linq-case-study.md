@@ -1,14 +1,14 @@
 ---
-title: 'Advanced Fluent Interfaces: LINQ Case Study'
+title: "Advanced Fluent Interfaces: LINQ Case Study"
 tags:
-  - 'c#'
+  - "c#"
   - fluent api
   - fluent interface
   - functional programming
 url: 421.html
 id: 421
 categories:
-  - 'C#'
+  - "C#"
   - Fluent Interfaces
   - Functional Programming
   - Software Architecture And Design
@@ -21,13 +21,13 @@ In Martin Fowler's ["famous" article about fluent interfaces](https://www.martin
 
 Some benefits of building your fluent objects this way are:
 
-+ **Restrict** differing paths of logic.
-+ **Enable** differing paths of logic.
-+ **Better IDE code completion** (as Fowler mentions in his article above - this makes your fluent objects more like "a wizard in the IDE")
+- **Restrict** differing paths of logic.
+- **Enable** differing paths of logic.
+- **Better IDE code completion** (as Fowler mentions in his article above - this makes your fluent objects more like "a wizard in the IDE")
 
 # An Example Of Advanced Fluent Interfaces From C#'s LINQ
 
-I want to use a simple example that most C# / .NET developers will be familiar with - from LINQ. 
+I want to use a simple example that most C# / .NET developers will be familiar with - from LINQ.
 
 Whenever you call the `OrderBy` method in LINQ, that method will actually give you **new** methods that you are able to call (e.g. `ThenBy` and `ThenByDescending`).
 
@@ -37,7 +37,7 @@ someIEnumerable
      .ThenBy(item => item.SomeOtherProp);
 ```
 
-It doesn't make sense to perform `ThenBy` on it's own. It only makes sense when you are currently ordering the elements in your collection, and you __further__ want to order.
+It doesn't make sense to perform `ThenBy` on it's own. It only makes sense when you are currently ordering the elements in your collection, and you **further** want to order.
 
 # How Does This Happen!?
 
@@ -55,9 +55,18 @@ I'd like to post sometime soon about creating our own "polymorphic" fluent objec
 
 I've been writing about Fluent Interfaces and Functional Programming lately - here are some related posts:
 
-+ [Functional Programming In C# - A Simple Use Case](https://www.blog.jamesmichaelhickey.com/csharp-functional-programming-a-simple-use-case/)
-+ [3 Benefits Of Fluent Interfaces](https://www.blog.jamesmichaelhickey.com/3-benefits-fluent-interfaces/)
-+ [Exploring Fluent Interfaces](https://www.blog.jamesmichaelhickey.com/exploring-fluent-interface/)
+- [Functional Programming In C# - A Simple Use Case](https://www.blog.jamesmichaelhickey.com/csharp-functional-programming-a-simple-use-case/)
+- [3 Benefits Of Fluent Interfaces](https://www.blog.jamesmichaelhickey.com/3-benefits-fluent-interfaces/)
+- [Exploring Fluent Interfaces](https://www.blog.jamesmichaelhickey.com/exploring-fluent-interface/)
 
+# Keep In Touch
 
 Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
+
+I also have an e-mail letter where I'll give you tips, stories and links to **help ambitious and passionate developers become tech leaders.** I'll also give you updates about stuff that I've been working on ;)
+
+[Subscribe if you haven't already!](https://tinyletter.com/jamesmh)
+
+# P.S.
+
+I've been building a tool for indie .NET Core developers needing to get their next groundbreaking app or side-project to market faster - without compromising code quality and elegance. [It's called Coravel!](https://github.com/jamesmh/coravel). Check it out and let me know what you think ;)

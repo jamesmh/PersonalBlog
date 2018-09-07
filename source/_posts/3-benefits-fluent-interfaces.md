@@ -8,7 +8,7 @@ tags:
 url: 345.html
 id: 345
 categories:
-  - 'C#'
+  - "C#"
   - Fluent Interfaces
   - Object Oriented Programming
   - Software Architecture And Design
@@ -16,6 +16,7 @@ date: 2017-09-06 10:49:28
 ---
 
 In my [previous post](https://www.blog.jamesmichaelhickey.com/exploring-fluent-interface/) I looked at a few reasons that I've seen given for thinking that fluent interfaces are "not all that." I personally think that fluent interfaces can add some serious benefits to developers.
+
 <!--more-->
 
 ### All Reusable Code Is An API
@@ -27,7 +28,6 @@ In my experience, I have found the tools I enjoy using the most are those which 
 That being said, one of the traits of good software code I stand-on is that your code needs to have meaning and be easily readable. I don't care if you are using a `foreach` or a simple `for` loop etc. What I care about is understanding **What problem is this code really trying to solve?** Code should be written in such a way that I can just read what it's doing as-if I were reading a book. At least, that's what I prefer :)
 
 All that to say, the first benefit to using fluent interfaces is that **it gives the developer a platform or technique for building code which is being designed with the intent that other people will actually be reading (and maybe reusing) this code.** It's not a silver bullet, but it can be very powerful if approached with this in mind.
-
 
 ### It Forces You To Think About What Needs To Be Exposed
 
@@ -71,4 +71,14 @@ Want to see an example of how to use functional programming to improve your C# c
 
 [Functional Programming With C#: A Simple Use Case](https://www.blog.jamesmichaelhickey.com/csharp-functional-programming-a-simple-use-case/)
 
+# Keep In Touch
+
 Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
+
+I also have an e-mail letter where I'll give you tips, stories and links to **help ambitious and passionate developers become tech leaders.** I'll also give you updates about stuff that I've been working on ;)
+
+[Subscribe if you haven't already!](https://tinyletter.com/jamesmh)
+
+# P.S.
+
+I've been building a tool for indie .NET Core developers needing to get their next groundbreaking app or side-project to market faster - without compromising code quality and elegance. [It's called Coravel!](https://github.com/jamesmh/coravel). Check it out and let me know what you think ;)
