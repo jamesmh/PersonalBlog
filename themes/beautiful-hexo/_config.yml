@@ -1,29 +1,29 @@
 navbar-links:
-    Github: https://github.com/jamesmh
-    Twitter: https://twitter.com/jamesmh_dev
-    LinkedIn: https://www.linkedin.com/in/jamesmhickey/    
+  Github: https://github.com/jamesmh
+  Twitter: https://twitter.com/jamesmh_dev
+  LinkedIn: https://www.linkedin.com/in/jamesmhickey/
 
 avatar: /james.png
 favicon: /james.png
 
 who:
-    title: Who am I?
-    desc1: I'm a <strong>Microsoft certified</strong> senior developer who's lead successful projects for companies including one of the <strong>largest insurance companies in Canada</strong>. I've also worked on projects that processed financial data for automotive manufacturers like <strong>Mercedes Benz</strong>, <strong>Subaru</strong>, <strong>Mitsubishi</strong>, and more.
-    desc2: My technical writings have been featured on <strong>Microsoft’s .NET engineering team’s blog</strong>, <strong>dotNET Weekly</strong>, <strong>C# Digest</strong>, and many others!
-    desc3: My goal is to <strong>help you reach the next step of your career</strong> as a software developer!
-    signUpRef: https://tinyletter.com/jamesmh
-    signUp: Subscribe to my mail letter!
-    letterDesc1: Struggling to get to the <strong>next level</strong> of your development career? 
-    letterDesc2: Have questions but don't have any <strong>experienced mentors</strong> around?
-    letterDesc3: Wondering how to get <strong>known in the industry</strong> as a competent and skilled developer?
-    letterDesc4: You'll also receive updates about what I've been working on along with curated links that I've found the most helpful and useful!
+  title: Who am I?
+  desc1: I'm a <strong>Microsoft certified</strong> senior developer who's lead successful projects for companies including one of the <strong>largest insurance companies in Canada</strong>. I've also worked on projects that processed financial data for automotive manufacturers like <strong>Mercedes Benz</strong>, <strong>Subaru</strong>, <strong>Mitsubishi</strong>, and more.
+  desc2: My technical writings have been featured on <strong>Microsoft’s .NET engineering team’s blog</strong>, <strong>dotNET Weekly</strong>, <strong>C# Digest</strong>, and many others!
+  desc3: My goal is to <strong>help ambitious and passionate software developers - like you - become tech leaders!<strong>
+  signUpRef: https://tinyletter.com/jamesmh
+  signUp: Subscribe to my mail letter!
+  letterDesc1: Struggling to get to the <strong>next level</strong> of your development career?
+  letterDesc2: Have questions but don't have any <strong>experienced mentors</strong> around?
+  letterDesc3: Wondering how to get <strong>known in the industry</strong> as a competent and skilled developer?
+  letterDesc4: You'll also receive updates about what I've been working on along with curated links that I've found the most helpful and useful!
 
 header:
-    title: "Seeing Sharply"
-    motto: Making you a better developer through my unique personal stories and software development tips!
-    bigimgs: 
-        - src: /bigimgs/trianglify.png
-          desc: 
+  title: "Seeing Sharply"
+  motto: Making you a better developer through my unique personal stories and software development tips!
+  bigimgs:
+    - src: /bigimgs/trianglify.png
+      ? desc
 
 rss: /atom.xml
 googlefonts:
@@ -32,8 +32,8 @@ googlefonts:
 
 highlight:
   enable: true
-# or use any highlight.js style
-#  style_path: "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/default.min.css"
+  # or use any highlight.js style
+  #  style_path: "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/default.min.css"
   style_path: "/css/highlight.css"
 
 footer:
@@ -43,32 +43,32 @@ footer:
     icon: fa-facebook
     enable: false
   weibo:
-    link: 'http://weibo.com/bisyao?is_all=1'
+    link: "http://weibo.com/bisyao?is_all=1"
     title: Weibo
     icon: fa-weibo
     enable: false
   github:
-    link: 'https://github.com/jamesmh'
+    link: "https://github.com/jamesmh"
     title: GitHub
     icon: fa-github
     enable: true
   rss:
-    link: '/atom.xml'
+    link: "/atom.xml"
     title: RSS
     icon: fa-rss
     enable: true
   twitter:
-    link: 'https://twitter.com/jamesmh_dev'
+    link: "https://twitter.com/jamesmh_dev"
     title: Twitter
     icon: fa-twitter
     enable: true
   mail:
-    link: ''
+    link: ""
     title: Email me
     icon: fa-envelope
     enable: false
   linkin:
-    link: https://www.linkedin.com/in/jamesmhickey/   
+    link: https://www.linkedin.com/in/jamesmhickey/
     title: LinkedIn
     icon: fa-linkedin
     enable: true
@@ -83,15 +83,15 @@ google_analytics: UA-71164109-2
 comment:
   # false, disqus, netease or facebook
   enable: disqus
-  # disqus user, netease productKey or facebook appid 
+  # disqus user, netease productKey or facebook appid
   id: jameshickeyblog
-  # [facebook only] plugin language 
+  # [facebook only] plugin language
   lang: en_US
   # [facebook only] number of posts per load
   numposts: 10
 
 # IMPORTANT NOTE [Facebook Plugin]:
-# If you are using Facebook Social Plugin and it's not working, 
+# If you are using Facebook Social Plugin and it's not working,
 # please go to this URL https://developers.facebook.com/tools/debug/og/object/
 # copy the link of your post there and press the button "Fetch new scrape information".
-# In that way, you are going to update your post metatags Facebook Open Graph information. 
+# In that way, you are going to update your post metatags Facebook Open Graph information.
