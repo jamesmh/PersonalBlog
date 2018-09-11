@@ -14,7 +14,11 @@ categories:
 date: 2018-02-09 07:55:02
 ---
 
-How do you convince management to invest time and money into refactoring your legacy monolith? Convincing management that benefits of refactoring are worthwhile can be a stopping point for many. It's your job to provide a cost-benefit analysis of refactoring your legacy monolith and convince your team that this makes sense.
+How do you convince management to invest time and money into refactoring your legacy monolith?
+
+<!--more-->
+
+Convincing management that benefits of refactoring are worthwhile can be a stopping point for many. It's your job to provide a cost-benefit analysis of refactoring your legacy monolith and convince your team that this makes sense.
 
 Btw, this is a sequel to my [previous post on this topic](https://www.blog.jamesmichaelhickey.com/refactoring-legacy-monoliths-first-steps/) where I discussed a starting point when facing this topic:
 
@@ -26,17 +30,15 @@ Btw, this is a sequel to my [previous post on this topic](https://www.blog.james
 
 Let's look at overcoming the next hurdle in this process.
 
-<!--more-->
-
 # Roadblock
 
-At this point, you and your dev team are all on board, but you (or your senior developer) doesn't have the last say on big decisions like this. So, you need to convince them that a large scale refactoring is needed.
+At this point, you and your dev team are all on board, but you (or your senior developer) doesn't have the last say on big decisions like this. So, you need to convince management that a large scale refactoring is needed.
 
-But there's a problem: **your company is not interested in _making software_, they want to _make money_ and _please their customers_**. This is how your non-developer manager or company owner (even if he is a developer :) ) will probably think this through:
+But there's a problem: **your company is not interested in _making software_, they want to _make money_ and _please their customers_**. This is how your non-developer manager or company owner (even if he is a developer) will probably think this through:
 
 > Spending weeks and months changing a bunch of code (i.e. refactoring) doesn't really affect our users! It doesn't even change what the customers see and how they use our product. Instead, we should build new features to give our customers more value. Afterall, more value given to our user = more money in our pocket.
 
-So, you have a problem. You **know** that the software you have to hard to maintain, hard to extend, can't be tested, and is not portable. But, that means nothing to the people who need to actually decide if they will pay you to do the required work.
+So, you have a problem. You **know** that the software you have is hard to maintain, hard to extend, can't be tested, and is not portable. But, that means nothing to the people who need to actually decide if they will pay you to do the required work.
 
 How do you overcome this?
 
@@ -58,7 +60,7 @@ Here's a small sample of what your report may look like and include:
 
 - Catching bugs during development (not using strict test driven development but implementing code based testing) can save the company [15 times the cost vs. fixing after deployment](https://www.researchgate.net/figure/IBM-System-Science-Institute-Relative-Cost-of-Fixing-Defects_fig1_255965523)
 
-- Implementing code reviews can save the company [30 hours of fixing missed software defects and maintenance](http://www.ifsq.org/finding-ia-2.html)
+- Implementing code reviews can save the company [30 hours of fixing missed software defects and maintenance](http://www.ifsq.org/finding-ia-2.html) per hour invested
 
 - If we separate our business logic from our presentational logic it means now we can _actually_ build the following _using all the features of the current system_:
 
@@ -68,7 +70,7 @@ Here's a small sample of what your report may look like and include:
   - Desktop App
   - etc.
 
-- Having a refactored codebase means future features will be _much_ quicker to develop (less time wasted on trying to figure our legacy design and extending it)
+- Having a refactored codebase means future features will be _much_ quicker to develop (less time wasted on trying to figure out our legacy design and extending it)
 
 - Having an industry standardized architecture enables new developers to be "up-and-running" much quicker
 
@@ -92,14 +94,6 @@ Every decision a lead/senior developer needs to make should be made this way. Fo
 # Thanks!
 
 I hope that this was helpful and gave you some useful tips!
-
-Thanks for reading :)
-
-P.s. Here are some other posts you may enjoy:
-
-- [Functional Programming In C# - A Simple Use Case](https://www.blog.jamesmichaelhickey.com/csharp-functional-programming-a-simple-use-case/)
-- [YouTube Video: First Class Functions - Beginning Functional Programming In C#](https://www.youtube.com/watch?v=L5bP4FgENJQ)
-- [Deck The Halls With Strategy Pattern Implementations In C#: Basic To Advanced](https://www.blog.jamesmichaelhickey.com/strategy-pattern-implementations/)
 
 # Keep In Touch
 
