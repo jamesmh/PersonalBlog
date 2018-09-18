@@ -15,7 +15,9 @@ categories:
 date: 2018-03-07 16:25:04
 ---
 
-So your engineering team is convinced that you need to make some drastic changes. The direction of future development needs to improve. Things can't stay as they are. Management is also convinced that the product needs to move in a new direction. What's next? Well, before doing any actual changes or refactoring to your product, planning a refactor is your next step. In other words, you need a game plan. I'll also discuss some refactoring tips for you to get started!
+So your engineering team is convinced that you need to make some drastic changes. The direction of future development needs to improve. Things can't stay as they are. Management is also convinced that the product needs to move in a new direction. What's next? 
+
+Before doing any actual changes or refactoring to your product, planning a refactor is your next step. In other words, you need a game plan. I'll also discuss some refactoring tips for you to get started!
 
 <!--more-->
 
@@ -34,7 +36,7 @@ One comment I've seen come up on Reddit about this series (quite a bit...) is th
 
 As a refresher, in his book Working Effectively With Legacy Code, Michael states:
 
-> To me, legacy code is simple code without tests.
+> To me, legacy code is simply code without tests.
 
 Why does Michael care so much about testing your code from the inside? (i.e. not by having people test your **website** over and over - which is really expensive btw). There's a simple question that can answer this:
 
@@ -42,11 +44,11 @@ Why does Michael care so much about testing your code from the inside? (i.e. not
 
 If you don't have any testing, then how can you be confident? How can you **trust** your system?
 
-Having tests in place is like doing acrobatics in the air with a safety net vs. not having a safety net. Ouch!
+Having tests in place is like doing acrobatics in the air with a safety net vs. not having a safety net. **Ouch!**
 
 # What Are Your Goals?
 
-All that to say your first goal should be to start implementing unit tests on your code. This is foundational work. You need to be able to change your code and have confidence that it still works.
+Your first goal should be to start implementing unit tests on your code. This is foundational work. You need to be able to change your code and have confidence that it still works.
 
 Again:
 
@@ -58,7 +60,7 @@ What I would suggest at this point is having a formal discussion (with a formal 
 
 > What do we want our system to look like in 1 year? In 2 years?
 
-Maybe we should be using a new technology stack like ASP .NET Core? Maybe our current code architecture does not allow us to re-use our business rules in other platforms (web vs. mobile API vs. desktop app) - so we need to consolidate our business logic and rules. (P.s. None of these cases require a re-write)
+Maybe we should be using a new technology stack like ASP .NET Core? Maybe our current code architecture does not allow us to re-use our business rules in other platforms (web vs. mobile API vs. desktop app)? This would imply that we need to consolidate our business logic and rules. (P.s. None of these cases require a re-write)
 
 # Dealing With Dependencies
 
@@ -66,7 +68,7 @@ The number one obstacle that (most likely) prevents you from creating isolated u
 
 Once you start, you find that you start telling yourself:
 
-> Well, in other to test [thing 1] I now need to have an instance of [thing 2]. But, [thing 2] needs an instance of [thing 3].
+> Well, in order to test [thing 1] I now need to have an instance of [thing 2]. But, [thing 2] needs an instance of [thing 3].
 
 "Thing 1" might be an entity you want to test - let's say, a `Report` entity (which models some tabular data).
 
@@ -79,7 +81,7 @@ If you want to unit test the `Report` entity, you need:
 - an instance of `LinkGenerator` which needs...
 - an instance of `HttpSession`
 
-Uh Oh. How can you unit test when you need `HttpSession`? Unit tests don't run off a web server! (Well, they shouldn't...)
+**Uh Oh.** How can you unit test when you need `HttpSession`? Unit tests don't run off a web server! (Well, they shouldn't...)
 
 Sorry to say (you already know...), it's going to take some work. You need to **break the chain of dependencies.**
 
@@ -93,7 +95,7 @@ Let's look at a couple dependency breaking refactoring tips.
 
 The title says it all. Sticking with our little example, imagine the `LinkGenerator` has the following method (pseudo-ish code).
 
-```
+```c#
 public string GenerateLink()
 {
      // ... some kind of processing
@@ -108,7 +110,7 @@ We can't test this method because it references the `HttpSession` object that on
 
 By injecting an interface instead, we can remove the dependency on the actual `HttpSession`.
 
-```
+```c#
 public string GenerateLink(IHttpSessionAccessor session)
 {
      // ... some kind of processing
@@ -121,7 +123,7 @@ public string GenerateLink(IHttpSessionAccessor session)
 
 I'm sure you can imagine what the interface definition would look like. The concrete class might look something like this:
 
-```
+```c#
 public class HttpSessionAccessor : IHttpSessionAccessor
 {
     private readonly HttpSession _session;
@@ -141,7 +143,7 @@ public class HttpSessionAccessor : IHttpSessionAccessor
 
 Now, we can do something like this in our testing code:
 
-```
+```c#
 IHttpSessionAccessor session = new Mock<IHttpSessionAccessor>();
 
 // Implement the mock
@@ -153,11 +155,15 @@ string link = generator.GenerateLink(session);
 // Assert ...
 ```
 
+Now we can build tests around the `LinkGenerator` and have confidence that:
+- It actually works the way we expect it to work
+- Any breaking changes will be caught (and fixed).
+
 ### 2. Adapt Parameter
 
 Imagine our code above was originally this:
 
-```
+```c#
 public string GenerateLink(HttpSession session){
      // ... some kind of processing
      var someValue = session["SomeKey"];
@@ -167,7 +173,7 @@ public string GenerateLink(HttpSession session){
 }
 ```
 
-What's wrong? Well, we have the same issue as above. We **still** need an actual instance of `HttpSession`. We need to run the tests on an actual Http request. So, we need a web server to be running...
+What's wrong? We have the same issue as above. We **still** need an instance of `HttpSession`. Which means... we need a web server to be running. Bad.
 
 To solve this, just do the same thing as #1. Turn the parameter into an interface and access the interface instead of the actual implementation (HttpSession).
 
