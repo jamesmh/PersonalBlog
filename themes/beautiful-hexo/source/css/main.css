@@ -619,7 +619,11 @@ figure.highlight>table .gutter {
 }
 
 .who-am-I ul li {
-  margin-bottom:18px;
+  margin-bottom:8px;
+}
+
+.who-am-I ul li strong {
+  font-weight: normal;
 }
 
 @media only screen and (min-width: 1200px)
