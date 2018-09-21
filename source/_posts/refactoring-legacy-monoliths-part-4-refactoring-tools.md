@@ -15,15 +15,15 @@ categories:
 date: 2018-05-29 16:47:59
 ---
 
-As a software developer, it's important to know what tools are available to you. Tedious and repetitive tasks or large "one-off" time-consuming tasks can often be automated by third-party tooling. And yes - sometimes it's even worth purchasing some of these tools with your own money. Specifically, when refactoring, we should have some knowledge of what refactoring tools are available to us.
+As a software developer it's important to know what tools are available to you. Tedious and repetitive tasks or large "one-off" time-consuming tasks can often be automated by third-party tooling. And yes - sometimes it's even worth purchasing some of these tools with your own money. Specifically, when refactoring, we should have some knowledge of what refactoring tools are available to us.
 
 Continuing my "Refactoring Legacy Monoliths" series - I want to go over a few tools that I've found super helpful and worth investing in.
 
-To make this blog post more useful than a list of products, I'll go through some high-level steps of a plan that you might also find helpful when tackling a major refactoring expedition on a large project, and highlight some of these tools along the way. :)
+To make this blog post more useful than a list of products, I'll go through some high-level steps that represent a way to tackle a refactoring project.
 
 <!--more-->
 
-# Step 1: High-level Overview And Identification Of Problem Areas:
+# Step 1: Identification Of Problem Areas
 
 Getting an overview of where pain-points are in your code-base has to be done. Why? Well, how do you know **for sure** that some code **ought** to be refactored? Because you _feel like it_? Because of _ugly code_?
 
@@ -65,8 +65,6 @@ This can be a way of having others trust you quicker than they would have otherw
 
 Roslyn analyzers are native C# code analyzers that you can use in Visual Studio. Visual Studio 2017 has the ability to run a code analysis on your entire solution and also has a feature that will calculate code metrics - similar to NDepend.
 
-![code analyzer](https://www.blog.jamesmichaelhickey.com/wp-content/uploads/2018/05/code-analyzer.png)
-
 This can be an easy way to analyze your code-base if you are already using Visual Studio. The cool thing is that you can install different Roslyn analyzers into Visual Studio to enhance your intellisense, real-time suggestions, build time error checking, etc.
 
 Running these metrics/analyzers will show up in your code (as a squiggly) and in the error list in Visual Studio. You can export the code metrics to an excel file, which is nice.
@@ -83,7 +81,7 @@ Think of the system you are working with as a **"bug producing onion"**.
 
 Let's start by unravelling the onion from the outside.
 
-This approach is less risk and allows you to build up confidence and even knowledge - if working in a system you're not so familiar with.
+This approach is less risky, allows you to build up confidence and domain knowledge (if working in a system you're not so familiar with).
 
 But **how** do you begin tackling these areas?
 
@@ -103,9 +101,11 @@ So, instead of going through each of the types one-by-one and extracting them in
 
 ### ReSharper Feature: Adjust (Solution) Namespaces
 
-I now had a few hundred extra files to deal with - all in the same folder. Next, I needed to structure the files as best as I could with a proper file/folder structure. This was manual work - but once all the files are in their proper place we still need to adjust all the namespaces for each type! ReSharper has that covered. Just run the "Adjust Namespaces" command on a specific project, file or the entire solution and the folder structure for each file will be automatically applied to the namespace of the file. Again, that saved me _at least_ a few days of work.
+I now had a few hundred extra files to deal with - all in the same folder. Next, I needed to structure the files as best as I could with a proper file/folder structure. This was manual work - but once all the files are in their proper place we still need to adjust all the namespaces for each type!
 
-This feature shines when doing high-level re-organization refactorings (i.e. file structure and folder structure changes).
+ReSharper has that covered. Just run the "Adjust Namespaces" command on a specific project, file or the entire solution and the folder structure for each file will be automatically applied to the namespace of the file. Again, that saved me _at least_ a few days of work.
+
+This feature shines when doing high-level re-organization refactoring (i.e. file structure and folder structure changes).
 
 From this real-life example, I was able to perform what otherwise would have taken weeks of work and get it done in a few days. Win!
 
@@ -129,9 +129,7 @@ It will automatically show you every HTTP request that your machine is handling 
 
 To recap, NDepend, ReSharper, and Stackify's Prefix are all fantastic tools that boost your refactoring capabilities and ability to comprehend code from a high-level. They also give us tooling that will assist in the nitty-gritty details of improving our code.
 
-Visual Studio code analysis tools offer an area of great potential. Roslyn analyzers, in particular, are an area where I see future integrations into charts, dashboarding, etc. within Visual Studio to be a useful addition. If that ever happens... I don't know :|
-
-Thanks for reading and I hope you at least learned **something**.
+Visual Studio code analysis tools offer an area of great potential. Roslyn analyzers, in particular, are an area where I see future potential integration into charts, dashboarding, etc. within Visual Studio to be a useful addition.
 
 P.s. Here are some other posts you may enjoy:
 
