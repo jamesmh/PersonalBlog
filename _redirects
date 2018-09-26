@@ -1,3 +1,0 @@
-# Redirect domain aliases to primary domain
-https://blog.jamesmichaelhickey.com/* https://www.blog.jamesmichaelhickey.com/:splat 301!
-http://blog.jamesmichaelhickey.com/* https://www.blog.jamesmichaelhickey.com/:splat 301!
