@@ -597,7 +597,8 @@ figure.highlight>table .gutter {
 }
 
 .btn-sign-up {
-  background-color: #D26664;
+  background-color: rgb(211, 139, 57);
+  box-shadow: 3px 4px 2px rgba(0,0,0,.3);
   color: #fff;
   font-size: 24px;
   margin-top:30px;
@@ -608,7 +609,7 @@ figure.highlight>table .gutter {
 .btn-sign-up:hover {
   color: #D26664;
   background-color: #f4faff;
-  border: 2px dashed #D26664;
+  border: 2px dashed rgb(214, 135, 81);
 }
 
 .who-am-I {
