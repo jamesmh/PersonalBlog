@@ -6,6 +6,12 @@ navbar-links:
 avatar: /james.png
 favicon: /james.png
 
+ad:
+  title: Struggling With Where To Begin With Your Next<br /> Ground-Breaking .NET Core Web App?
+  text: I've been working on a suite of professional tools to help you called <strong>Coravel Pro</strong>! <br /><br />Coravel Pro helps you to kickstart your non-trivial web app by <strong>magically giving you an admin UI that ties right into Entity Framework Core!</strong>
+  signUpRef: https://mailchi.mp/2ab47aaa76c9/coravelpro
+  signUp: Tell me more! 
+
 who:
   title: Who am I?
   desc1: I'm a <strong>Microsoft certified</strong> senior developer who's lead successful projects for companies including one of the <strong>largest insurance companies in Canada</strong>. I've also worked on projects that processed financial data for automotive manufacturers like <strong>Mercedes Benz</strong>, <strong>Subaru</strong>, <strong>Mitsubishi</strong>, and more.
@@ -15,6 +21,7 @@ who:
   signUp: Subscribe to my mail letter!
   letterDesc1: Struggling to get to the <b>next level</b> of your development career?
   letterDesc2: Have questions but don't have any <b>experienced mentors</b> around?
+
 
 header:
   title: "Seeing Sharply"
