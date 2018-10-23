@@ -314,6 +314,6 @@ I also have an e-mail letter where I'll give you tips, stories and links to **he
 
 [Subscribe if you haven't already!](https://tinyletter.com/jamesmh)
 
-# P.S.
+# P.S
 
-I've been building a tool for indie .NET Core developers needing to get their next groundbreaking app or side-project to market faster - without compromising code quality and elegance. [It's called Coravel!](https://github.com/jamesmh/coravel). Check it out and let me know what you think ;)
+I've been building [Coravel Pro](https://www.pro.coravel.net/) which is a suite of professional admin tools to help you kickstart and manage your next ground-breaking .NET Core app! Check out the [landing page](https://www.pro.coravel.net/) to see the features and keep up-to-date with the project.
