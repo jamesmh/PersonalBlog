@@ -109,7 +109,6 @@ Already know how to use .NET Core but need more tools that will help you build f
 # You Might Like These
 
 - [What I've Learned So Far Building Coravel (Open Source .NET Core Tooling)](https://www.blog.jamesmichaelhickey.com/What-I-ve-Learned-So-Far-Building-Coravel-Open-Source-NET-Core-Tooling/)
-
 - [Async/Await For The Rest Of Us](https://www.blog.jamesmichaelhickey.com/Async-Await-For-The-Rest-Of-Us/)
 
 # P.S
