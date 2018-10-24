@@ -1,5 +1,5 @@
 ---
-title: Why Is .NET Core So Special? (Why You Should Use .NET Core)
+title: What Is .NET Core? (What Makes It So Special?)
 tags:
   - .NET Core
 categories:
