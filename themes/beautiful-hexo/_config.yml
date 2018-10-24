@@ -8,9 +8,9 @@ favicon: /james.png
 
 ad:
   title: Struggling With Where To Begin On Your Next<br /> Ground-Breaking .NET Core Web App?
-  text: I've been working on a suite of professional admin tools that extends my open source project <a href="https://github.com/jamesmh/coravel">Coravel</a> called <strong>Coravel Pro</strong>! <br /><br />Coravel Pro helps you to kickstart your non-trivial web app by <strong>magically giving you an admin UI that ties right into Entity Framework Core!</strong>
-  signUpRef: https://mailchi.mp/2ab47aaa76c9/coravelpro
-  signUp: Tell me more! 
+  text: I've been working on a suite of admin tools for .NET Core web apps that helps indie developers get their production ready apps to market faster and to maintain them using a professional quality UI.
+  signUpRef: https://www.pro.coravel.net
+  signUp: Let Me See! 
 
 who:
   title: Who am I?
