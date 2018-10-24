@@ -106,10 +106,16 @@ Do you have a .NET Framework app that you are considering migrating to .NET Core
 
 Already know how to use .NET Core but need more tools that will help you build fully featured web apps? [Start here.](https://github.com/jamesmh/coravel)
 
-# Keep In Touch
+# You Might Like These
 
-Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
+- [What I've Learned So Far Building Coravel (Open Source .NET Core Tooling)](https://www.blog.jamesmichaelhickey.com/What-I-ve-Learned-So-Far-Building-Coravel-Open-Source-NET-Core-Tooling/)
+
+- [Async/Await For The Rest Of Us](https://www.blog.jamesmichaelhickey.com/Async-Await-For-The-Rest-Of-Us/)
 
 # P.S
 
 I've been building [Coravel Pro](https://www.pro.coravel.net/) which is a suite of professional admin tools to help you kickstart and manage your next ground-breaking .NET Core app! Check out the [landing page](https://www.pro.coravel.net/) to see the features and keep up-to-date with the project.
+
+# Keep In Touch
+
+Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
