@@ -148,6 +148,10 @@ I hope you enjoyed the story behind Coravel so far and some things I've learned 
 
 I'd like to write another post soon that highlights the technical things I've learned - and get into some code!
 
+# Other Parts In This Series
+
+- [Part 2: Fluent APIs Make Developers Love Using Your .NET Libraries](https://builtwithdot.net/blog/fluent-apis-make-developers-love-using-your-net-libraries)
+
 # Keep In Touch
 
 Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
