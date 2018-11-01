@@ -152,6 +152,10 @@ I'd like to write another post soon that highlights the technical things I've le
 
 - [Part 2: Fluent APIs Make Developers Love Using Your .NET Libraries](https://builtwithdot.net/blog/fluent-apis-make-developers-love-using-your-net-libraries)
 
+# P.S
+
+I've been building [Coravel Pro](https://www.pro.coravel.net/) which is a suite of professional admin tools to help you kickstart and manage your next ground-breaking .NET Core app! Check out the [landing page](https://www.pro.coravel.net/) to see the features and keep up-to-date with the project.
+
 # Keep In Touch
 
 Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
