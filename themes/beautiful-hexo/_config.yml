@@ -7,10 +7,11 @@ avatar: /james.png
 favicon: /james.png
 
 ad:
-  title: Struggling With Where To Begin On Your Next<br /> Ground-Breaking .NET Core Web App?
-  text: I've been working on a suite of admin tools for .NET Core web apps that helps indie developers get their production ready apps to market faster and to maintain them using a professional quality UI.
+  title: Want To Accelerate Your Indie .NET Core App?
+  text: I've built a suite of professional visual admin tools for .NET Core web apps. You can schedule and maintain jobs, customize beautiful dashboard metrics, configure professional quality tabular reports of your data and more!
   signUpRef: https://www.pro.coravel.net
-  signUp: Let Me See! 
+  signUp: See Coravel Pro!
+  logo: https://www.pro.coravel.net/img/logo.png
 
 who:
   title: Who am I?
