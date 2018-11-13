@@ -7,7 +7,7 @@ avatar: /james.png
 favicon: /james.png
 
 ad:
-  title: Want To Accelerate Your Indie .NET Core App?
+  title: Tired Of Ugly Admin Panels That Don't Even Work Well With .NET Core?
   text: I've built a suite of professional visual admin tools for .NET Core web apps. You can schedule and maintain jobs, customize beautiful dashboard metrics, configure professional quality tabular reports of your data and more!
   signUpRef: https://www.pro.coravel.net
   signUp: See Coravel Pro!
