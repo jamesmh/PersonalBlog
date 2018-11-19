@@ -302,9 +302,9 @@ My preference is to use a Dictionary to map keys of possible incoming values ("i
 
 Doing this using Reflection can offer some conveniences and perhaps more flexibility, but the issue of losing track of all references to where your specific implementations are being used (since the concrete implementations are dynamically instantiated) is a pretty huge consideration.
 
-# Feedback?
+# P.S
 
-**Have any feedback or comments?** I'd love to hear what you think or if I missed something etc.
+I've been building [Coravel Pro](https://www.pro.coravel.net/) which is a suite of professional admin backend tools to help you kickstart and manage your next ground-breaking .NET Core app! Check it out!
 
 # Keep In Touch
 
@@ -313,7 +313,3 @@ Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or
 I also have an e-mail letter where I'll give you tips, stories and links to **help ambitious and passionate developers become tech leaders.** I'll also give you updates about stuff that I've been working on ;)
 
 [Subscribe if you haven't already!](https://tinyletter.com/jamesmh)
-
-# P.S
-
-I've been building [Coravel Pro](https://www.pro.coravel.net/) which is a suite of professional admin tools to help you kickstart and manage your next ground-breaking .NET Core app! Check out the [landing page](https://www.pro.coravel.net/) to see the features and keep up-to-date with the project.

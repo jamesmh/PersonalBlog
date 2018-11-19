@@ -154,7 +154,7 @@ I'd like to write another post soon that highlights the technical things I've le
 
 # P.S
 
-I've been building [Coravel Pro](https://www.pro.coravel.net/) which is a suite of professional admin tools to help you kickstart and manage your next ground-breaking .NET Core app! Check out the [landing page](https://www.pro.coravel.net/) to see the features and keep up-to-date with the project.
+I've been building [Coravel Pro](https://www.pro.coravel.net/) which is a suite of professional admin backend tools to help you kickstart and manage your next ground-breaking .NET Core app! Check it out!
 
 # Keep In Touch
 
