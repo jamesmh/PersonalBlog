@@ -15,7 +15,7 @@ In the spirit of the season, we'll be discussing how Santa Clause has recently b
 
 # Santa's Needs
 
-Santa is an intermediate developer but is learning the ins-and-outs of .NET Core. His system needed to be robust in terms of security but also with a focus on ease of development. 
+Santa is an intermediate developer but has been learning the ins-and-outs of .NET Core. His system needed to be robust in terms of security and ease of development. 
 
 He had decided that .NET Core was the best choice when considering these criteria.
 
@@ -23,9 +23,15 @@ Santa didn't want to re-invent the wheel - but he needed a reliable yet simple w
 
 # Coravel
 
-He came across [Coravel](https://github.com/jamesmh/coravel/blob/master/README.md) - which is a near-zero config open source library for .NET Core developers. 
+One day he came across [Coravel](https://github.com/jamesmh/coravel/blob/master/README.md) - which is a near-zero config open source library for .NET Core developers. 
 
-Coravel focuses on helping developers get their web applications up-and-running fast - without compromising code quality. Features like task scheduling, queuing, caching, event broadcasting, etc. are available right out-of-the-box.
+Coravel focuses on helping developers get their web applications up-and-running fast - without compromising code quality. It has easy-to-use features like:
+
+- Task scheduling
+- Queuing
+- Caching
+- Event broadcasting
+- and more!
 
 Because it's written specifically as a set of tools for .NET Core, it takes advantage of native features - such as full support for the built-in dependency injection services. 
 
@@ -33,13 +39,13 @@ For example, you can inject dependencies/services into scheduled tasks, queued t
 
 Santa has really enjoyed using Coravel - especially the time savings gained from not having to configure and install other dependencies for scheduling, queuing, event broadcasting, etc. individually. 
 
-He also enjoys the terse and simple syntax that Coravel offers.
+He especially loves that Coravel ties into .NET Core's DI system so seamlessly.
 
 # Drawback
 
 But - now Santa has to schedule some **really** long running tasks. Tasks that might take hours to run. And these are important tasks.
 
-Doing this **inside** his ASP .NET Core application is not an option since doing these types of long-running tasks in a web app causes many issues (as you probably know).
+Doing this **inside** his ASP .NET Core application is not an option since doing these types of long-running tasks in a web app will cause issues (as you probably know).
 
 # The Solution
 
@@ -47,7 +53,7 @@ Santa decided to check out [Coravel's GitHub repo](https://github.com/jamesmh/co
 
 It turns out that [there is a sample to address this exact concern!](https://github.com/jamesmh/coravel/blob/master/Samples/HostBuilderConsole/Program.cs) 
 
-I Santa asked if I could briefly share how he decided to implement this. He agreed, but I was only permitted to show a very small sample of his system.
+I asked Santa if I could share how he decided to implement this. He agreed, but I was only permitted to show a very small sample of his system.
 
 # Scheduling Tasks From .NET Core Console Applications
 
@@ -97,7 +103,7 @@ Every minute something will happen.
 
 # Supporting .NET Core Dependency Injection With Invocables
 
-Ok - that's a simple sample. Santa needs something more maintainable and he **really** needs to inject his Entity Framework Core Db context, `HttpClient`, etc. into his scheduled tasks.
+Ok - that's a simple sample. Santa needs something more maintainable and he **really** needs to inject his Entity Framework Core Db context, `HttpClientFactory`, etc. into his scheduled tasks.
 
 With Coravel you can use [Invocable](https://github.com/jamesmh/coravel/blob/master/Docs/Invocables.md) classes to solve this problem.
 
@@ -127,9 +133,9 @@ scheduler
 
 # Problem With Scalability
 
-Coravel internally uses `Task.WhenAll` to make sure async calls within scheduled tasks are processed efficiently. However, that does mean CPU intensive tasks could "hog" the thread that is processing the currently due tasks - causing other tasks to "pause".
+Coravel internally uses `Task.WhenAll` to make sure async calls within scheduled tasks are processed efficiently. However, that does mean CPU intensive tasks could "hog" the thread that is processing the currently due tasks. This would force other due tasks to wait until the CPU intensive processing is completed.
 
-This design makes sure that in web application scenarios Coravel won't be hogging threads that could otherwise be (and should be) used to respond to HTTP requests.
+This design makes sure that in web application scenarios Coravel won't be hogging multiple threads that could otherwise be (and should be) used to respond to HTTP requests.
 
 But Santa is specifically using a console application so he doesn't need to worry about that! What should he do?
 
@@ -173,17 +179,34 @@ scheduler
 
 The first two tasks don't take that long to complete and are not a priority in terms of CPU usage.
 
-The second, however, needs to be able to work without being blocked.
+The second, however, needs to be able to work without being blocked. We also don't want it to block other tasks.
 
 This setup will ensure that `RebuildStaticCachedData` is always executed in isolation with it's own dedicated pipeline.
 
 # Conclusion
 
-I hope you've enjoyed this article and would love to hear from you in the comments! Maybe there's a better way to do this? Maybe you prefer some other way? I'd love to hear from you!
+I hope you've enjoyed this article and would love to hear from you in the comments! Maybe there's a better way to do this? Maybe you prefer some other way?
 
-# P.S.
+<hr />
 
-I've been building [Coravel Pro](https://www.pro.coravel.net/) which is a suite of professional admin backend tools to help you kickstart and manage your next ground-breaking .NET Core app! Check it out!
+<div style="padding:20px; border-radius:6px; background-color: #efefef; margin-bottom:50px">
+    <h1 class="margin-bottom:0"><img src="https://www.pro.coravel.net/img/logo.png" style="width:47px;margin-top:-2px;border-radius:6px;margin-right:20px" /> Coravel Pro
+</h1>
+I've been building [Coravel Pro](https://www.pro.coravel.net/) which is a suite of professional admin backend tools that help you schedule and manage your backend admin jobs.
+
+<strong>Schedule your jobs with database persistence</strong> - so your dev schedules don't bleed into your production schedules!
+
+<strong>Execute backend jobs</strong> by literally clicking one button!
+
+Easily configure a <strong>metrics dashboard!</strong>
+
+Quickly build-out <strong>tabular reports</strong> that integrate seamlessly with your Entity Framework Core data!
+    <div class="text-center">
+        <a href="https://www.pro.coravel.net/">
+            <button class="btn btn-sign-up" style="margin-top:0;margin-bottom:0">Take A Look At Coravel Pro!</button>
+        </a>
+    </div>
+</div>
 
 ## You Might Enjoy
 

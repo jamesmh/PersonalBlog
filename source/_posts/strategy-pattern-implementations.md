@@ -302,9 +302,26 @@ My preference is to use a Dictionary to map keys of possible incoming values ("i
 
 Doing this using Reflection can offer some conveniences and perhaps more flexibility, but the issue of losing track of all references to where your specific implementations are being used (since the concrete implementations are dynamically instantiated) is a pretty huge consideration.
 
-# P.S
+<hr />
 
-I've been building [Coravel Pro](https://www.pro.coravel.net/) which is a suite of professional admin backend tools to help you kickstart and manage your next ground-breaking .NET Core app! Check it out!
+<div style="padding:20px; border-radius:6px; background-color: #efefef; margin-bottom:50px">
+    <h1 class="margin-bottom:0"><img src="https://www.pro.coravel.net/img/logo.png" style="width:47px;margin-top:-2px;border-radius:6px;margin-right:20px" /> Coravel Pro
+</h1>
+I've been building [Coravel Pro](https://www.pro.coravel.net/) which is a suite of professional admin backend tools that help you schedule and manage your backend admin jobs.
+
+<strong>Schedule your jobs with database persistence</strong> - so your dev schedules don't bleed into your production schedules!
+
+<strong>Execute backend jobs</strong> by literally clicking one button!
+
+Easily configure a <strong>metrics dashboard!</strong>
+
+Quickly build-out <strong>tabular reports</strong> that integrate seamlessly with your Entity Framework Core data!
+    <div class="text-center">
+        <a href="https://www.pro.coravel.net/">
+            <button class="btn btn-sign-up" style="margin-top:0;margin-bottom:0">Take A Look At Coravel Pro!</button>
+        </a>
+    </div>
+</div>
 
 # Keep In Touch
 
