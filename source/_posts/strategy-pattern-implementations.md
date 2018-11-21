@@ -1,5 +1,5 @@
 ---
-title: "Strategy Pattern Implementations In C#: Basic To Advanced"
+title: "6 Ways To Implement The Strategy Pattern In C# (Basic To Advanced)"
 tags:
   - "c#"
   - "c# design patterns"
