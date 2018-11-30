@@ -307,7 +307,7 @@ Doing this using Reflection can offer some conveniences and perhaps more flexibi
 <div style="padding:20px; border-radius:6px; background-color: #efefef; margin-bottom:50px">
     <h1 class="margin-bottom:0"><img src="https://www.pro.coravel.net/img/logo.png" style="width:47px;margin-top:-2px;border-radius:6px;margin-right:20px" /> Coravel Pro
 </h1>
-I've been building [Coravel Pro](https://www.pro.coravel.net/) which is a suite of professional admin backend tools that help you schedule and manage your backend admin jobs.
+I've been building [Coravel Pro](https://www.pro.coravel.net/) which is a backend admin panel for .NET Core.
 
 <strong>Schedule your jobs with database persistence</strong> - so your dev schedules don't bleed into your production schedules!
 

@@ -14,9 +14,11 @@ In the spirit of the season, we'll be discussing how Santa Clause has recently b
 
 # Santa's Needs
 
-Santa is an intermediate developer but has been learning the ins-and-outs of .NET Core. His system needed to be robust in terms of security and ease of development. 
+Santa is an intermediate developer but has been learning the ins-and-outs of .NET Core. 
 
-He had decided that .NET Core was the best choice when considering these criteria.
+He recently needed to build a system that was robust in terms of security and ease of development.
+
+He decided that .NET Core was the best choice when considering these criteria.
 
 Santa didn't want to re-invent the wheel - but he needed a reliable yet simple way to schedule background tasks, queue work so his web app was responsive (mostly for the elves), etc.
 
@@ -30,9 +32,9 @@ Coravel focuses on helping developers get their web applications up-and-running 
 - Queuing
 - Caching
 - Event broadcasting
-- and more!
+- and more
 
-Because it's written specifically as a set of tools for .NET Core, it takes advantage of native features - such as full support for the built-in dependency injection services. 
+Because it's written specifically as a set of tools targeted for .NET Core, it takes advantage of native features - such as full support for the built-in dependency injection services. 
 
 For example, you can inject dependencies/services into scheduled tasks, queued tasks, event listeners, etc. with zero fuss and no extra configuration!
 
@@ -72,8 +74,6 @@ class Program
         var host = new HostBuilder()
             .ConfigureAppConfiguration((hostContext, configApp) =>
             {
-                configApp.SetBasePath(Directory.GetCurrentDirectory());
-                configApp.AddEnvironmentVariables(prefix: "PREFIX_");
                 configApp.AddCommandLine(args);
             })
             .ConfigureServices((hostContext, services) =>
@@ -132,11 +132,15 @@ scheduler
 
 # Problem With Scalability
 
-Coravel internally uses `Task.WhenAll` to make sure async calls within scheduled tasks are processed efficiently. However, that does mean CPU intensive tasks could "hog" the thread that is processing the currently due tasks. This would force other due tasks to wait until the CPU intensive processing is completed.
+Coravel internally uses `Task.WhenAll` to make sure async calls within scheduled tasks are processed efficiently. 
+
+However, CPU intensive tasks will "hog" the thread that is currently processing due tasks. This would force other due tasks to wait until the CPU intensive processing is completed.
 
 This design makes sure that in web application scenarios Coravel won't be hogging multiple threads that could otherwise be (and should be) used to respond to HTTP requests.
 
-But Santa is specifically using a console application so he doesn't need to worry about that! What should he do?
+But Santa is specifically using a console application so he doesn't need to worry about that! 
+
+What should he do?
 
 # Schedule Workers
 
@@ -156,7 +160,7 @@ scheduler
     .Hourly();    
 ```
 
-This will now execute each task in parallel so Santa can fetch and process both of these more efficiently. Any intensive CPU work that either task may perform will not cause the other to wait.
+This will now execute each task in parallel so Santa can fetch and process both of these more efficiently. Any intensive CPU work that either task may perform will not cause the other to wait/block.
 
 # Schedule Task Groups
 
@@ -176,9 +180,9 @@ scheduler
     .Schedule<RebuildStaticCachedData>().Hourly();
 ```
 
-The first two tasks don't take that long to complete and are not a priority in terms of CPU usage.
+The first two tasks don't take that long to complete and are not a priority in terms of CPU usage (they are mostly I/O bound).
 
-The second, however, needs to be able to work without being blocked. We also don't want it to block other tasks.
+The second, however, needs to be able to work without being blocked or blocking other tasks.
 
 This setup will ensure that `RebuildStaticCachedData` is always executed in isolation with it's own dedicated pipeline.
 
@@ -191,7 +195,7 @@ I hope you've enjoyed this article and would love to hear from you in the commen
 <div style="padding:20px; border-radius:6px; background-color: #efefef; margin-bottom:50px">
     <h1 class="margin-bottom:0"><img src="https://www.pro.coravel.net/img/logo.png" style="width:47px;margin-top:-2px;border-radius:6px;margin-right:20px" /> Coravel Pro
 </h1>
-I've been building [Coravel Pro](https://www.pro.coravel.net/) which is a suite of professional admin backend tools that help you schedule and manage your backend admin jobs.
+I've been building [Coravel Pro](https://www.pro.coravel.net/) which is a backend admin panel for .NET Core.
 
 <strong>Schedule your jobs with database persistence</strong> - so your dev schedules don't bleed into your production schedules!
 

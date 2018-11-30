@@ -314,7 +314,130 @@ This makes for:
 
 # What You Should Know About Using .NET Core Dependency Injection
 
+Let's quickly run through some of the more proper and technical terms.
 
+## Service Container
+
+When we refer to the "DI system" we are really talking about the Service Container.
+
+This is the object that holds the configuration for all the DI stuff.
+
+It's also what will ultimately be "asked" to create new objects for us. And therefore, it's what figures out what dependencies each service require at runtime.
+
+## Binding
+
+When we talk about binding, we just mean that type `A` is mapped to type `B`. 
+
+In our example about the `Car` scenario, we would say that `IEngine` is bound to `HondaEngine`. 
+
+When we ask for a dependency of `IEngine` we are returned an instance of `HondaEngine`.
+
+## Resolving
+
+Resolving refers to the process of figuring out what dependencies are required for a particular service.
+
+Using the example above with the `CreateUser` use case, when the Service Container is asked to inject an instance of `CreateUser` we would say that the container is "resolving" that dependency.
+
+Resolving involves figuring out the entire tree of dependencies:
+
+- `CreateUser` requires an instance of `IUserRepository`
+- The container sees that `IUserRepository` is bound to `UserRepository`
+- `UserRepository` requires an instance of `ApplicationDbContext`
+- The container see that `ApplicationDbContext` is available (and bound to the same type).
+
+Figuring out that tree of cascading dependencies is what we call "resolving a service."
+
+## Scopes
+
+Generally termed scopes, or otherwise called service lifetimes, this refers to whether a service is shortly lived or long living.
+
+For example, a singleton (as the pattern is defined) is a service that will always resolve to the same instance every time.
+
+Without understanding what scopes are you can run into some really weird errors. 😜
+
+The .NET Core DI system has 3 different scopes:
+
+### Singleton
+
+```csharp
+services.AddSingleton<IAlwaysExist, IAlwaysExist>();
+```
+
+Whenever we resolve `IAlwaysExist` in an MVC controller constructor, for example, it will always be the exact same instance.
+
+_As a side note: This implies concerns around thread-safety, etc. depending on what you are doing._
+
+### Scoped
+
+```csharp
+services.AddScoped<IAmSharedPerRequests, IAmSharedPerRequests>();
+```
+
+Scoped is the most complicated lifetime. We'll look at it in more detail later. 
+
+To keep it simple for now, it means that within a particular HttpRequest (in an ASP .NET Core application) the resolved instance will be the same.
+
+Let's say we have service `A` and `B`. Both are resolved by the same controller:
+
+```csharp
+public SomeController(A a, B b)
+{
+    this._a = a;
+    this._b = b;
+}
+```
+
+Now imagine `A` and `B` both rely on service `C`. 
+
+If `C` is a scoped service, and since scoped services resolve to the same instance for the same HttpRequest, both `A` and `B` will have the exact same instance of `C` injected.
+
+Hopefully that's not too confusing. 😜
+
+### Transient
+
+```csharp
+services.AddTransient<IAmAlwaysADifferentInstance, IAmAlwaysADifferentInstance>();
+```
+
+Transient services are always an entirely new instance when resolved. 
+
+Given this example:
+
+```csharp
+public SomeController(A a, A anotherA)
+{
+}
+```
+
+Variables `a` and `anotherA` would be each resolved by the service container (let's say, as transient services). They will be different instances of type `A` since they are each resolved separately as transient.
+
+_Note: Given the same example, if `A` was a scoped service then variables `a` and `anotherA` would be the same instance. The same goes if `A` was a singleton service._
+
+_However, in the next HttpRequest, if `A` was scoped then `a` and `anotherA` in the next request would be different from the instances in the first request._
+
+_If `A` was a singleton, then variables `a` and `anotherA` in **both** Http requests would reference the same single instance._
+
+## Scope Issues
+
+There are issues that arise when using differently scoped services who are trying to depend on each other.
+
+### Circular Dependencies
+
+Just don't do it.
+
+```csharp
+public class A
+{
+    public A(B b) { }
+}
+
+public class B
+{
+    public B(A a){ }
+}
+```
+
+### Singleton Using A Scoped Service
 
 # Conclusion.
 
