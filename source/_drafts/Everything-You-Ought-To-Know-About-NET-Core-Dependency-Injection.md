@@ -12,6 +12,8 @@ If you go to the [official docs for ASP.NET Core](https://docs.microsoft.com/en-
 
 Is that true - is it really **fundamental?**
 
+TLDR; Dependency injection is baked into .NET Core for a reason: it generally promotes good coding practices and offers developers tools to build maintainable, modular and testable software.
+
 # What I've Learned From Building Coravel: Part 3
 
 This is part 3 of an ongoing series. The other editions are:
@@ -62,8 +64,6 @@ This means that **you can trust your code**.
 With no tests, **you can't really trust your code**.
 
 I discuss this in more detail in another blog post about [Refactoring Legacy Monoliths](https://www.blog.jamesmichaelhickey.com/refactoring-game-plan-and-tips/) - where I discuss some refactoring techniques around this issue.
-
-TLDR; **You want to be able to trust your code. Use tests.**
 
 # What Is Dependency Injection (Revisited)
 
@@ -316,9 +316,11 @@ This makes for:
 
 Let's quickly run through some of the more proper and technical terms.
 
-## Service Container
+## Service Provider
 
-When we refer to the "DI system" we are really talking about the Service Container.
+When we refer to the "DI system" we are really talking about the Service Provider.
+
+In other frameworks or DI systems this is also called a _Service Container_.
 
 This is the object that holds the configuration for all the DI stuff.
 
@@ -336,14 +338,14 @@ When we ask for a dependency of `IEngine` we are returned an instance of `HondaE
 
 Resolving refers to the process of figuring out what dependencies are required for a particular service.
 
-Using the example above with the `CreateUser` use case, when the Service Container is asked to inject an instance of `CreateUser` we would say that the container is "resolving" that dependency.
+Using the example above with the `CreateUser` use case, when the Service Provider is asked to inject an instance of `CreateUser` we would say that the provider is "resolving" that dependency.
 
 Resolving involves figuring out the entire tree of dependencies:
 
 - `CreateUser` requires an instance of `IUserRepository`
-- The container sees that `IUserRepository` is bound to `UserRepository`
+- The provider sees that `IUserRepository` is bound to `UserRepository`
 - `UserRepository` requires an instance of `ApplicationDbContext`
-- The container see that `ApplicationDbContext` is available (and bound to the same type).
+- The provider see that `ApplicationDbContext` is available (and bound to the same type).
 
 Figuring out that tree of cascading dependencies is what we call "resolving a service."
 
@@ -409,7 +411,7 @@ public SomeController(A a, A anotherA)
 }
 ```
 
-Variables `a` and `anotherA` would be each resolved by the service container (let's say, as transient services). They will be different instances of type `A` since they are each resolved separately as transient.
+Variables `a` and `anotherA` would be each resolved by the service provider (let's say, as transient services). They will be different instances of type `A` since they are each resolved separately as transient.
 
 _Note: Given the same example, if `A` was a scoped service then variables `a` and `anotherA` would be the same instance. The same goes if `A` was a singleton service._
 
@@ -423,7 +425,7 @@ There are issues that arise when using differently scoped services who are tryin
 
 ### Circular Dependencies
 
-Just don't do it.
+Just don't do it. It doesn't make sense 😜
 
 ```csharp
 public class A
@@ -437,9 +439,172 @@ public class B
 }
 ```
 
-### Singleton Using A Scoped Service
+### Singletons + Transitive Services
 
-# Conclusion.
+A singleton, again, lives "forever". It's always the same instance. 
+
+Transitive services, on the other hand, are always a different instance when requested - or resolved.
+
+So here's an interesting question: When a singleton depends on a transitive dependency **how long does the transitive dependency live?**
+
+The answer is **forever**. More specifically, **as long as it's parent lives.**
+
+Since the singleton lives forever so will all of it's child objects that it references.
+
+This isn't necessarily **bad**. But it could introduce weird issues when you don't understand what this setup implies.
+
+#### Thread-Safety
+
+Perhaps you have a transitive service - let's call it `ListService` that (because it's transitive) isn't thread safe. 
+
+`ListService` has a list of stuff and exposes methods to `Add` and `Remove` those items.
+
+Now, you started using `ListService` inside of a singleton as a dependency.
+
+That singleton will be re-used **everywhere**. That means, **on every HTTP Request**. Which implies **on many many different threads.**
+
+Since the singleton accesses/uses `ListService`, and `ListService` isn't thread safe - big problems!
+
+### Singletons + Scoped Services
+
+Lets assume now that `ListService` is a scoped service.
+
+If you try to inject a scoped service into a singleton what will happen?
+
+**.NET Core will blow up and tell you that you can't do it!**
+
+Remember that scoped services live for as long as an HTTP request? 
+
+But, remember how I said it's actually more complicated than that?...
+
+#### How Scoped Services Really Work
+
+Under the covers .NET Core's service provider exposes a method `CreateScope`.
+
+_Note: Alternatively, you can uses `IServiceScopeFactory` (injected) and use the same method `CreateScope`. We'll look at this later_😉
+
+`CreateScope` creates a "scope" that implements the `IDisposable` interface. It would be used like this:
+
+```csharp
+using(var scope = serviceProvider.CreateScope())
+{
+    // Do stuff...
+}
+```
+
+The service provider also exposes methods for resolving services: `GetService` and `GetRequiredService`.
+
+The difference between them is that `GetService` returns null when a service isn't bound to the provider, and `GetRequiredService` will throw an exception.
+
+So, a scope might be used like this:
+
+```csharp
+using(var scope = serviceProvider.CreateScope())
+{
+    var provider = scope.ServiceProvider;
+    var resolvedService = provider.GetRequiredService(someType);
+    // Use resolvedService...
+}
+```
+
+When .NET Core begins an HTTP request under the covers it'll do something like that. It will resolve the services that your controller may need, for example, so you don't have to worry about the low-level details.
+
+In terms of injecting services into ASP controllers - scoped services are basically attached to the life of the HTTP request.
+
+But, we can create our own services (which would then be a form of the Service Locator pattern - more on that later)!
+
+#### Multiple Service Providers
+
+Notice how each scope has it's own `ServiceProvider`? What's up with that?
+
+The DI system has **multiple Service Providers.** Woah 🤯
+
+Singletons are resolved from a root service provider (which exists for the lifetime of your app). In a matter of speaking, the root provider **is not scoped**.
+
+But, anytime you create a scope - you get a **scoped** service provider! This scoped provider will still be able to resolve singleton services, but by proxy they come from the root provider.
+
+Both providers can create transitive services.
+
+Here's the rundown of what we just learned:
+
+- Singleton services are always resolvable (from root provider or by proxy)
+- Transitive service are always resolvable (from root provider or by scoped)
+- Scoped services require a scope and therefore a scoped service provider to be resolvable
+
+So what happens when we try to resolve a scoped service from the root provider (a non-scoped provider)?... Boom 🔥
+
+#### Back To Our Topic
+
+All that to say that scoped services **require a scope to exist**.
+
+Singletons are resolved by the root provider.
+
+Since the root provider has no scope (it's a "global" provider in a sense) - it just doesn't make sense to inject a scoped service into a singleton.
+
+### Scoped + Transitive Services
+
+What about a scoped service who relies on a transitive service?
+
+In practice it'll work. But, for the same reasons as using a transitive services inside a singleton, it may no behave as you expect.
+
+The transitive service that is used by the scoped service will live as long as the scoped service.
+
+Just be sure that makes sense within you use-case.
+
+## Dependency Injection For Libraries
+
+As library authors we sometimes want to provide native-like tools. For example, with [Coravel](https://github.com/jamesmh/coravel) - I wanted to make the library integrate seamlessly with the .NET Core DI system.
+
+How do we do that?
+
+### IServiceScopeFactory
+
+As mentioned in passing, .NET Core provides a utility for creating scopes. This is useful for library authors.
+
+Instead of grabbing an instance of `IServiceProvider`, library authors probably should use `IServiceScopeFactory`.
+
+Why? Well, remember how the root service provider cannot resolve scoped services? What if your library needs to do some "magic" around scoped services? Oops!
+
+[Coravel](https://github.com/jamesmh/coravel), for example, needs to resolve certain types from the service provider in certain situations (like instantiating [invocable classes](https://github.com/jamesmh/coravel/blob/master/Docs/Invocables.md)).
+
+Entity Framework Core contexts are scoped, so doing things such as performing database queries inside your library (on behalf of the user/developer) is something you may want to do.
+
+This is something that [Coravel Pro](https://www.pro.coravel.net/) does - execute queries from the user's EF Core context automatically under-the-covers.
+
+### Service Locator Pattern
+
+In general, the service locator pattern is not a good practice. This is when we ask for a specific type from the service provider manually.
+
+```csharp
+using(var scope = serviceProvider.CreateScope())
+{
+    var provider = scope.ServiceProvider;
+    var resolvedService = provider.GetRequiredService(someType);
+    // Use resolvedService...
+}
+```
+
+However, for cases like mentioned above, it is what we need to do - grab a scope, resolve services and do some "magic".
+
+This would be akin to how .NET Core prepares a DI scope and resolves services for your ASP .NET Core controllers.
+
+It's not bad because it's not "user code" but "utility code".
+
+# Conclusion
+
+We looked at some reasons behind why dependency injection is a useful tool at our disposal.
+
+It helps to promote
+
+- Code testability
+- Code reuse through composition
+- Code readability
+
+Next we look at how dependency injection in .NET Core is used, and some of the lower-level aspects of how it works.
+
+In general, we found that **problems arise when services rely on other services who have a shorter lifetime.**
+
+Finally we looked at how .NET Core provides library authors with some useful tools that can help integration with .NET Core's DI system seamless.
 
 <hr />
 
