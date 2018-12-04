@@ -525,16 +525,14 @@ Notice how each scope has it's own `ServiceProvider`? What's up with that?
 
 The DI system has **multiple Service Providers.** Woah 🤯
 
-Singletons are resolved from a root service provider (which exists for the lifetime of your app). In a matter of speaking, the root provider **is not scoped**.
+Singletons are resolved from a root service provider (which exists for the lifetime of your app). The root provider **is not scoped**.
 
-But, anytime you create a scope - you get a **scoped** service provider! This scoped provider will still be able to resolve singleton services, but by proxy they come from the root provider.
-
-Both providers can create transitive services.
+Anytime you create a scope - you get a new **scoped** service provider! This scoped provider will still be able to resolve singleton services, but by proxy they come from the root provider as all scoped providers have access to their "parent" provider.
 
 Here's the rundown of what we just learned:
 
 - Singleton services are always resolvable (from root provider or by proxy)
-- Transitive service are always resolvable
+- Transitive service are always resolvable (from root provider or by proxy)
 - Scoped services require a scope and therefore a scoped service provider that's available
 
 So what happens when we try to resolve a scoped service from the root provider (a non-scoped provider)?... Boom 🔥
