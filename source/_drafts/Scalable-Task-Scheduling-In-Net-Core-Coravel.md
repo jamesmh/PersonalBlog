@@ -24,9 +24,9 @@ Santa didn't want to re-invent the wheel - but he needed a reliable yet simple w
 
 # Coravel
 
-One day he came across [Coravel](https://github.com/jamesmh/coravel/blob/master/README.md) - which is a near-zero config open source library for .NET Core developers. 
+One day he came across [Coravel](https://github.com/jamesmh/coravel) - which is a near-zero config open source library for .NET Core developers. 
 
-Coravel focuses on helping developers get their web applications up-and-running fast - without compromising code quality. It has easy-to-use features like:
+[Coravel](https://github.com/jamesmh/coravel) focuses on helping developers get their web applications up-and-running fast - without compromising code quality. It has easy-to-use features like:
 
 - Task scheduling
 - Queuing
@@ -34,13 +34,13 @@ Coravel focuses on helping developers get their web applications up-and-running 
 - Event broadcasting
 - and more
 
-Because it's written specifically as a set of tools targeted for .NET Core, it takes advantage of native features - such as full support for the built-in dependency injection services. 
+Because it's written specifically as a set of tools targeted for .NET Core, it takes advantage of native features - such as full support for the [built-in dependency injection services](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-2.1) and the [hosted background services](https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/multi-container-microservice-net-applications/background-tasks-with-ihostedservice).
 
-For example, you can inject dependencies/services into scheduled tasks, queued tasks, event listeners, etc. with zero fuss and no extra configuration!
+For example, you can inject dependencies/services into scheduled tasks, queued tasks, event listeners, etc. with zero fuss!
 
-Santa has really enjoyed using Coravel - especially the time savings gained from not having to configure and install other dependencies for scheduling, queuing, event broadcasting, etc. individually. 
+Santa has really enjoyed using [Coravel](https://github.com/jamesmh/coravel) - especially the time savings gained from not having to configure and install other dependencies for scheduling, queuing, event broadcasting, etc. individually. 
 
-He especially loves that Coravel ties into .NET Core's DI system so seamlessly.
+He especially loves that [Coravel](https://github.com/jamesmh/coravel) ties into .NET Core's DI system so seamlessly.
 
 # Drawback
 
@@ -50,7 +50,7 @@ Doing this **inside** his ASP .NET Core application is not an option since doing
 
 # The Solution
 
-Santa decided to check out [Coravel's GitHub repo](https://github.com/jamesmh/coravel/blob/master/README.md) - just in case this has been addressed before. 
+Santa decided to check out [Coravel's GitHub repo](https://github.com/jamesmh/coravel) - just in case this has been addressed before. 
 
 It turns out that [there is a sample to address this exact concern!](https://github.com/jamesmh/coravel/blob/master/Samples/HostBuilderConsole/Program.cs) 
 
@@ -58,15 +58,17 @@ I asked Santa if I could share how he decided to implement this. He agreed, but 
 
 # Scheduling Tasks From .NET Core Console Applications
 
-One of the benefits of Coravel being a .NET Core native library is that it's **so simple to configure**. 
+One of the benefits of [Coravel](https://github.com/jamesmh/coravel) being specially for .NET Core is that it's **so simple to configure**. 
 
 Combined with one of .NET Core's coolest features, `HostBuilder`, and you can do some really powerful things in just a few lines of code.
 
-The `HostBuilder`, by the way, let's you construct a .NET Core application by adding just the specific pieces you need. Then you can "host" whatever you need (mini-API endpoints or multiple hosted services) without the full dependencies needed for a typical full web project.
+The `HostBuilder`, by the way, let's you construct a .NET Core application by adding just the specific pieces you need. Then you can "host" whatever you need (mini-API endpoints, console app running background tasks, or multiple [hosted services](https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/multi-container-microservice-net-applications/background-tasks-with-ihostedservice)) without the full dependencies needed for a typical web project.
+
+Because Coravel is not a port of a .NET Framework library, but is specially built for .NET Core, Coravel's features - such as scheduling and queuing - are implemented as a [hosted services](https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/multi-container-microservice-net-applications/background-tasks-with-ihostedservice). **This means [Coravel](https://github.com/jamesmh/coravel) is 100% compatible in non-web scenarios.**
 
 Using the sample mentioned above, let's look at a very basic implementation of using `HostBuilder` along with Coravel's scheduling:
 
-```c#
+```csharp
 class Program
 {
     static void Main(string[] args)
@@ -104,7 +106,7 @@ Every minute something will happen.
 
 Ok - that's a simple sample. Santa needs something more maintainable and he **really** needs to inject his Entity Framework Core Db context, `HttpClientFactory`, etc. into his scheduled tasks.
 
-With Coravel you can use [Invocable](https://github.com/jamesmh/coravel/blob/master/Docs/Invocables.md) classes to solve this problem.
+With [Coravel](https://github.com/jamesmh/coravel) you can use [Invocable](https://github.com/jamesmh/coravel/blob/master/Docs/Invocables.md) classes to solve this problem.
 
 > Invocables are ubiquitous classes that can be scheduled, queued, etc. with full support for .NET Core dependency injection. 
 > 
@@ -120,7 +122,7 @@ Santa has an API that he uses to fetch who is nice and naughty (it's a secret en
 
 He needs this done once every hour using the invocable classes he's created. 
 
-```c#
+```csharp
 scheduler
     .Schedule<PutNaughtyChildrenFromAPIIntoDb>()
     .Hourly();
@@ -132,11 +134,11 @@ scheduler
 
 # Problem With Scalability
 
-Coravel internally uses `Task.WhenAll` to make sure async calls within scheduled tasks are processed efficiently. 
+[Coravel](https://github.com/jamesmh/coravel) internally uses `Task.WhenAll` to make sure async calls within scheduled tasks are processed efficiently. 
 
 However, CPU intensive tasks will "hog" the thread that is currently processing due tasks. This would force other due tasks to wait until the CPU intensive processing is completed.
 
-This design makes sure that in web application scenarios Coravel won't be hogging multiple threads that could otherwise be (and should be) used to respond to HTTP requests.
+This design makes sure that in web application scenarios [Coravel](https://github.com/jamesmh/coravel) won't be hogging multiple threads that could otherwise be (and should be) used to respond to HTTP requests.
 
 But Santa is specifically using a console application so he doesn't need to worry about that! 
 
@@ -144,11 +146,11 @@ What should he do?
 
 # Schedule Workers
 
-Coravel solves this problem with [Schedule Workers](https://github.com/jamesmh/coravel/blob/master/Docs/Scheduler.md#schedule-workers).
+[Coravel](https://github.com/jamesmh/coravel) solves this problem with [Schedule Workers](https://github.com/jamesmh/coravel/blob/master/Docs/Scheduler.md#schedule-workers).
 
-By using schedule workers Santa can put each of these tasks onto their own dedicated pipeline/thread(s):
+By using schedule workers Santa can put each of these tasks onto their own dedicated pipeline/thread:
 
-```c#
+```csharp
 scheduler.OnWorker("NaughtyWorker");
 scheduler
     .Schedule<PutNaughtyChildrenFromAPIIntoDb>()
@@ -168,7 +170,7 @@ In some cases, you may want to put multiple tasks onto one worker and perhaps de
 
 For example:
 
-```c#
+```csharp
 scheduler.OnWorker("EmailTasks");
 scheduler
     .Schedule<SendNightlyReportsEmailJob>().Daily();
@@ -188,11 +190,23 @@ This setup will ensure that `RebuildStaticCachedData` is always executed in isol
 
 # Conclusion
 
-I hope you've enjoyed this article and would love to hear from you in the comments! Maybe there's a better way to do this? Maybe you prefer some other way?
+I hope you've enjoyed this article and would love to hear from you in the comments! Maybe there's a better way to do this? Maybe you simply prefer some other way?
 
 <hr />
 
-<div style="padding:20px; border-radius:6px; background-color: #efefef; margin-bottom:50px">
+## Keep In Touch
+
+Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
+
+I also have an e-mail letter where I'll give you tips, stories and curated links to **help ambitious and passionate developers become tech leaders**, along with personal updates.
+
+<div class="text-center">
+    <a href="https://tinyletter.com/jamesmh">
+        <button class="btn btn-sign-up" style="margin-top:0;margin-bottom:0">Sign-up For My Mail Letter!</button>
+    </a>
+</div>
+
+<div style="padding:0   20px; border-radius:6px; background-color: #efefef; margin-bottom:50px; margin-top:20px">
     <h1 class="margin-bottom:0"><img src="https://www.pro.coravel.net/img/logo.png" style="width:47px;margin-top:-2px;border-radius:6px;margin-right:20px" /> Coravel Pro
 </h1>
 I've been building [Coravel Pro](https://www.pro.coravel.net/) which is a backend admin panel for .NET Core.
@@ -211,18 +225,8 @@ Quickly build-out <strong>tabular reports</strong> that integrate seamlessly wit
     </div>
 </div>
 
-## You Might Enjoy
+## You Might Also Enjoy
 
-- [What Makes .NET Core So Special?](https://www.blog.jamesmichaelhickey.com/What-Makes-NET-Core-So-Special-Why-You-Should-Use-NET-Core/)
 - [What I've Learned So Far Building Coravel (Open Source .NET Core Tooling)](https://www.blog.jamesmichaelhickey.com/What-I-ve-Learned-So-Far-Building-Coravel-Open-Source-NET-Core-Tooling/)
 - [Fluent APIs Make Developers Love Using Your .NET Libraries](https://builtwithdot.net/blog/fluent-apis-make-developers-love-using-your-net-libraries)
-
-## Keep In Touch
-
-Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
-
-I also have an e-mail letter where I'll give you tips, stories and links to **help ambitious and passionate developers become tech leaders.** I'll also give you updates about stuff that I've been working on ;)
-
-[Subscribe if you haven't already!](https://tinyletter.com/jamesmh)
-
-
+- [What Makes .NET Core So Special?](https://www.blog.jamesmichaelhickey.com/What-Makes-NET-Core-So-Special-Why-You-Should-Use-NET-Core/)

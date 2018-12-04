@@ -12,7 +12,13 @@ If you go to the [official docs for ASP.NET Core](https://docs.microsoft.com/en-
 
 Is that true - is it really **fundamental?**
 
-TLDR; Dependency injection is baked into .NET Core for a reason: it generally promotes good coding practices and offers developers tools to build maintainable, modular and testable software.
+<!-- more -->
+
+# TLDR;
+
+Dependency injection is baked into .NET Core. And, it's there for a reason: it generally promotes best coding practices and offers developers tools to build maintainable, modular and testable software.
+
+It also provides library authors tools that can help make installation/configuration of their libraries very simple and straightforward.
 
 # What I've Learned From Building Coravel: Part 3
 
@@ -23,7 +29,7 @@ This is part 3 of an ongoing series. The other editions are:
 
 As you guessed, this article will go over some things I've learned about DI in .NET Core, along with my suggestions for what you should know. 😊
 
-However, to begin - I want to explore DI for those who may not be too familiar with dependency injection to begin with. We'll start with the basics and more toward some more advanced scenarios.
+To begin, I want to explore DI for those who may not be too familiar with dependency injection. We'll start with the basics and move toward some more advanced scenarios.
 
 If you already know what DI is, and how to use interfaces to mock your classes and test them, etc. then you can move onto the "What You Should Know About Using .NET Core Dependency Injection" section.
 
@@ -119,10 +125,8 @@ Cool! Let's test that:
 
 ```csharp
 // Mock code configuration would be here.
-// "mockEngine" would just have dummy methods since we just want to test how the 
-// Car class works. 
-// 
-// We can issue other tests specifically for the Engine later.
+// "mockEngine" is just a stubbed IEngine.
+
 Car ferrari = new Car(mockEngine);
 
 Assert.IsTrue(ferrari.IsFast());
@@ -140,6 +144,8 @@ Compare these two examples:
 Car ferrari = new Car(new FastEngine());
 ```
 
+and
+
 ```csharp
 Car civic = new Car(new HondaEngine());
 ```
@@ -152,7 +158,7 @@ Another benefit is that you **don't need to use class inheritance.**
 
 This is something I see abused all the time. So much so that I do my best to "never" use class inheritance.
 
-It's hard to test, it's hard to understand and it's usually leads to building an incorrect model anyways since it's so hard to change after-the-fact.
+It's hard to test, hard to understand and usually leads to building an incorrect model anyways since it's so hard to change after-the-fact.
 
 99% of the time there are better ways to build your code using patterns like this - which rely on abstractions rather than tightly coupled classes.
 
@@ -162,9 +168,7 @@ And yes - class inheritance is **the most** highly coupled relationship you can 
 
 The example above highlights why we need DI. 
 
-Perhaps in a web app that is designed for Honda we would need to use the `HondaEngine`, but for Ford we need the `FordEngine`?
-
-Dependency injection allows us to "bind" a specific class to be used globally. 
+Dependency injection allows us to "bind" a specific type to be used globally in place of, for example, a specific interface. 
 
 At runtime, we rely on the DI system to create new instances of these objects for us. All the dependencies are handled automatically.
 
@@ -314,7 +318,7 @@ This makes for:
 
 # What You Should Know About Using .NET Core Dependency Injection
 
-Let's quickly run through some of the more proper and technical terms.
+Now I want to run through some of the more proper and technical terms that you should know, along with recommended pieces of knowledge around .NET Core's DI system.
 
 ## Service Provider
 
@@ -324,7 +328,7 @@ In other frameworks or DI systems this is also called a _Service Container_.
 
 This is the object that holds the configuration for all the DI stuff.
 
-It's also what will ultimately be "asked" to create new objects for us. And therefore, it's what figures out what dependencies each service require at runtime.
+It's also what will ultimately be "asked" to create new objects for us. And therefore, it's what figures out what dependencies each service requires at runtime.
 
 ## Binding
 
@@ -411,7 +415,7 @@ public SomeController(A a, A anotherA)
 }
 ```
 
-Variables `a` and `anotherA` would be each resolved by the service provider (let's say, as transient services). They will be different instances of type `A` since they are each resolved separately as transient.
+Assuming that type `A` was configured as a transient service, variables `a` and `anotherA` would be different instances of type `A`.
 
 _Note: Given the same example, if `A` was a scoped service then variables `a` and `anotherA` would be the same instance. The same goes if `A` was a singleton service._
 
@@ -455,7 +459,7 @@ This isn't necessarily **bad**. But it could introduce weird issues when you don
 
 #### Thread-Safety
 
-Perhaps you have a transitive service - let's call it `ListService` that (because it's transitive) isn't thread safe. 
+Perhaps you have a transitive service - let's call it `ListService` that isn't thread safe. 
 
 `ListService` has a list of stuff and exposes methods to `Add` and `Remove` those items.
 
@@ -481,7 +485,7 @@ But, remember how I said it's actually more complicated than that?...
 
 Under the covers .NET Core's service provider exposes a method `CreateScope`.
 
-_Note: Alternatively, you can uses `IServiceScopeFactory` (injected) and use the same method `CreateScope`. We'll look at this later_😉
+_Note: Alternatively, you can use `IServiceScopeFactory` and use the same method `CreateScope`. We'll look at this later_ 😉
 
 `CreateScope` creates a "scope" that implements the `IDisposable` interface. It would be used like this:
 
@@ -513,6 +517,8 @@ In terms of injecting services into ASP controllers - scoped services are basica
 
 But, we can create our own services (which would then be a form of the Service Locator pattern - more on that later)!
 
+So it's not true that scoped services are **only** attached to an HTTP request. Other types of applications can create their own scopes within whatever lifespan or context they need.
+
 #### Multiple Service Providers
 
 Notice how each scope has it's own `ServiceProvider`? What's up with that?
@@ -528,8 +534,8 @@ Both providers can create transitive services.
 Here's the rundown of what we just learned:
 
 - Singleton services are always resolvable (from root provider or by proxy)
-- Transitive service are always resolvable (from root provider or by scoped)
-- Scoped services require a scope and therefore a scoped service provider to be resolvable
+- Transitive service are always resolvable
+- Scoped services require a scope and therefore a scoped service provider that's available
 
 So what happens when we try to resolve a scoped service from the root provider (a non-scoped provider)?... Boom 🔥
 
@@ -545,15 +551,15 @@ Since the root provider has no scope (it's a "global" provider in a sense) - it 
 
 What about a scoped service who relies on a transitive service?
 
-In practice it'll work. But, for the same reasons as using a transitive services inside a singleton, it may no behave as you expect.
+In practice it'll work. But, for the same reasons as using a transitive service inside a singleton, it may not behave as you expect.
 
 The transitive service that is used by the scoped service will live as long as the scoped service.
 
-Just be sure that makes sense within you use-case.
+Just be sure that makes sense within your use-case.
 
-## Dependency Injection For Libraries
+## Dependency Injection For Library Authors
 
-As library authors we sometimes want to provide native-like tools. For example, with [Coravel](https://github.com/jamesmh/coravel) - I wanted to make the library integrate seamlessly with the .NET Core DI system.
+As library authors we sometimes want to provide native-like tools. For example, with [Coravel](https://github.com/jamesmh/coravel) I wanted to make the library integrate seamlessly with the .NET Core DI system.
 
 How do we do that?
 
@@ -588,30 +594,48 @@ However, for cases like mentioned above, it is what we need to do - grab a scope
 
 This would be akin to how .NET Core prepares a DI scope and resolves services for your ASP .NET Core controllers.
 
-It's not bad because it's not "user code" but "utility code".
+It's not bad because it's not "user code" but "framework code" - if you will.
 
 # Conclusion
 
 We looked at some reasons behind why dependency injection is a useful tool at our disposal.
 
-It helps to promote
+It helps to promote:
 
 - Code testability
 - Code reuse through composition
 - Code readability
 
-Next we look at how dependency injection in .NET Core is used, and some of the lower-level aspects of how it works.
+Then we looked at how dependency injection in .NET Core is used, and some of the lower-level aspects of how it works.
 
-In general, we found that **problems arise when services rely on other services who have a shorter lifetime.**
+In general, we found **problems arise when services rely on other services who have a shorter lifetime.**
+
+- Singleton -> scoped
+- Singleton -> transitive
+- Scoped -> transitive
 
 Finally we looked at how .NET Core provides library authors with some useful tools that can help integration with .NET Core's DI system seamless.
 
+I hoped you learned something new! As always, leave some your thoughts in the comments 👌
+
 <hr />
 
-<div style="padding:20px; border-radius:6px; background-color: #efefef; margin-bottom:50px">
+## Keep In Touch
+
+Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
+
+I also have an e-mail letter where I'll give you tips, stories and curated links to **help ambitious and passionate developers become tech leaders**, along with personal updates.
+
+<div class="text-center">
+    <a href="https://tinyletter.com/jamesmh">
+        <button class="btn btn-sign-up" style="margin-top:0;margin-bottom:0">Sign-up For My Mail Letter!</button>
+    </a>
+</div>
+
+<div style="padding:0   20px; border-radius:6px; background-color: #efefef; margin-bottom:50px; margin-top:20px">
     <h1 class="margin-bottom:0"><img src="https://www.pro.coravel.net/img/logo.png" style="width:47px;margin-top:-2px;border-radius:6px;margin-right:20px" /> Coravel Pro
 </h1>
-I've been building [Coravel Pro](https://www.pro.coravel.net/) which is a suite of professional admin backend tools that help you schedule and manage your backend admin jobs.
+I've been building [Coravel Pro](https://www.pro.coravel.net/) which is a backend admin panel for .NET Core.
 
 <strong>Schedule your jobs with database persistence</strong> - so your dev schedules don't bleed into your production schedules!
 
@@ -627,16 +651,10 @@ Quickly build-out <strong>tabular reports</strong> that integrate seamlessly wit
     </div>
 </div>
 
+
 ## You Might Enjoy
 
 - [What Makes .NET Core So Special?](https://www.blog.jamesmichaelhickey.com/What-Makes-NET-Core-So-Special-Why-You-Should-Use-NET-Core/)
 - [What I've Learned So Far Building Coravel (Open Source .NET Core Tooling)](https://www.blog.jamesmichaelhickey.com/What-I-ve-Learned-So-Far-Building-Coravel-Open-Source-NET-Core-Tooling/)
 - [Fluent APIs Make Developers Love Using Your .NET Libraries](https://builtwithdot.net/blog/fluent-apis-make-developers-love-using-your-net-libraries)
 
-## Keep In Touch
-
-Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
-
-I also have an e-mail letter where I'll give you tips, stories and links to **help ambitious and passionate developers become tech leaders.** I'll also give you updates about stuff that I've been working on ;)
-
-[Subscribe if you haven't already!](https://tinyletter.com/jamesmh)
