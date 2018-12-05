@@ -1,10 +1,16 @@
 ---
-title: 'Scalable Task Scheduling In .NET Core With Coravel'
-tags: 
-    - .NET Core
-    - Task Scheduling
-    - C#
+title: Scalable Task Scheduling In .NET Core With Coravel
+tags:
+  - .NET Core
+  - Task Scheduling
+  - 'C#'
+  - Coravel
+categories:
+  - Task Scheduling
+  - .NET Core
+date: 2018-12-05 08:25:33
 ---
+
 
 This post is part of the [2018 C# Advent Calendar](https://crosscuttingconcerns.com/The-Second-Annual-C-Advent).
 
