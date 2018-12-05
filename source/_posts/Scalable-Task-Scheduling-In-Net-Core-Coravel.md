@@ -32,7 +32,7 @@ Santa didn't want to re-invent the wheel - but he needed a reliable yet simple w
 
 One day he came across [Coravel](https://github.com/jamesmh/coravel) - which is a near-zero config open source library for .NET Core developers. 
 
-[Coravel](https://github.com/jamesmh/coravel) focuses on helping developers get their web applications up-and-running fast - without compromising code quality. It makes what are usually very advanced features super easy-to-use and accessible without needing to install any extra 3rd-party infrastructure:
+[Coravel](https://github.com/jamesmh/coravel) focuses on helping developers get their web applications up-and-running fast - without compromising code quality. It makes what are usually very advanced features super easy-to-use and accessible - without needing to install any extra 3rd-party infrastructure:
 
 - Task scheduling
 - Queuing
