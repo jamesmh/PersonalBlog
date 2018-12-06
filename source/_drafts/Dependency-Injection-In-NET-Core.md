@@ -1,5 +1,5 @@
 ---
-title: Everything You Ought To Know About .NET Core Dependency Injection
+title: 'Dependency Injection In .NET Core: Everything You Ought To Know'
 tags:
     - Dependency Injection
     - .NET Core
@@ -18,7 +18,7 @@ Is that true - is it really **fundamental?**
 
 Dependency injection is baked into .NET Core. And, it's there for a reason: it generally promotes best coding practices and offers developers tools to build maintainable, modular and testable software.
 
-It also provides library authors tools that can help make installation/configuration of their libraries very simple and straightforward.
+It also provides library authors with tools that can help make installation/configuration of their libraries very simple and straightforward.
 
 # What I've Learned From Building Coravel: Part 3
 
@@ -31,7 +31,7 @@ As you guessed, this article will go over some things I've learned about DI in .
 
 To begin, I want to explore DI for those who may not be too familiar with dependency injection. We'll start with the basics and move toward some more advanced scenarios.
 
-If you already know what DI is, and how to use interfaces to mock your classes and test them, etc. then you can move onto the "What You Should Know About Using .NET Core Dependency Injection" section.
+If you already know what DI is, and how to use interfaces to mock your classes and test them, etc. then you can move onto the [Using Dependency Injection In .NET Core section](#Using-Dependency-Injection-In-NET-Core).
 
 Yes, this is going to be a long one. Get ready. 😎
 
@@ -170,7 +170,7 @@ The example above highlights why we need DI.
 
 Dependency injection allows us to "bind" a specific type to be used globally in place of, for example, a specific interface. 
 
-At runtime, we rely on the DI system to create new instances of these objects for us. All the dependencies are handled automatically.
+At runtime we rely on the DI system to create new instances of these objects for us. All the dependencies are handled automatically.
 
 In .NET Core, you might do something like this to tell the DI system what classes we want to use when asking for certain interfaces, etc.
 
@@ -395,9 +395,9 @@ public SomeController(A a, B b)
 
 Now imagine `A` and `B` both rely on service `C`. 
 
-If `C` is a scoped service, and since scoped services resolve to the same instance for the same HttpRequest, both `A` and `B` will have the exact same instance of `C` injected.
+If `C` is a scoped service, and since scoped services resolve to the same instance for the same HTTP request, both `A` and `B` will have the exact same instance of `C` injected.
 
-Hopefully that's not too confusing. 😜
+However, a different `C` will be instantiated for all other HTTP requests.
 
 ### Transient
 
@@ -417,11 +417,9 @@ public SomeController(A a, A anotherA)
 
 Assuming that type `A` was configured as a transient service, variables `a` and `anotherA` would be different instances of type `A`.
 
-_Note: Given the same example, if `A` was a scoped service then variables `a` and `anotherA` would be the same instance. The same goes if `A` was a singleton service._
+_Note: Given the same example, if `A` was a scoped service then variables `a` and `anotherA` would be the same instance. However, in the next HTTP Request, if `A` was scoped then `a` and `anotherA` in the next request would be different from the instances in the first request._
 
-_However, in the next HttpRequest, if `A` was scoped then `a` and `anotherA` in the next request would be different from the instances in the first request._
-
-_If `A` was a singleton, then variables `a` and `anotherA` in **both** Http requests would reference the same single instance._
+_If `A` was a singleton, then variables `a` and `anotherA` in **both** HTTP requests would reference the same single instance._
 
 ## Scope Issues
 
@@ -468,6 +466,8 @@ Now, you started using `ListService` inside of a singleton as a dependency.
 That singleton will be re-used **everywhere**. That means, **on every HTTP Request**. Which implies **on many many different threads.**
 
 Since the singleton accesses/uses `ListService`, and `ListService` isn't thread safe - big problems!
+
+Be careful.
 
 ### Singletons + Scoped Services
 
@@ -535,7 +535,9 @@ Here's the rundown of what we just learned:
 - Transitive service are always resolvable (from root provider or by proxy)
 - Scoped services require a scope and therefore a scoped service provider that's available
 
-So what happens when we try to resolve a scoped service from the root provider (a non-scoped provider)?... Boom 🔥
+**So what happens when we try to resolve a scoped service from the root provider (a non-scoped provider)?...** 
+
+Boom 🔥
 
 #### Back To Our Topic
 
@@ -574,6 +576,10 @@ Why? Well, remember how the root service provider cannot resolve scoped services
 Entity Framework Core contexts are scoped, so doing things such as performing database queries inside your library (on behalf of the user/developer) is something you may want to do.
 
 This is something that [Coravel Pro](https://www.pro.coravel.net/) does - execute queries from the user's EF Core context automatically under-the-covers.
+
+As a side note, issues around capturing services in a closure to be used in a background `Task` and/or resolving services from a background `Task` also facilitate the need for resolving services manually (which [Coravel](https://github.com/jamesmh/coravel) needs to do).
+
+[David Fowler has written briefly about this here if interested.](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AspNetCoreGuidance.md#do-not-capture-services-injected-into-the-controllers-on-background-threads)
 
 ### Service Locator Pattern
 
