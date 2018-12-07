@@ -16,7 +16,7 @@ Is that true - is it really **fundamental?**
 
 <!-- more -->
 
-_Mote: This post is part of the [2018 C# Advent Calendar](https://crosscuttingconcerns.com/The-Second-Annual-C-Advent)._
+_Note: This post is part of the [2018 C# Advent Calendar](https://crosscuttingconcerns.com/The-Second-Annual-C-Advent)._
 
 # TLDR;
 
