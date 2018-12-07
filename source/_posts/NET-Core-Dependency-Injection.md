@@ -1,10 +1,12 @@
 ---
-title: 'Dependency Injection In .NET Core: Everything You Ought To Know'
+title: '.NET Core Dependency Injection: Everything You Ought To Know'
 tags:
-    - Dependency Injection
-    - .NET Core
-    - .NET Core Dependency Injection
+  - Dependency Injection
+  - .NET Core
+  - .NET Core Dependency Injection
+date: 2018-12-06 23:57:02
 ---
+
 
 Is it necessary to understand what dependency injection is to use .NET Core? Should you know how to use it?
 
@@ -13,6 +15,8 @@ If you go to the [official docs for ASP.NET Core](https://docs.microsoft.com/en-
 Is that true - is it really **fundamental?**
 
 <!-- more -->
+
+_Mote: This post is part of the [2018 C# Advent Calendar](https://crosscuttingconcerns.com/The-Second-Annual-C-Advent)._
 
 # TLDR;
 
@@ -355,7 +359,7 @@ Figuring out that tree of cascading dependencies is what we call "resolving a se
 
 ## Scopes
 
-Generally termed scopes, or otherwise called service lifetimes, this refers to whether a service is shortly lived or long living.
+Generally termed scopes, or otherwise called service lifetimes, this refers to whether a service is short or long living.
 
 For example, a singleton (as the pattern is defined) is a service that will always resolve to the same instance every time.
 
@@ -457,7 +461,7 @@ This isn't necessarily **bad**. But it could introduce weird issues when you don
 
 #### Thread-Safety
 
-Perhaps you have a transitive service - let's call it `ListService` that isn't thread safe. 
+Perhaps you have a transitive service - let's call it `ListService` that isn't thread-safe. 
 
 `ListService` has a list of stuff and exposes methods to `Add` and `Remove` those items.
 
@@ -465,13 +469,13 @@ Now, you started using `ListService` inside of a singleton as a dependency.
 
 That singleton will be re-used **everywhere**. That means, **on every HTTP Request**. Which implies **on many many different threads.**
 
-Since the singleton accesses/uses `ListService`, and `ListService` isn't thread safe - big problems!
+Since the singleton accesses/uses `ListService`, and `ListService` isn't thread-safe - big problems!
 
 Be careful.
 
 ### Singletons + Scoped Services
 
-Lets assume now that `ListService` is a scoped service.
+Let's assume now that `ListService` is a scoped service.
 
 If you try to inject a scoped service into a singleton what will happen?
 
