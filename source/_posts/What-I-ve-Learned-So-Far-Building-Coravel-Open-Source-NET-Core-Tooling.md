@@ -151,6 +151,7 @@ I'd like to write another post soon that highlights the technical things I've le
 # Other Parts In This Series
 
 - [Part 2: Fluent APIs Make Developers Love Using Your .NET Libraries](https://builtwithdot.net/blog/fluent-apis-make-developers-love-using-your-net-libraries)
+- [Part 3: .NET Core Dependency Injection: Everything You Ought To Know](https://www.blog.jamesmichaelhickey.com/NET-Core-Dependency-Injection/)
 
 <hr />
 
