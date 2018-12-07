@@ -29,7 +29,7 @@ It also provides library authors with tools that can help make installation/conf
 This is part 3 of an ongoing series. The other editions are:
 
 - [Part 1: What I've Learned So Far Building Coravel (Open Source .NET Core Tooling)](https://www.blog.jamesmichaelhickey.com/What-I-ve-Learned-So-Far-Building-Coravel-Open-Source-NET-Core-Tooling/)
-- [Part 2: Fluent APIs Make Developers Love Using Your .NET Libraries](https://builtwithdot.net/blog/fluent-apis-make-developers-love-using-your-net-libraries)(Guest post on builtwithdot.net)
+- [Part 2: Fluent APIs Make Developers Love Using Your .NET Libraries](https://builtwithdot.net/blog/fluent-apis-make-developers-love-using-your-net-libraries) (Guest post on builtwithdot.net)
 
 As you guessed, this article will go over some things I've learned about DI in .NET Core, along with my suggestions for what you should know. 😊
 
