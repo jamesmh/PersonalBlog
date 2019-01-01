@@ -53,9 +53,9 @@ In 2017 and into 2018 I decided to focus on my blog and getting useful content o
 
 I also overhauled my professional resume using some research I had done on that topic. This lead to getting a job offer to work remotely with a start-up doing some work in the medical industry. 
 
-This would have been more strain on my family in terms of hours worked and all that comes with start-ups though...
+Sounds great - but it would have been more strain on my family in terms of hours worked and all that comes with start-ups though...
 
-Long story short, the offer was "matched" by the company I was already working for (a great place to work) - including the ability to work remotely! They understood my need to work remotely (for a few reasons) and were willing to "accommodate".
+Long story short, the offer was pretty much matched by the company I was already working for (a great place to work). I decided this was a better deal since I enjoyed working for this company. We had some candid chats and they understood that my decision to look for work elsewhere was based on a need to work remotely - and they were willing to accommodate.
 
 So, immediately my family and I moved back to our "home" and it's been awesome!
 
