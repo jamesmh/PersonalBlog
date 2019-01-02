@@ -12,7 +12,7 @@ Taking note of your past year's achievements is very helpful in motivating yours
 
 Stuff like that.
 
-I want to go over some of my past year and let you know what changes I made this year that **really** helped me out personally and as a professional software developer.
+I want to go over some of this past year and let you know what changes I made that **really** helped me out personally and professionally.
 
 <!-- more -->
 
@@ -43,7 +43,7 @@ A quick overview of some achievements that I consider impactful to my career and
 
 # A Goal That Took Years To Realize
 
-When I stared my career as a software developer I had to move my family away from where we lived - our "home" - since there's just no tech jobs here.
+When I started my career as a software developer I had to move my family away from where we lived - our "home" - since there's just no tech jobs here.
 
 So for years I've been trying to work my way into a remote position. After **years** of trying this is the year I've finally succeeded!
 
@@ -63,7 +63,7 @@ Here are some tips I learned which helped me land a remote job offer, that might
 
 - Get your blog onto popular newsletters and sites if at all possible. Then highlight this at the top of your resume. In other words, name-dropping 😎
 - Check out [Cultivated Culture](https://cultivatedculture.com/) as a great overall guide
-- Work your butt-off learning everything you can about the specific area of specialization your find yourself in. It's not easy - it takes alot of work
+- Work your butt-off learning everything you can about the specific area of specialization your find yourself in. It's not easy - it takes a lot of work
 
 # Why Can't .NET Be As Easy As Laravel?
 
@@ -84,11 +84,11 @@ Other stats that blow my mind (all within the first 6 months of the project):
 - It was also featured on Microsoft's [official ASP.NET site](https://www.asp.net/community/spotlight)
 - Downloaded over 4000 times on NuGet
 
-In addition to Coravel, I've started my first ever paid product - [Coravel Pro](https://www.pro.coravel.net/). I knew I had to skills to do _something_ like this, but actually _doing it_ was alot of work. 😓
+In addition to Coravel, I've started my first ever paid product - [Coravel Pro](https://www.pro.coravel.net/). I knew I had to skills to do _something_ like this, but actually _doing it_ was a lot of work. 😓
 
 But - I did it! With some help and encouragement from some good friends, of course.
 
-## Some Take-aways
+## Some Takeaways
 
 What are some tips I can give others on this front?
 
@@ -102,9 +102,9 @@ That's really it. Everything else you can learn on a need-to-know basis (managin
 
 Get on Twitter. Follow some blogs. Start commenting. Encourage the authors.
 
-Follow "the guys/gals" that you look up-to in the community. 
+Follow "the guys/gals" that you look up to in the community. 
 
-Did you know that those people you look up-to are people? People you can actually interact with?
+Did you know that those people you look up to are people? People you can actually interact with?
 
 I've made some good friends in the past year by simply getting involved in the community.
 
@@ -126,7 +126,7 @@ But I've got 8 kids. And a wife. I work full-time. I also contract part-time on 
 
 Part of caring for my family, however, is to pour time into my career and profession.
 
-On that note, I don't have any solid "goals" per say.
+On that note, I don't have any solid "goals" per se.
 
 There are a few areas I want to focus on for now:
 
@@ -142,7 +142,7 @@ I think that will 100% put me in a more focused place. Maybe I'll blog about my 
 
 # All Done!
 
-Thanks for reading! Let me know in the comments what your plans are for the upcoming year! I'd love to hear what everyone is up-to.
+Thanks for reading! Let me know in the comments what your plans are for the upcoming year! I'd love to hear what everyone is up to!
 
 <hr />
 
