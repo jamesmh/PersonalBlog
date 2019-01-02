@@ -31,6 +31,9 @@ A quick overview of some achievements that I consider impactful to my career and
 - Gained over 200 [Twitter](https://twitter.com/jamesmh_dev) followers in my first year on the platform
 - Gained over 100 followers on my [YouTube channel](https://www.youtube.com/channel/UCRafEj0oNnAxrHhDwe73QCQ)
 
+**Speaking**
+- My first time [speaking at a user group in May 2018](https://monctonug.net/2018/05/15/clean-architecture-what-why-how/) (about Clean Architecture)
+
 **Personal/Professional**
 - Started working remotely
 - Moved my family back to Nova Scotia, Canada (the place we want to be!)
