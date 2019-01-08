@@ -9,7 +9,7 @@ favicon: /james.png
 who:
   title: About Me
   desc1: I'm a Microsoft certified .NET developer who's lead successful projects for one of the <strong>largest insurance companies in Canada</strong> and a platform serving <strong>Mercedes Benz</strong>, <strong>Subaru</strong>, <strong>Mitsubishi</strong> and others.
-  desc2: My work has been featured on the <a href="www.asp.net">official ASP.NET website</a>, <a href="https://blogs.msdn.microsoft.com/dotnet/"><strong>Microsoft’s .NET engineering team’s blog</strong></a>, <a href="https://builtwithdot.net/"><strong>BuiltWithDot.Net</strong></a>, and <a href="https://csharpdigest.net/"><strong>C# Digest</strong></a> and many other places. I'm also the author of a popular .NET Core library <a href="https://github.com/jamesmh/coravel">Coravel</a>.
+  desc2: My work has been featured on the <a href="www.asp.net"><strong>official ASP.NET website</strong></a>, <a href="https://blogs.msdn.microsoft.com/dotnet/"><strong>Microsoft’s .NET engineering team’s blog</strong></a>, <a href="https://builtwithdot.net/"><strong>BuiltWithDot.Net</strong></a>, and <a href="https://csharpdigest.net/"><strong>C# Digest</strong></a> and many other places. I'm also the author of a popular .NET Core library <a href="https://github.com/jamesmh/coravel"><strong>Coravel</strong></a>.
   desc3: I love helping ambitious and passionate developers become tech leaders!
   signUpRef: https://tinyletter.com/jamesmh
   letterDesc1: <b>Not sure what next level of your development career looks like? Not sure how to get there?</b>
