@@ -304,25 +304,6 @@ Doing this using Reflection can offer some conveniences and perhaps more flexibi
 
 <hr />
 
-<div style="padding:20px; border-radius:6px; background-color: #efefef; margin-bottom:50px">
-    <h1 class="margin-bottom:0"><img src="https://www.pro.coravel.net/img/logo.png" style="width:47px;margin-top:-2px;border-radius:6px;margin-right:20px" /> Coravel Pro
-</h1>
-I've been building [Coravel Pro](https://www.pro.coravel.net/) which is a backend admin panel for .NET Core.
-
-<strong>Schedule your jobs with database persistence</strong> - so your dev schedules don't bleed into your production schedules!
-
-<strong>Execute backend jobs</strong> by literally clicking one button!
-
-Easily configure a <strong>metrics dashboard!</strong>
-
-Quickly build-out <strong>tabular reports</strong> that integrate seamlessly with your Entity Framework Core data!
-    <div class="text-center">
-        <a href="https://www.pro.coravel.net/">
-            <button class="btn btn-sign-up" style="margin-top:0;margin-bottom:0">Take A Look At Coravel Pro!</button>
-        </a>
-    </div>
-</div>
-
 # Keep In Touch
 
 Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!

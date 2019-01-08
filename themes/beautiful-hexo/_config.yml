@@ -6,22 +6,15 @@ navbar-links:
 avatar: /james.png
 favicon: /james.png
 
-ad:
-  title: Tired Of Ugly Admin Panels That Don't Even Work Well With .NET Core?
-  text: I've built a suite of professional visual admin tools for .NET Core web apps. You can schedule and maintain jobs, customize beautiful dashboard metrics, configure professional quality tabular reports of your data and more!
-  signUpRef: https://www.pro.coravel.net
-  signUp: See Coravel Pro!
-  logo: https://www.pro.coravel.net/img/logo.png
-
 who:
-  title: Who am I?
-  desc1: I'm a <strong>Microsoft certified</strong> senior developer who's lead successful projects for companies including one of the <strong>largest insurance companies in Canada</strong>. I've also worked on projects that processed financial data for automotive manufacturers like <strong>Mercedes Benz</strong>, <strong>Subaru</strong>, <strong>Mitsubishi</strong>, and more.
-  desc2: My writings have been featured on well-known blogs/publications such as <a href="https://blogs.msdn.microsoft.com/dotnet/"><strong>Microsoft’s .NET engineering team’s blog</strong></a>, <a href="https://builtwithdot.net/"><strong>BuiltWithDot.Net</strong></a>, and <A href="https://csharpdigest.net/"><strong>C# Digest</strong></a>.
-  desc3: My goal is to <strong>help ambitious and passionate software developers - like you - become tech leaders!<strong>
+  title: About Me
+  desc1: I'm a Microsoft certified .NET developer who's lead successful projects for one of the <strong>largest insurance companies in Canada</strong> and a platform serving <strong>Mercedes Benz</strong>, <strong>Subaru</strong>, <strong>Mitsubishi</strong>.
+  desc2: My writings have been featured on publications such as <a href="https://blogs.msdn.microsoft.com/dotnet/"><strong>Microsoft’s .NET engineering team’s blog</strong></a>, <a href="https://builtwithdot.net/"><strong>BuiltWithDot.Net</strong></a>, and <A href="https://csharpdigest.net/"><strong>C# Digest</strong></a>.
+  desc3: I love helping ambitious and passionate developers become tech leaders!
   signUpRef: https://tinyletter.com/jamesmh
-  signUp: Subscribe to my mail letter!
-  letterDesc1: Struggling to get to the <b>next level</b> of your development career?
-  letterDesc2: Have questions but don't have any <b>experienced mentors</b> around?
+  letterDesc1: <b>Struggling to get to the next level of your development career?</b>
+  letterDesc2: <b>Wondering what it takes to become a leader in the dev. community?</b>
+  signUp: Subscribe to my e-mail letter!
 
 
 header:
