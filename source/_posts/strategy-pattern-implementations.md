@@ -35,7 +35,7 @@ Understanding design patterns is a vital skill to possess as a software develope
 - Writing code that is potentially difficult to reason about
 - Building software components and pieces that are potentially difficult to extend
 
-The strategy pattern is a way of approaching problems where you have different paths of logic that are available and based on some condition(s) you need to choose one of those paths. In other words, you have too many `if` or `switch` cases and need a cleaner more extensible alternative. :)
+The strategy pattern is a way of approaching problems where you have different paths of logic that are available and based on some condition(s) you need to choose one of those paths. In other words, you have too many `if` or `switch` cases and need a cleaner more extensible alternative. 😉
 
 # The Flow Of The Strategy Pattern
 
@@ -311,3 +311,9 @@ Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or
 I also have an e-mail letter where I'll give you tips, stories and links to **help ambitious and passionate developers become tech leaders.** I'll also give you updates about stuff that I've been working on ;)
 
 [Subscribe if you haven't already!](https://tinyletter.com/jamesmh)
+
+## You Might Also Enjoy
+
+- [What I've Learned So Far Building Coravel (Open Source .NET Core Tooling)](https://www.blog.jamesmichaelhickey.com/What-I-ve-Learned-So-Far-Building-Coravel-Open-Source-NET-Core-Tooling/)
+- [Fluent APIs Make Developers Love Using Your .NET Libraries (Guest post on BuiltWithDot.Net)](https://builtwithdot.net/blog/fluent-apis-make-developers-love-using-your-net-libraries)
+- [What Makes .NET Core So Special?](https://www.blog.jamesmichaelhickey.com/What-Makes-NET-Core-So-Special-Why-You-Should-Use-NET-Core/)

@@ -212,25 +212,6 @@ I also have an e-mail letter where I'll give you tips, stories and curated links
     </a>
 </div>
 
-<div style="padding:0   20px; border-radius:6px; background-color: #efefef; margin-bottom:50px; margin-top:20px">
-    <h1 class="margin-bottom:0"><img src="https://www.pro.coravel.net/img/logo.png" style="width:47px;margin-top:-2px;border-radius:6px;margin-right:20px" /> Coravel Pro
-</h1>
-I've been building [Coravel Pro](https://www.pro.coravel.net/) which is a backend admin panel for .NET Core.
-
-<strong>Schedule your jobs with database persistence</strong> - so your dev schedules don't bleed into your production schedules!
-
-<strong>Execute backend jobs</strong> by literally clicking one button!
-
-Easily configure a <strong>metrics dashboard!</strong>
-
-Quickly build-out <strong>tabular reports</strong> that integrate seamlessly with your Entity Framework Core data!
-    <div class="text-center">
-        <a href="https://www.pro.coravel.net/">
-            <button class="btn btn-sign-up" style="margin-top:0;margin-bottom:0">Take A Look At Coravel Pro!</button>
-        </a>
-    </div>
-</div>
-
 ## You Might Also Enjoy
 
 - [What I've Learned So Far Building Coravel (Open Source .NET Core Tooling)](https://www.blog.jamesmichaelhickey.com/What-I-ve-Learned-So-Far-Building-Coravel-Open-Source-NET-Core-Tooling/)
