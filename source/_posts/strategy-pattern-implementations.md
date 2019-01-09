@@ -143,7 +143,7 @@ The dictionary definition may be too verbose for some. In which case, we could w
 
 The next step is to clean up the list of methods and generalize them. What if we had another class somewhere else in our system that needed to be available to our choices of algorithms? Not to say this is a good design practice or not, but stuff happens in the real world.
 
-Using an interface to abstract the implementation away is what we'll do here. This is the usually considered the "proper" implementation of the strategy pattern.
+Using an interface to abstract the implementation away is what we'll do here. This is usually considered the "classic" implementation of the strategy pattern.
 
 **First**, we create a new interface to abstract our math operations:
 
