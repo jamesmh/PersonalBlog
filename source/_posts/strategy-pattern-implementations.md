@@ -316,4 +316,4 @@ I also have an e-mail letter where I'll give you tips, stories and links to **he
 
 - [What I've Learned So Far Building Coravel (Open Source .NET Core Tooling)](https://www.blog.jamesmichaelhickey.com/What-I-ve-Learned-So-Far-Building-Coravel-Open-Source-NET-Core-Tooling/)
 - [Fluent APIs Make Developers Love Using Your .NET Libraries (Guest post on BuiltWithDot.Net)](https://builtwithdot.net/blog/fluent-apis-make-developers-love-using-your-net-libraries)
-- [What Makes .NET Core So Special?](https://www.blog.jamesmichaelhickey.com/What-Makes-NET-Core-So-Special-Why-You-Should-Use-NET-Core/)
+- [.NET Core Dependency Injection: Everything You Ought To Know](https://www.blog.jamesmichaelhickey.com/NET-Core-Dependency-Injection/)
