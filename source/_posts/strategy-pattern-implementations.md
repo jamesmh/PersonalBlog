@@ -280,8 +280,6 @@ private static T Instantiate<T>(string className)
 }
 ```
 
-We could simplify this and filter all the Assembly Type by the class name alone. We would just need to be more aware of naming conflicts within the entire project under all namespaces.
-
 ## When To Use?
 
 - You want a reusable factory function that you can use everywhere
