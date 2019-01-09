@@ -294,7 +294,7 @@ Cons
 
 # Conclusion
 
-**TL;DR** The strategy pattern is helpful in eliminating a growing number of `if` and `switch` cases. By using interfaces or, in simpler cases, plain functions (i.e. static methods), we can introduce a more flexible, maintainable and predictable way of dealing with choosing specific algorithms or paths of logic.
+The strategy pattern is helpful in eliminating a growing number of `if` and `switch` cases. By using interfaces or, in simpler cases, plain functions (i.e. static methods), we can introduce a more flexible, maintainable and predictable way of dealing with choosing specific algorithms or paths of logic.
 
 My preference is to use a Dictionary to map keys of possible incoming values ("input") to the corresponding interfaces or methods to be selected and executed.
 
