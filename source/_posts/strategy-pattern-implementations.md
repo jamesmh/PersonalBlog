@@ -105,7 +105,7 @@ This implementation is:
 
 But with more algorithms - let's say - dozens more, the file and/or class that holds all these methods and logic will become bloated very fast. And that switch statement starts to become a monster...
 
-##### When To Use?
+## When To Use?
 
 This implementation is:
 
@@ -130,7 +130,7 @@ int result = selectedStrategy(numOne, NumTwo);
 
 By using a Dictionary, instead of explicitly invoking the method we want, we store a lookup of a `key` and `value` - the `value` being a reference to the method we want to Invoke for that `key`.
 
-##### When To Use?
+## When To Use?
 
 This way forces you to create other methods to handle each case, instead of inlining more logic in the current scope. You might want to use this implementation if:
 
@@ -182,7 +182,7 @@ int result = selectedStrategy.Operation(numOne, numTwo);
 
 Now we are able to separate each algorithm into its own class/file. This allows us to look at our file system and get a better overview of what our system can do. And, it's breaking up our code more which leads to having less visual noise per file.
 
-##### When To Use?
+## When To Use?
 
 As this is the most common pattern implementation, you might use this version because:
 
@@ -208,7 +208,7 @@ Dictionary<string, Func<IMathOperator>> strategies = new Dictionary<string, Func
 IMathOperator selectedStrategy = strategies[userChoice](); // Invoke the Func to instantiate new object
 ```
 
-##### When To Use?
+## When To Use?
 
 You are using the Dictionary technique and...
 
@@ -243,7 +243,7 @@ Factory method:
 
 If we know the namespace of where our concrete implementations are, then we can dynamically instantiate the one we want based on the user's input, or a database result, etc.
 
-##### When To Use?
+## When To Use?
 
 - You have many concrete types
 - You want to generalize the factory logic to be more concise
@@ -282,7 +282,7 @@ private static T Instantiate<T>(string className)
 
 We could simplify this and filter all the Assembly Type by the class name alone. We would just need to be more aware of naming conflicts within the entire project under all namespaces.
 
-##### When To Use?
+## When To Use?
 
 - You want a reusable factory function that you can use everywhere
 - You have a large number of concrete strategies available
@@ -292,7 +292,7 @@ Cons
 
 - Potential for runtime errors
 - Potential for naming conflicts between classes (i.e. two classes names "MathAdd" in different namespaces might cause runtime errors if you aren't careful with what types they implement)
-- Not obvious how this piece may work to your project's newcomers
+- Not obvious how this piece may work to your project's newcomers or even intermediate developers
 
 # Conclusion
 
