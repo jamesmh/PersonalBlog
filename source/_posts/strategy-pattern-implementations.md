@@ -137,7 +137,7 @@ This way forces you to create other methods to handle each case, instead of inli
 - You have some `if` or `switch` statements that you want to be less verbose
 - You have a "handful" of algorithms available to choose
 
-The dictionary definition may be too verbose for some. In which case, we could wrap each method (Add, Subtract, etc.) in an `Action` (i.e. lamda) like `() => Add(numOne, numTwo)`. We will look at using lamdas later though...
+The dictionary definition may be too verbose for some. Let's keep reading...
 
 # Using Interfaces
 
