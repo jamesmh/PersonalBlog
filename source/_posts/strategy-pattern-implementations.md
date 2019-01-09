@@ -103,7 +103,7 @@ This implementation is:
 - Easy
 - Simple
 
-But with more algorithms - let's say - dozens more, the file and/or class that hold all these methods and logic will become bloated very fast. And that switch statement starts to become a monster...
+But with more algorithms - let's say - dozens more, the file and/or class that holds all these methods and logic will become bloated very fast. And that switch statement starts to become a monster...
 
 ##### When To Use?
 
