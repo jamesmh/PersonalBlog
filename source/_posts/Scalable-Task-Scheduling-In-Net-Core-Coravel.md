@@ -204,12 +204,21 @@ I hope you've enjoyed this article and would love to hear from you in the commen
 
 Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
 
-I also have an e-mail letter where I'll give you tips, stories and curated links to **help ambitious and passionate developers become tech leaders**, along with personal updates.
+<div style="padding:0   20px; border-radius:6px; background-color: #efefef; margin-bottom:50px; margin-top:20px">
+    <h1 class="margin-bottom:0"> Navigating Your Software Development Career
+</h1>
+An e-mail newsletter where I'll answer subscriber questions and offer advice around topics like:
+
+✔ What are the general stages of a software developer?
+✔ How do I know which stage I'm at? How do I get to the next stage?
+✔ What is a tech leader and how do I become one?
+
 
 <div class="text-center">
-    <a href="https://tinyletter.com/jamesmh">
-        <button class="btn btn-sign-up" style="margin-top:0;margin-bottom:0">Sign-up For My Mail Letter!</button>
+    <a href="http://eepurl.com/gdIV5X">
+        <button class="btn btn-sign-up" style="margin-top:0;margin-bottom:0">Join The Community!</button>
     </a>
+</div>
 </div>
 
 ## You Might Also Enjoy

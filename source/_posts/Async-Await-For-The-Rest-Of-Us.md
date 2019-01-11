@@ -212,31 +212,23 @@ There's so much more to be said and so many more concepts surrounding `async/awa
 
 **Let me know what you think - or if I've missed something etc. Thanks!**
 
-<hr />
-
-<div style="padding:20px; border-radius:6px; background-color: #efefef; margin-bottom:50px">
-    <h1 class="margin-bottom:0"><img src="https://www.pro.coravel.net/img/logo.png" style="width:47px;margin-top:-2px;border-radius:6px;margin-right:20px" /> Coravel Pro
-</h1>
-I've been building [Coravel Pro](https://www.pro.coravel.net/) which is a backend admin panel for .NET Core.
-
-<strong>Schedule your jobs with database persistence</strong> - so your dev schedules don't bleed into your production schedules!
-
-<strong>Execute backend jobs</strong> by literally clicking one button!
-
-Easily configure a <strong>metrics dashboard!</strong>
-
-Quickly build-out <strong>tabular reports</strong> that integrate seamlessly with your Entity Framework Core data!
-    <div class="text-center">
-        <a href="https://www.pro.coravel.net/">
-            <button class="btn btn-sign-up" style="margin-top:0;margin-bottom:0">Take A Look At Coravel Pro!</button>
-        </a>
-    </div>
-</div>
-
 # Keep In Touch
 
 Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
 
-I also have an e-mail letter where I'll give you tips, stories and links to **help ambitious and passionate developers become tech leaders.** I'll also give you updates about stuff that I've been working on ;)
+<div style="padding:0   20px; border-radius:6px; background-color: #efefef; margin-bottom:50px; margin-top:20px">
+    <h1 class="margin-bottom:0"> Navigating Your Software Development Career
+</h1>
+An e-mail newsletter where I'll answer subscriber questions and offer advice around topics like:
 
-[Subscribe if you haven't already!](https://tinyletter.com/jamesmh)
+✔ What are the general stages of a software developer?
+✔ How do I know which stage I'm at? How do I get to the next stage?
+✔ What is a tech leader and how do I become one?
+
+
+<div class="text-center">
+    <a href="http://eepurl.com/gdIV5X">
+        <button class="btn btn-sign-up" style="margin-top:0;margin-bottom:0">Join The Community!</button>
+    </a>
+</div>
+</div>

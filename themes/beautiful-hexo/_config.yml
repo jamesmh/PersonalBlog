@@ -9,12 +9,18 @@ favicon: /james.png
 who:
   title: About Me
   desc1: I'm a Microsoft certified .NET developer who's lead successful projects for one of the <strong>largest insurance companies in Canada</strong> and a platform serving <strong>Mercedes Benz</strong>, <strong>Subaru</strong>, <strong>Mitsubishi</strong> and others.
-  desc2: My work has been featured on the <a href="https://www.asp.net/"><strong>official ASP.NET website</strong></a>, <a href="https://blogs.msdn.microsoft.com/dotnet/"><strong>Microsoft’s .NET engineering team’s blog</strong></a>, <a href="https://builtwithdot.net/"><strong>BuiltWithDot.Net</strong></a>, and <a href="https://csharpdigest.net/"><strong>C# Digest</strong></a> and many other places. I'm also the author of a popular .NET Core library <a href="https://github.com/jamesmh/coravel"><strong>Coravel</strong></a>.
-  desc3: I love helping ambitious and passionate developers become tech leaders!
-  signUpRef: https://tinyletter.com/jamesmh
-  letterDesc1: <b>Not sure what the next level of your development career looks like? Not sure how to get there?</b>
-  letterDesc2: <b>Wondering what it takes to become a community leader?</b>
-  signUp: Subscribe to my e-mail letter!
+  desc2: My work has been featured on the <a href="https://www.asp.net/"><strong>official ASP.NET website</strong></a>, <a href="https://blogs.msdn.microsoft.com/dotnet/"><strong>Microsoft’s .NET engineering team’s blog</strong></a>, <a href="https://builtwithdot.net/"><strong>BuiltWithDot.Net</strong></a>, and <a href="https://csharpdigest.net/"><strong>C# Digest</strong></a> and many other places.
+  desc3: I'm also the author of a popular .NET Core library <a href="https://github.com/jamesmh/coravel"><strong>Coravel</strong></a>.
+
+newsletter:
+  title: Navigating Your Software Development Career
+  desc1: When I started my career as a developer I soon found that no one around me was going to cause me to grow. <br /> <strong>I had to take ownership of my career and growth.</strong>
+  desc2: <i>Navigating Your Software Development Career</i> is an e-mail newsletter where I'll answer subscriber questions and offer advice around topics like...
+  letterDesc1: <b>What are the general stages of a software developer?</b>
+  letterDesc2: <b>How do I know which stage I'm at? How do I get to the next stage?</b>
+  letterDesc3: <b>What is a tech leader and how do I become one?</b>
+  signUp: Join the community!
+  signUpRef: http://eepurl.com/gdIV5X
 
 
 header:

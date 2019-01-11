@@ -131,21 +131,30 @@ To recap, NDepend, ReSharper, and Stackify's Prefix are all fantastic tools that
 
 Visual Studio code analysis tools offer an area of great potential. Roslyn analyzers, in particular, are an area where I see future potential integration into charts, dashboarding, etc. within Visual Studio to be a useful addition.
 
-P.s. Here are some other posts you may enjoy:
+# Keep In Touch
+
+Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
+
+<div style="padding:0   20px; border-radius:6px; background-color: #efefef; margin-bottom:50px; margin-top:20px">
+    <h1 class="margin-bottom:0"> Navigating Your Software Development Career
+</h1>
+An e-mail newsletter where I'll answer subscriber questions and offer advice around topics like:
+
+✔ What are the general stages of a software developer?
+✔ How do I know which stage I'm at? How do I get to the next stage?
+✔ What is a tech leader and how do I become one?
+
+
+<div class="text-center">
+    <a href="http://eepurl.com/gdIV5X">
+        <button class="btn btn-sign-up" style="margin-top:0;margin-bottom:0">Join The Community!</button>
+    </a>
+</div>
+</div>
+
+# Here are some other posts you may enjoy:
 
 - [How I Made LINQ 6X Faster Using A Functional Optimization!](https://www.blog.jamesmichaelhickey.com/linq-6x-faster-using-functional-optimization/)
 - [Refactoring Legacy Monoliths Part 3: Refactoring Game Plan And Tips](https://www.blog.jamesmichaelhickey.com/refactoring-game-plan-and-tips/)
 - [Refactoring Legacy Monoliths - Part 2: Cost-Benefit Analysis Of Refactoring](https://www.blog.jamesmichaelhickey.com/refactoring-legacy-monoliths-part-2-convincing-management/)
 - [Deck The Halls With Strategy Pattern Implementations In C#: Basic To Advanced](https://www.blog.jamesmichaelhickey.com/strategy-pattern-implementations/)
-
-# Keep In Touch
-
-Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
-
-I also have an e-mail letter where I'll give you tips, stories and links to **help ambitious and passionate developers become tech leaders.** I'll also give you updates about stuff that I've been working on ;)
-
-[Subscribe if you haven't already!](https://tinyletter.com/jamesmh)
-
-# P.S.
-
-I've been building a tool for indie .NET Core developers needing to get their next groundbreaking app or side-project to market faster - without compromising code quality and elegance. [It's called Coravel!](https://github.com/jamesmh/coravel). Check it out and let me know what you think ;)

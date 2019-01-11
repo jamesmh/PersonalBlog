@@ -104,16 +104,25 @@ Thanks for reading!
 
 Want to see an example of how to use functional programming to improve your C# code?
 
-[Functional Programming With C#: A Simple Use Case](https://www.blog.jamesmichaelhickey.com/csharp-functional-programming-a-simple-use-case/)
+- [Functional Programming With C#: A Simple Use Case](https://www.blog.jamesmichaelhickey.com/csharp-functional-programming-a-simple-use-case/)
 
 # Keep In Touch
 
 Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
 
-I also have an e-mail letter where I'll give you tips, stories and links to **help ambitious and passionate developers become tech leaders.** I'll also give you updates about stuff that I've been working on ;)
+<div style="padding:0   20px; border-radius:6px; background-color: #efefef; margin-bottom:50px; margin-top:20px">
+    <h1 class="margin-bottom:0"> Navigating Your Software Development Career
+</h1>
+An e-mail newsletter where I'll answer subscriber questions and offer advice around topics like:
 
-[Subscribe if you haven't already!](https://tinyletter.com/jamesmh)
+✔ What are the general stages of a software developer?
+✔ How do I know which stage I'm at? How do I get to the next stage?
+✔ What is a tech leader and how do I become one?
 
-# P.S.
 
-I've been building a tool for indie .NET Core developers needing to get their next groundbreaking app or side-project to market faster - without compromising code quality and elegance. [It's called Coravel!](https://github.com/jamesmh/coravel). Check it out and let me know what you think ;)
+<div class="text-center">
+    <a href="http://eepurl.com/gdIV5X">
+        <button class="btn btn-sign-up" style="margin-top:0;margin-bottom:0">Join The Community!</button>
+    </a>
+</div>
+</div>
