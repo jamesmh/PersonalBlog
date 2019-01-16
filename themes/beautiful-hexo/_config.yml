@@ -2,6 +2,7 @@ navbar-links:
   Github: https://github.com/jamesmh
   Twitter: https://twitter.com/jamesmh_dev
   LinkedIn: https://www.linkedin.com/in/jamesmhickey/
+  YouTube: https://www.youtube.com/channel/UCRafEj0oNnAxrHhDwe73QCQ
 
 avatar: /james.png
 favicon: /james.png
@@ -82,6 +83,11 @@ footer:
     title: StackOverflow
     icon: fa-stack-overflow
     enable: false
+  youtube:
+    link: https://www.youtube.com/channel/UCRafEj0oNnAxrHhDwe73QCQ
+    title: YouTube
+    icon: fa-youtube
+    enable: true
 
 google_analytics: UA-71164109-2
 
