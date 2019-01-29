@@ -47,7 +47,7 @@ I had the idea one day _"I wish .NET development could be as easy as using Larav
 
 So, I created a solution to that problem! That was why [Coravel](https://github.com/jamesmh/coravel) was born.
 
-If you turn something like this into a GitHub rep then you can showcase things like:
+If you turn something like this into a GitHub repo then you can showcase things like:
 
 - Understanding how to solve a real-life problem by building software
 - Ability to write very clear documentation
