@@ -12,7 +12,7 @@ We'll look at a question I received from someone who is struggling with the fact
 
 <!-- more -->
 
-<div style="padding:40px; border-radius:6px; background-color: #efefef; margin-bottom:50px; margin-top:50px">This is based on an excerpt from my email newsletter __Navigating Your Software Development Career__. If you would like to get up-to-date articles similar to this then you can [join the community here](eepurl.com/gdIV5X)!
+<div style="padding:40px; border-radius:6px; background-color: #efefef; margin-bottom:50px; margin-top:50px">This is based on an excerpt from my email newsletter __Navigating Your Software Development Career__. If you would like to get up-to-date articles similar to this then you can [join the community here](https://eepurl.com/gdIV5X)!
 </div>
 
 Here's the question I was given:
