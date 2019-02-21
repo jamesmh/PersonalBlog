@@ -13,7 +13,13 @@ categories:
 date: 2018-03-25 02:26:21
 ---
 
-I really did make LINQ 6X faster! Even though the title is "click-bait-ish"... This was a little experiment to see if I could speed up LINQ queries by using the functional `pipe` technique. By "piping" LINQ queries, we can avoid the inherent issue with LINQ whereby each query will issue **a whole iteration over the collection**. This optimization allows us to issue the equivalent of **one iteration** and pass each element through the entire method chain.
+_Note: This seems like a failed experiment / moot post 😂 . As some commenters have noted, the benchmarks are not performed properly. Any LINQ queries performanced are lazy evalutated and not actually fully executed in the tests._
+
+_I had done this technique using stopwatch and on a different version of .NET Core way before writing this article and seemed to have come to the same conclusion as the article. I may or may not re-visit it someday. But for now, consider this a learning experience you may or may not want to read 😋. Hey - we all make mistakes!_
+
+<hr />
+
+This was a little experiment to see if I could speed up LINQ queries by using the functional `pipe` technique. By "piping" LINQ queries, we can avoid the inherent issue with LINQ whereby each query will issue **a whole iteration over the collection**. This optimization allows us to issue the equivalent of **one iteration** and pass each element through the entire method chain.
 
 <!--more-->
 
@@ -169,21 +175,11 @@ Again, it looks like the first benchmkark should be faster. But it's not:
 
 # Conclusion
 
-So, there you have it! At run-time, c# optimizes single valued collections so you can pipe them through a chain of functions - each expecting and returning a collection. This seems to be done at a lower level - probably in the `Enumerator` class for the collections. This claim needs more digging in the source code for dotnetcore...
+Well, after this article was made it was pointed out that the benchmarks were actually not evaluating the LINQ queries - which explains 100% why this "optimization" works.
 
-The performance gain of doing this is significant if chaining multiple methods/operations.
+So my conclusions, now, are that you should triple check your benchmarks and ensure that you evaluate and LINQ queries in them! 😂
 
-What does this mean practically?
-
-- Never **assume** that code is "more performant" than other code because [insert reason here].
-
-- You could create functors in c# very easily without worrying about performance hits due to the nature of iterating over collections.
-
-- If using `Select`, `Where`, `Intersect` and `Except` queries in LINQ, you can use this method to make LINQ even faster.
-
-- Creating your own `pipe` method can avoid the overhead of issuing an iteration per operation by passing in each element through the entire chain once.
-
-Did you enjoy this? Let me know what you think! Have any weird ideas for future benchmarks?
+I'll try to learn from my mistakes here! If you've read this far then use my example as a caution when benchmarking!
 
 # More Links
 
