@@ -13,9 +13,9 @@ categories:
 date: 2018-03-25 02:26:21
 ---
 
-_Note: This seems like a failed experiment / moot post 😂 . As some commenters have noted, the benchmarks are not performed properly. Any LINQ queries performanced are lazy evalutated and not actually fully executed in the tests._
+_Note: This seems like a failed experiment / moot post 😂 . As some commenters have noted, the benchmarks are not performed properly. Any LINQ queries performed are not truly evalutated in the tests._
 
-_I had done this technique using stopwatch and on a different version of .NET Core way before writing this article and seemed to have come to the same conclusion as the article. I may or may not re-visit it someday. But for now, consider this a learning experience you may or may not want to read 😋. Hey - we all make mistakes!_
+_Cnsider this a learning experience you may or may not want to read 😋. Hey - we all make mistakes!_
 
 <hr />
 
