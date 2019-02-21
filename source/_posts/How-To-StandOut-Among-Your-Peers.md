@@ -103,7 +103,7 @@ If you can't find anything _yet_, then just pick something! You need to stick ou
 
 You can always move into other areas of specialization later if you find something else too! 
 
-[Dan Abramov](https://twitter.com/dan_abramov) used to be a .NET developer - now he's known as the top react.js developer (the rewards of being the creator of react.js 😋)!
+[Dan Abramov](https://twitter.com/dan_abramov) used to be a .NET developer - now he's known as one of the top react.js developers!
 
 # Keep In Touch
 
