@@ -15,13 +15,17 @@ who:
 
 newsletter:
   title: Navigating Your Software Development Career
-  desc1: When I started my career as a developer I soon found that no one around me was going to cause me to grow. <br /><br /> <strong>I had to take ownership of my career and growth.</strong>
-  desc2: <i>Navigating Your Software Development Career</i> is an e-mail newsletter where I'll answer subscriber questions and offer advice around topics like...
+  desc: "<i>Navigating Your Software Development Career</i> is an e-mail newsletter that helps you grow effectively and get that next career breakthrough. I answer questions like:"
   letterDesc1: <b>What are the general stages of a software developer?</b>
   letterDesc2: <b>How do I know which stage I'm at? How do I get to the next stage?</b>
   letterDesc3: <b>What is a tech leader and how do I become one?</b>
   signUp: Join the community!
   signUpRef: http://eepurl.com/gdIV5X
+
+topLinks:
+  title: (Other Places I Write)
+  one: <a href="https://www.dev.to">Dev.to</a>
+  two: <a href="https://builtwithdot.net/">BuiltWithDot.Net</a>
 
 
 header:
