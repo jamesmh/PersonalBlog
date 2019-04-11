@@ -61,6 +61,8 @@ Examples might include determining if:
 
 What I like to do in these cases is use what I've been calling "Gate Classes." They're like guard clauses, but they are classes... Go figure.
 
+Think of these as a series of gates which each request in the system has to go through (just like middleware). If any of them fail, the gate is closed and the request cannot proceed any further.
+
 Let me show you what I mean.
 
 # Checking If We Can Approve An Insurance Claim
@@ -150,6 +152,8 @@ public class ApproveInsuranceClaimCommand : IUseCase
 ```
 
 Notice that there's no more need for the `IUserRepository` since it will be handled by the `CanUserApproveInsuranceClaimGate` gate class (and DI).
+
+_Note: Why didn't I make an interface for each gate class? Just for simplicity. But yes, by using interfaces instead of a concrete class you may mock them much easier for testing._
 
 # Creating A Gate Class
 
