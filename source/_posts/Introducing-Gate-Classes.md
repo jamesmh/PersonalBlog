@@ -56,7 +56,7 @@ public static void IsNullGuardClause(this object me, string message)
 }
 ```
 
-An finally, we can use this guard clause anywhere we need:
+Finally, we can use this guard clause anywhere we need:
 
 ```csharp
 order?.Items.IsNullGuardClause("Order is null");
