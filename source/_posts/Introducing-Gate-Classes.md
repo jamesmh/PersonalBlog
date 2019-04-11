@@ -47,7 +47,7 @@ Notice that right-off-the-bat we will try to make the method fail? That's what I
 Next, we might create a reusable method out of this:
 
 ```csharp
-public static IsNullGuardClause(this object me, string message)
+public static void IsNullGuardClause(this object me, string message)
 {
     if(me == null)
     {
