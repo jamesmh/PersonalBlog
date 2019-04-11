@@ -44,6 +44,26 @@ this.PlaceOrder(order);
 
 Notice that right-off-the-bat we will try to make the method fail? That's what I mean by "failing fast".
 
+Next, we might create a reusable method out of this:
+
+```csharp
+public static IsNullGuardClause(this object me, string message)
+{
+    if(me == null)
+    {
+        throw new ArgumentNullException(message);
+    }
+}
+```
+
+An finally, we can use this guard clause anywhere we need:
+
+```csharp
+order?.Items.IsNullGuardClause("Order is null");
+this.PlaceOrder(order);
+
+```
+
 This will keep our code much cleaner, avoid any nested conditions, and be _way_ easier to reason about!
 
 # What If You Have Dependency Baggage?
@@ -187,7 +207,7 @@ public class CanInsuranceClaimBeApprovedGate
 
 Each gate class will either succeed or fail. 
 
-On failure, it will throw an exception that will be caught up the stack. In web applications, there is usually some global exception handler or middleware than can convert these into specific HTTP error responses, etc.
+On failure, it will throw an exception that will be caught up the stack. In web applications, there is usually some global exception handler or middleware that can convert these into specific HTTP error responses, etc.
 
 If we do need to use this logic in other places, as mentioned above, then we don't need to re-import all the dependencies required for this logic. We can just simply use the gate class as-is and allow the DI mechanism to plug in all the dependencies for us.
 
