@@ -226,7 +226,7 @@ An e-mail newsletter where I'll answer subscriber questions and offer advice aro
 
 ## You Might Also Enjoy
 
-- [Where Do I Put My Business Rules And Validation?](https://builtwithdot.net/blog/where-do-i-put-my-business-rules-and-validation)(Guest post on [builtwithdot.net](https://builtwithdot.net))
+- [Where Do I Put My Business Rules And Validation?](https://builtwithdot.net/blog/where-do-i-put-my-business-rules-and-validation) (Guest post on [builtwithdot.net](https://builtwithdot.net))
 - [.NET Core Dependency Injection: Everything You Ought To Know](https://www.blog.jamesmichaelhickey.com/NET-Core-Dependency-Injection/)
 - [Keeping Your ADO Sql Connections Safe](https://www.blog.jamesmichaelhickey.com/keeping-ado-sql-connections-safe/)
 
