@@ -193,15 +193,15 @@ If we do need to use this logic in other places, as mentioned above, then we don
 
 # Some Caveats
 
-It's worth mentioning, that in some cases your use cases **and** your gate classes may need to call the same repository method. You don't want to be fetching that data twice (once in your gate class and once in your use case).
+It's worth mentioning, that in some cases your use cases and your gate classes _may need to call the same repository method_. You don't want to be fetching that data twice (once in your gate class and once in your use case).
 
 In this event, there are ways to fix it.
 
 One is to build a **cached repository using the Decorator pattern**. 
 
-Only the first attempt to fetch from the repository will actually fetch data. You might rig this up as a scoped dependency (in .NET Core) so the cached data will only be cached for the lifetime of the HTTP request.
+You might rig this up as a scoped dependency (in .NET Core) so the cached data will only be cached for the lifetime of the HTTP request. Or you might just set a timeout on the cache.
 
-Another way is to simply **allow the use case to inject the raw data into the gate class as a dependency**.
+Another way is to **allow the use case to inject the raw data into the gate class as a dependency**.
 
 In any event, this pattern is very helpful in making your code much easier to test, use and maintain!
 
