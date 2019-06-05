@@ -1,42 +1,14 @@
 extends partial/base
 
-//- block header
-//-     include partial/index-header
-
 block content
     div(class="container", role="main")
-        if page.current === 1
-            //- h2.text-center(style='margin-bottom:40px;margin-top:160px;')!=theme.who.title       
-            //- .row
-            //-     .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
-            //-         .who-am-I                                     
-            //-             p!=theme.who.desc1
-            //-             p!=theme.who.desc2
-            //-             p!=theme.who.desc3
-            
-            h2.text-center(style='margin-bottom:40px;margin-top:160px;')!=theme.newsletter.title       
+        if page.current === 1            
+            h2.text-center(style='margin-bottom:40px;margin-top:160px;')!='Welcome To Seeing Sharply!'      
             .row
-                .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+                .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1.text-center
                     .who-am-I                                     
-                        p!=theme.newsletter.desc
-                        .row
-                            .col-xs-10.col-xs-offset-1
-                                ul
-                                    li!=theme.newsletter.letterDesc1
-                                    li!=theme.newsletter.letterDesc2
-                                    li!=theme.newsletter.letterDesc3
-                        div.text-center
-                            a(href!=theme.newsletter.signUpRef)
-                                button.btn.btn-sign-up!=theme.newsletter.signUp
-
-        div(class="container")
-            h2.text-center(style='margin-top:80px;')!=theme.topLinks.title
-            .row
-                .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1.text-center                    
-                    h4!=theme.topLinks.one
-                    h4!=theme.topLinks.two
-
-        hr
+                        p!='This is my technical blog which features articles about software design, tips, patterns, etc.'
+                        p!='I also write, speak, and build other things. Check out my <a href="https://www.jamesmichaelhickey.com">official site for more info!</a>'
         
         h1.text-center(style='margin-top:80px; text-decoration: underline')='Blog Posts'
         .row

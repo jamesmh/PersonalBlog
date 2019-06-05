@@ -10,6 +10,8 @@ Design patterns are necessary (in my opinion) for you to start gaining an advanc
 
 These patterns also give developers a common language to speak about certain code structures.
 
+<!-- more -->
+
 _E.g. If you are facing a certain problem, and I say "Try the strategy pattern..." then I don't have to spend an hour explaining what you should do._
 
 You can go look it up or, if you already know the pattern, go implement it!
