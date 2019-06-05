@@ -615,6 +615,7 @@ figure.highlight>table .gutter {
   padding: 30px;
   border-radius: 10px;
   background-color: #e1f0fb;
+  font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
 .who-am-I ul li {
