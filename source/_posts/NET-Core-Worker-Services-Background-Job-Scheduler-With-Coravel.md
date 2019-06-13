@@ -10,7 +10,7 @@ date: 2019-06-12 16:06:23
 
 The .NET Core CLI comes with tons of pre-built project templates! One of the new templates that will be included with [.NET Core 3](https://docs.microsoft.com/en-us/dotnet/core/whats-new/dotnet-core-3-0) will be for building worker services.
 
-Combining .NET Core worker services with [Coravel](https://github.com/jamesmh/coravel) can help you build lightweight background job scheduling applications very quick. Let's take a look how you can do this in just a few minutes!
+Combining .NET Core worker services with [Coravel](https://github.com/jamesmh/coravel) can help you build lightweight background job scheduling applications very quickly. Let's take a look at how you can do this in just a few minutes!
 
 <!--more-->
 
@@ -83,11 +83,11 @@ Since Coravel is a native .NET Core set of tools, it _just works™_ with zero f
 
 # Adding An Invocable
 
-One of Coravel's fundamental concepts are [Invocables](https://docs.coravel.net/Invocables/).
+One of Coravel's fundamental concepts is [Invocables](https://docs.coravel.net/Invocables/).
 
 Each invocable represents a self-contained job within your system that Coravel leverages to make your code much easier to write, compose and maintain.
 
-Next then, create a class that implements `Coravel.Invocable.IInvocable`:
+Next, then, create a class that implements `Coravel.Invocable.IInvocable`:
 
 ```csharp
 public class MyFirstInvocable : IInvocable
