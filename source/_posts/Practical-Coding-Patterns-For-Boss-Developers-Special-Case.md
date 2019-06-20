@@ -18,7 +18,7 @@ You can go look it up or, if you already know the pattern, go implement it!
 
 # Not Your Typical Design Patterns
 
-Everyone is talking about the typical design patterns found in the gang of four book [Design Patterns](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/ref=sr_1_1?keywords=design+patterns&link_code=qs&qid=1557247400&s=gateway&sr=8-1):
+Everyone is talking about the typical design patterns found in the gang of four book [Design Patterns](https://amzn.to/2WP2P8w):
 
 - Strategy
 - Builder
@@ -28,7 +28,7 @@ Everyone is talking about the typical design patterns found in the gang of four 
 
 But, there are **way more** software design patterns not found in this book which I've found super helpful.
 
-Some of them I've learned from [Martin Fowler](https://www.martinfowler.com), others from [Domain Driven Design](https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215/ref=sr_1_1?keywords=domain+driven+design&link_code=qs&qid=1557247688&s=gateway&sr=8-1), and other sources.
+Some of them I've learned from [Martin Fowler](https://www.martinfowler.com), others from [Domain Driven Design](https://amzn.to/2ZBH1yO), and other sources.
 
 I figured I'd start to catalogue some of these by sharing them!
 
@@ -282,6 +282,7 @@ As far as the consumers of the `Order` class(es) go - they have no idea what's g
 
 # Resources
 
+- [Patterns of Enterprise Application Architecture](https://amzn.to/2MZYQGr)
 - [Special case pattern by Martin Fowler](https://www.martinfowler.com/eaaCatalog/specialCase.html)
 - [Null object design pattern](https://sourcemaking.com/design_patterns/null_object)
 
