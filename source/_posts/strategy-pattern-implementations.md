@@ -307,6 +307,13 @@ Doing this using Reflection can offer some conveniences and perhaps more flexibi
 
 <hr />
 
+## You Might Also Enjoy
+
+- [What I've Learned So Far Building Coravel (Open Source .NET Core Tooling)](https://www.blog.jamesmichaelhickey.com/What-I-ve-Learned-So-Far-Building-Coravel-Open-Source-NET-Core-Tooling/)
+- [Fluent APIs Make Developers Love Using Your .NET Libraries (Guest post on BuiltWithDot.Net)](https://builtwithdot.net/blog/fluent-apis-make-developers-love-using-your-net-libraries)
+- [.NET Core Dependency Injection: Everything You Ought To Know](https://www.blog.jamesmichaelhickey.com/NET-Core-Dependency-Injection/)
+
+
 # Keep In Touch
 
 Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
@@ -327,9 +334,3 @@ An e-mail newsletter where I'll answer subscriber questions and offer advice aro
     </a>
 </div>
 </div>
-
-## You Might Also Enjoy
-
-- [What I've Learned So Far Building Coravel (Open Source .NET Core Tooling)](https://www.blog.jamesmichaelhickey.com/What-I-ve-Learned-So-Far-Building-Coravel-Open-Source-NET-Core-Tooling/)
-- [Fluent APIs Make Developers Love Using Your .NET Libraries (Guest post on BuiltWithDot.Net)](https://builtwithdot.net/blog/fluent-apis-make-developers-love-using-your-net-libraries)
-- [.NET Core Dependency Injection: Everything You Ought To Know](https://www.blog.jamesmichaelhickey.com/NET-Core-Dependency-Injection/)
