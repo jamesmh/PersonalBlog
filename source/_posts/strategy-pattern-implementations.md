@@ -37,6 +37,11 @@ Understanding design patterns is a vital skill to possess as a software develope
 
 The strategy pattern is a way of approaching problems where you have different paths of logic that are available and based on some condition(s) you need to choose one of those paths. In other words, you have too many `if` or `switch` cases and need a cleaner more extensible alternative. 😉
 
+For more about design patterns:
+
+- [The original "Design Patterns" book](https://amzn.to/2WP2P8w)
+- [A more approachable book - "Head First Design Patterns: A Brain-Friendly Guide"](https://amzn.to/2N2qkLI)
+
 # The Flow Of The Strategy Pattern
 
 The strategy pattern follows a basic flow:
