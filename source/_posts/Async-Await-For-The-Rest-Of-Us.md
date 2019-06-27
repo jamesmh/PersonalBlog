@@ -14,13 +14,13 @@ categories:
 date: 2018-08-28 02:26:21
 ---
 
-What's the deal with `async` and `await` in C#? Why should a .Net developer in 2018 **need** to know what it is and how to use it?
+What's the deal with `async` and `await` in C#? Why should a .NET developer in 2019 **need** to know what it is and how to use it?
 
 <!--more-->
 
-Perhaps you've used `async/await` but find yourself having to go back and figure it out again? It's OK - I'm admittedly not an `async/await` guru either.
+Perhaps you've used `async/await` but find yourself having to go back and figure it out again?
 
-I've had to figure out the hard way that, for example, using `ConfigureAwait(false).GetResult()` (as many might suggest) doesn't magically make your async method "work" synchronously.
+I've had to figure out the hard way that, for example, using `ConfigureAwait(false).GetResult()` doesn't magically make your async method "work" synchronously.
 
 But this isn't an in-depth look at the internals of `async/await` and how to get fancy with `async/await`.
 
@@ -45,17 +45,15 @@ What's the benefit of using `async/await`?
 
 ## For Web Developers
 
-If you build web apps using .Net technologies - the answer is simple: **Scalability**.
+If you build web apps using .NET technologies - the answer is simple: **Scalability**.
 
-When you make IO calls - database queries, file reading, reading from HTTP requests, etc. - the thread that is handling the current HTTP request is **just waiting**.
+When you make I/O calls - database queries, file reading, reading from HTTP requests, etc. - the thread that is handling the current HTTP request is **just waiting**.
 
 That's it. **It's just waiting for a result to come back from the operating system.**
 
 Performing a database query, for example, ultimately asks the operating system to connect to the database, send a message and get a message in return. But that is the OS making these requests - **not your app.**
 
-**IO takes time.** Time where the waiting thread (in your app) could be used to do other stuff - especially **handling other HTTP requests**.
-
-> Using `async/await` allows your .Net web apps to be able to handle **more HTTP requests while waiting for IO to complete.**
+> Using `async/await` allows your .NET web apps to be able to handle **more HTTP requests while waiting for IO to complete.**
 
 ## For Desktop/App Developers
 
@@ -67,7 +65,7 @@ Well, desktop apps **do** handle user input (keyboard, mouse, etc.), animations,
 
 If we consider that HTTP requests in a web app are _just user input_, and desktop (or app) keyboard and mouse events are _just user input_ - then it's actually worse for desktop/app developers! They only get **one thread** to handle user input!
 
-The IO issues and fixes still apply.
+The I/O issues and fixes still apply.
 
 However, the issue of CPU intensive tasks is another concern. In a nutshell, these types of tasks should not be done on the UI thread.
 
@@ -102,16 +100,16 @@ The `await` keyword is where the magic happens. It basically says (to the reader
 
 > I (the thread) will make sure if something asynchronous happens under here, that I'll go do something else (like handle HTTP requests). Some thread in the future will come back here once the asynchronous stuff is done.
 
-Generally, the most common usage of `await` is when you are doing IO - like getting results from a database query or getting contents from a file.
+Generally, the most common usage of `await` is when you are doing I/O - like getting results from a database query or getting contents from a file.
 
-When you `await` a method that does IO, it's **not your app** that does the IO - it's ultimately the operating system. So your thread is just sitting there...waiting...
+When you `await` a method that does I/O, it's **not your app** that does the I/O - it's ultimately the operating system. So your thread is just sitting there...waiting...
 
-`await` will tell the current thread to just go away and do something useful. Let the operating system and the .Net framework get another thread later - whenever it needs one.
+`await` will tell the current thread to just go away and do something useful. Let the operating system and the .NET framework get another thread later - whenever it needs one.
 
 Consider this as a visual guide:
 
 ```c#
-var result1 = await SomeAsyncIO1(); // OS is doing IO while thread will go do something else.
+var result1 = await SomeAsyncIO1(); // OS is doing I/O while thread will go do something else.
 // A thread gets the results.
 
 var result2 = await SomeAsyncIO2(result1); // Thread goes to do something else.
@@ -137,7 +135,7 @@ For the purpose of this article, we'll assume that an "asynchronous method" is a
 
 ### When Does This Happen?
 
-When will we ever need to return a `Task` from a method? It's usually when doing IO. Most IO libraries or built-in .Net APIs will have an "Async" version of a method.
+When will we ever need to return a `Task` from a method? It's usually when doing I/O. Most I/O libraries or built-in .NET APIs will have an "Async" version of a method.
 
 For example, the `SqlConnection` class has an `Open` method that will begin the connection. But, it also has an `OpenAsync` method. It also has an `ExecuteNonQueryAsync` method.
 
@@ -193,9 +191,9 @@ To summarize briefly:
 
 - If a method returns a `Task` or `Task<T>` then it can be used by the `await` keyword to manage the asynchronous details of our code.
 
-- Doing IO always results in blocking threads. This means your web apps can't process as many HTTP requests in parallel and freezing and laggy apps.
+- Doing I/O always results in blocking threads. This means your web apps can't process as many HTTP requests in parallel and freezing and laggy apps.
 
-- Using `async/await` helps us create code that will allow our threads to stop blocking and do useful work while performing IO.
+- Using `async/await` helps us create code that will allow our threads to stop blocking and do useful work while performing I/O.
 
 - This leads to web apps that can handle more requests per second and apps that are more responsive for their users.
 
@@ -204,13 +202,11 @@ I hope this is an understandable introduction to `async/await`. It's not an easy
 There's so much more to be said and so many more concepts surrounding `async/await`. Some include:
 
 - What is a `SynchronizationContext`? When should I be aware of this?
-- What about .Net Core vs .Net Framework - is there a difference I should be aware of?
+- What about .NET Core vs .NET Framework - is there a difference I should be aware of?
 - Why can I mark a method as `async void`? What does this do? Should I do this?
 - How do I offload CPU intensive work to a background thread/task?
 - Is it possible to do work on a background thread and return to the UI thread at the very end?
 - How do I call a method marked with the `async` keyword from synchronous code? What happens when I do this?
-
-**Let me know what you think - or if I've missed something etc. Thanks!**
 
 # Keep In Touch
 

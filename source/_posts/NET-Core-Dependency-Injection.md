@@ -7,29 +7,19 @@ tags:
 date: 2018-12-06 23:57:02
 ---
 
-
-Is it necessary to understand what dependency injection is to use .NET Core? Should you know how to use it?
-
-If you go to the [official docs for ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-2.1) you'll find that this topic is under the "fundamentals" area.
+If you go to the [official docs for ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-2.1) you'll find that Dependency Injection is under the "fundamentals" area.
 
 Is that true - is it really **fundamental?**
 
 <!-- more -->
 
-_Note: This post is part of the [2018 C# Advent Calendar](https://crosscuttingconcerns.com/The-Second-Annual-C-Advent)._
-
 # TLDR;
 
-Dependency injection is baked into .NET Core. And, it's there for a reason: it generally promotes best coding practices and offers developers tools to build maintainable, modular and testable software.
+Dependency injection is baked into .NET Core. And, it's there for a reason: it promotes building classes having loose coupling and gives developers tools to build maintainable, modular and testable software.
 
 It also provides library authors with tools that can help make installation/configuration of their libraries very simple and straightforward.
 
-# What I've Learned From Building Coravel: Part 3
-
-This is part 3 of an ongoing series. The other editions are:
-
-- [Part 1: What I've Learned So Far Building Coravel (Open Source .NET Core Tooling)](https://www.blog.jamesmichaelhickey.com/What-I-ve-Learned-So-Far-Building-Coravel-Open-Source-NET-Core-Tooling/)
-- [Part 2: Fluent APIs Make Developers Love Using Your .NET Libraries](https://builtwithdot.net/blog/fluent-apis-make-developers-love-using-your-net-libraries) (Guest post on builtwithdot.net)
+# Intro
 
 As you guessed, this article will go over some things I've learned about DI in .NET Core, along with my suggestions for what you should know. 😊
 

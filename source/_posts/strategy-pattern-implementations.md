@@ -20,9 +20,7 @@ categories:
 date: 2017-12-09 04:10:43
 ---
 
-Let's look at some different ways you could implement the strategy pattern in C#. First, I'd like to briefly mention why we care about design patterns and where the strategy pattern fits in.
-
-_Note: [This is day #9 of the First C# Advent Calendar](https://crosscuttingconcerns.com/The-First-C-Advent-Calendar) @ [https://crosscuttingconcerns.com](https://crosscuttingconcerns.com)_
+Let's look at some different ways you could implement the strategy pattern in C#. First, I'd like to briefly mention why we care about design patterns and where the strategy pattern fits in. _(Skip ahead if you want 😉)_
 
 <!--more-->
 
@@ -39,8 +37,9 @@ The strategy pattern is a way of approaching problems where you have different p
 
 For more about design patterns:
 
-- [The original "Design Patterns" book](https://amzn.to/2WP2P8w)
-- [A more approachable book - "Head First Design Patterns: A Brain-Friendly Guide"](https://amzn.to/2N2qkLI)
+- [The original "Design Patterns" book on Amazon](https://amzn.to/2WP2P8w)
+- [A more approachable book - "Head First Design Patterns: A Brain-Friendly Guide" on Amazon](https://amzn.to/2N2qkLI)
+- [An article I wrote about the Special Case Pattern](https://www.blog.jamesmichaelhickey.com/Practical-Coding-Patterns-For-Boss-Developers-Special-Case/)
 
 # The Flow Of The Strategy Pattern
 

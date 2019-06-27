@@ -18,7 +18,7 @@ You can go look it up or, if you already know the pattern, go implement it!
 
 # Not Your Typical Design Patterns
 
-Everyone is talking about the typical design patterns found in the gang of four book [Design Patterns](https://amzn.to/2WP2P8w):
+Everyone is talking about the design patterns found in the famous gang of four book [Design Patterns](https://amzn.to/2WP2P8w):
 
 - Strategy
 - Builder
