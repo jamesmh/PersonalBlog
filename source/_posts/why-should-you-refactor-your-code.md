@@ -141,8 +141,7 @@ Quality matters. And the fact is, many developers are **not** writing quality so
 
 This post was an excerpt from [Refactoring TypeScript](https://leanpub.com/refactoringtypescript) which is designed as an approachable and practical tool to help developers get better at building quality software. 
 
-[
-![Refactoring TypeScript book](/img/refactoringts.png)
+[![Refactoring TypeScript book](/img/refactoringts.png)
 ](https://leanpub.com/refactoringtypescript)
 
 ## Keep In Touch
