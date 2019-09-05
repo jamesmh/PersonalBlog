@@ -186,31 +186,14 @@ In those cases, you can use something like this version of the Null Object Patte
 
 ```typescript
 class EmptyArray<T> {
-    static create() {
+    static create<T>() {
         return new Array<T>()
     }
 }
 
 // Use it like this:
-const myEmptyArray: string[] = EmptyArray<string>.create();
+const myEmptyArray: string[] = EmptyArray.create<string>();
 ```
-
-----
-## Side-Note: Singleton
-
-Sometimes, depending on the context, this is done using a [singleton](https://sourcemaking.com/design_patterns/singleton):
-
-```typescript
-
-class EmptyArray<T> {
-    private static _instance = new Array<T>();
-
-    static create() {
-        return EmptyArray<T>._instance;
-    }
-}
-```
-----
 
 ## What About Objects?
 
