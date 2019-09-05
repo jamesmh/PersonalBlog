@@ -169,4 +169,4 @@ An e-mail newsletter where I'll answer subscriber questions and offer advice aro
 
 - [Do You Struggle Naming Your Classes Well?](https://www.blog.jamesmichaelhickey.com/Do-You-Struggle-Naming-Your-Classes-Well/)
 - [Refactoring Legacy Monoliths - Part 1: First Steps](https://www.blog.jamesmichaelhickey.com/refactoring-legacy-monoliths-first-steps/)
-- [Where Do I Put My Business Rules And Validation?](https://builtwithdot.net/blog/where-do-i-put-my-business-rules-and-validation)
+- [Unhealthy Code: Primitive Overuse](https://www.blog.jamesmichaelhickey.com/Unhealthy-Code-Primitive-Overuse/)

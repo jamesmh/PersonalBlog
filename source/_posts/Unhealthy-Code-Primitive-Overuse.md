@@ -1,7 +1,7 @@
 ---
 title: 'Unhealthy Code: Primitive Overuse'
 date: 2019-08-30 10:02:36
-tags:
+tags: refactoring, code quality, clean code
 ---
 
 One of the classic "code smells" is called Primitive Overuse.
