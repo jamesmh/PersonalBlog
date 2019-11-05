@@ -90,7 +90,7 @@ In some cases, the proposed insured had to undergo a physical medical examinatio
 
 If the application passed, then then the insurance policy would be created (`PolicyCreated`). Otherwise, a failure just meant there was no policy created and everyone could be on their merry way.
 
-Upon the first payment of the policy (`FirstPolicyPaymentRecieved`), the policy would "activate." If a policy was not activated within the first 30 days (or some arbitrary duration), it would be immediately cancelled.   
+Upon the first payment of the policy (`FirstPolicyPaymentReceived`), the policy would "activate." If a policy was not activated within the first 30 days (or some arbitrary duration), it would be immediately cancelled.   
 
 # Bounded Contexts
 
