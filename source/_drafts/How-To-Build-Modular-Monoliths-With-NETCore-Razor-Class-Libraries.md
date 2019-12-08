@@ -1,5 +1,5 @@
 ---
-title: How To Build Modular Monoliths With .NET Core Razor Class Libraries
+title: Modular Monoliths And Composite UIs With .NET Core Razor Class Libraries
 tags: microservices, domain-driven design, modular monoliths
 ---
 
@@ -15,11 +15,21 @@ An alternative to a full-blown microservices architecture that's been getting a 
 
 Sure. But modular monoliths are done in a **very intentional** way that usually follows a domain-driven approach.
 
+## Summary / Table Of Contents
+
+This is part of the 2019 C# Advent! [Take a look at all the other awesome articles for this year!](https://crosscuttingconcerns.com/The-Third-Annual-csharp-Advent)
+
+Here are the main sections in the article in case you would like to skip certain parts:
+
+- [Why Modular Monoliths?](/#why-modular-monoliths)
+- [Building A Modular Monolith With .NET Core Razor Class Libraries](/#how-can-I-build-them)
+- [Building A Composite UI With Blazor/Razor Components](/#Composite-UIs-With-Blazor-Components)
+
 ## Why Modular Monoliths?
 
-Domain-driven practitioners understand that the biggest benefits microservices give us (loose coupling, code ownership, etc.) can be had in a well-designed modular monolith. By leveraging the idea of bounded contexts, we can treat each context as it's own isolated application. 
+The biggest benefits that microservices give us (loose coupling, code ownership, etc.) can be had in a well-designed modular monolith. By leveraging the domain-driven concept of bounded contexts, we can treat each context as an isolated application. 
 
-Yet, instead of hosting each context as an independent process (like with microservices), we can extract each bounded context as a module within a larger system or web of modules. 
+But, instead of hosting each context as an independent process (like with microservices), we can extract each bounded context as a module within a larger system or web of modules. 
 
 For example, each module might be a .NET project/assembly. These assemblies would be combined at run-time and hosted within one main process.
 
@@ -35,19 +45,25 @@ I see modular monoliths as a step within the potential evolution of a system's a
 
 ![spectrum](/img/architecture/ArchitectureSpectrum.png)
 
-But for domain-driven approaches, starting with a modular monolith might make the most sense.
+For domain-driven approaches, starting with a modular monolith might make the most sense and is definitely worth considering.
+
+Here's a more in-depth [primer on modular monoliths](https://www.kamilgrzybek.com/design/modular-monolith-primer/) by Kamil Grzybek if you're interested.
 
 ## How Can I Build Them?
 
-There are many ways to build modular monoliths.
+There are many ways to build modular monoliths!
 
-For now, I want to show one way that's unique to .NET Core: using a new feature of .NET Core called razor class libraries. 
+For example, Kamil Grzybek has created [a production-ready modular monolith sample](https://github.com/kgrzybek/modular-monolith-with-ddd).
 
-This is a simpler way to get started with this architecture than what you might have seen elsewhere.
+I personally prefer less separation within each bounded context / module, but his example is super detailed and worth looking at!
 
-.NET Core introduced [razor class libraries](https://docs.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-3.0&tabs=visual-studio) as libraries that not only hold application logic (like any old class library) but full UIs too!
+And, of course, Kamil says it well in his repo's disclaimer:
 
-For some applications, this might make things much easier than other methods of building modular monoliths.
+> The architecture and implementation presented in this repository is one of the many ways to solve some problems
+
+In this article, we'll be looking at a much simpler approach to building modular monoliths. Again, the direction and implementation depends on your needs (business requirements, team experience, time-to-market required, etc.)
+
+We'll be looking at one way that's unique to .NET Core by using a new-ish feature of .NET Core called [razor class libraries](https://docs.microsoft.com/en-us/aspnet/core/razor-pages/ui-class?view=aspnetcore-3.0&tabs=visual-studio). Razor class libraries allow you to build entire UI pages, controllers and components inside of a sharable library! It's the approach I've used for [Coravel Pro](https://www.pro.coravel.net/) and enables some exciting possibilities.
 
 ## Life Insurance Application
 
@@ -60,15 +76,19 @@ To keep things simple for now, let's imagine we've determined two bounded contex
 
 The specific details are not so important since the remainder of this article will look at implementation and code.
 
+The structure of our solution will roughly look like the following - with a .NET Core web application as the host:
+
+![modules](/img/razormodules/modules.png)
+
 ## Creating Our Skeleton
 
 Let's implement the skeleton for our modular monolith and use razor class libraries as a way to implement our bounded contexts.
 
-First thing's first - create a new root host process:
+First, create a new root host process:
 
 `dotnet new webapp -o HostApp`
 
-Next, we'll create a modules folder within our solution (`Modules`) and then create our two modules as razor class libraries:
+Next, we'll create our two modules as razor class libraries:
 
 `dotnet new razorclasslib -o Modules/InsuranceApplication`
 
@@ -76,7 +96,7 @@ Next, we'll create a modules folder within our solution (`Modules`) and then cre
 
 ![folder structure](/img/razormodules/folders1.png)
 
-Next, we'll reference our modules from the host project.
+Then, we'll reference our modules from the host project.
 
 From within the host project:
 
@@ -88,9 +108,9 @@ From within the host project:
 
 Navigate to the Insurance Application module at `Modules/InsuranceApplication`.
 
-Your razor class library will have some sample Blazor files - you can remove those (Sorry - this is not about Blazor!)
+Your razor class library will have some sample Blazor files, `www` folder, etc. You can remove all those generated files.
 
-Let's build a couple Razor Pages that will be used as this bounded context's UI:
+Let's build a couple of Razor Pages that will be used as this bounded context's UI:
 
 `dotnet new page -o Areas/InsuranceApplication/Pages -n ContactInfo`
 
@@ -100,38 +120,40 @@ Let's build a couple Razor Pages that will be used as this bounded context's UI:
 
 ## Oops! It Doesn't Work!
 
-Navigate back to the `HostApp` web project and try to build it. It will fail.
+Navigate back to the `HostApp` web project and try to build it. 
+
+_It will fail!_
 
 Our razor class libraries are trying to use razor pages - which is a web function. This requires referencing the appropriate reference assemblies.
 
 Before .NET Core 3.0, we would have added a reference to some extra NuGet packages like `Microsoft.AspNetCore.Mvc`, etc. As of .NET Core 3.0, many of these ASP related packages are actually included in the .NET Core SDK.
 
-For some projects, this breaking change can cause issues and confusion! For more details, check out Andrew Lock's [in-depth look at this issue.](https://andrewlock.net/converting-a-netstandard-2-library-to-netcore-3/)
+> For some projects, this breaking change can cause issues and confusion! For more details, check out Andrew Lock's [in-depth look at this issue.](https://andrewlock.net/converting-a-netstandard-2-library-to-netcore-3/)
 
-For our scenario, we'll have to change the project files of our two razor class libraries to the following:
+So, let's change the project files of our two razor class libraries to the following:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
-    <AddRazorSupportForMvc>True</AddRazorSupportForMvc>
-  </PropertyGroup>
+ <PropertyGroup>
+ <TargetFramework>netcoreapp3.0</TargetFramework>
+ <AddRazorSupportForMvc>True</AddRazorSupportForMvc>
+ </PropertyGroup>
 
-  <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
+ <ItemGroup>
+ <FrameworkReference Include="Microsoft.AspNetCore.App" />
+ </ItemGroup>
 
 </Project>
 ```
 
-> Yes, I removed all the boilerplate Blazor code - sorry!
+> Yes, I removed all the boilerplate Blazor code since the appropriate references are included in the `FrameworkReference`.
 
 ## It's Alive!
 
-You should now go into your razor pages (inside the `InsuranceApplication` project) and add some dummy HTML.
+Go into the razor pages you created and add some dummy HTML.
 
-Ex.
+For example:
 
 ```html
 @page
@@ -146,9 +168,7 @@ Try running your host application and navigate to `/InsuranceApplication/Contact
 
 Both pages should display. Cool!
 
-## Build The UI Flow
-
-### Beginning The Insurance Application
+## UI Flow: Beginning The Insurance Application
 
 Let's look at building out a basic flow between our two modules.
 
@@ -158,11 +178,11 @@ First, in the `HostApp` project, in your `Pages/Index.cshtml` file add the follo
 <a href="/InsuranceApplication/ContactInfo">Begin Your Application!</a>
 ```
 
-That will give us a link to click from our home screen to begin our flow through our application logic.
+That will give us a link to click from our home screen to begin the flow through our application logic.
 
-![folder structure](/img/razormodules/flow1.png)
+![screen 1](/img/razormodules/flow1.png)
 
-### Inside The Insurance Application Module
+## UI Flow: Inside The Insurance Application Module
 
 In your `ContactInfo.cshtml` file within the `InsuranceApplication` project, insert the following:
 
@@ -174,16 +194,16 @@ In your `ContactInfo.cshtml` file within the `InsuranceApplication` project, ins
 <h1>Insurance Contact Info</h1>
 
 <form method="post">
-    <label>Email:</label>
-    <input asp-for="EmailAddress" required type="email" />
+ <label>Email:</label>
+ <input asp-for="EmailAddress" required type="email" />
 
-    <button type="submit">submit</button>
+ <button type="submit">submit</button>
 </form>
 ```
 
 In `ContactInfo.cshtml.cs`, add the following:
 
-```c#
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -193,33 +213,34 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace InsuranceApplication.Areas.InsuranceApplication.Pages
 {
-    public class ContactInfoModel : PageModel
-    {
-        [BindProperty]
-        public string EmailAddress { get; set; }
+  public class ContactInfoModel : PageModel
+  {
+    [BindProperty]
+    public string EmailAddress { get; set; }
 
-        public IActionResult OnPostAsync()
-        {
-            Console.WriteLine($"Email Address is {this.EmailAddress}.");
-            return RedirectToPage("./InsuranceSelection");
-        }
+    public IActionResult OnPostAsync()
+    {
+      Console.WriteLine($"Email Address is {this.EmailAddress}.");
+      return RedirectToPage("./InsuranceSelection");
     }
+  }
 }
 ```
 
-This will allow us to enter an email address and then move on to the next page in our flow.
+This will allow us to enter an email address and move to the next page in our flow.
 
-![folder structure](/img/razormodules/flow2.png)
+![screen 2](/img/razormodules/flow2.png)
 
-In the `InsuranceSelection.cshtml` page - just add an link to keep things simple for now:
+In the `InsuranceSelection.cshtml` page - just add a link to keep things simple:
 
 ```html
 <a href="/MedicalQuestionnaire/Questions">Next<a>
 ```
+> You can imagine that this page would allow the user to select a specific insurance plan they want to apply for.
 
-### Medical Questionnaire Module
+## UI Flow: Medical Questionnaire Module
 
-You might have noticed that we never created any razor pages in the Medical Questionnaire module. Let's do that.
+You might have noticed that we never created any razor pages in the Medical Questionnaire module. Let's do that now.
 
 Navigate to the root of the `MedicalQuestions` project and enter the following from your terminal:
 
@@ -235,29 +256,159 @@ Within the `Questions.cshtml` file, add a link:
 <a href="/">Finish<a>
 ```
 
-Now, you can run through the entire UI using multiple modules behind the scenes!
+Try running your host project with `dotnet run` and run through the entire UI!
+
+## Composite UIs With Blazor Components
+
+When working with these kinds of loosely coupled modules a question arises: 
+
+**What happens when we need to display information from multiple bounded contexts on the same screen?**
+
+Usually, we resort to building composite UIs. 
+
+These are UIs where various parts of the UI are rendered and controlled by components owned by a specific bounded context, service or module.
+
+![composite ui](/img/razormodules/compositeui.png)
+
+As you can see in the image above, each component might be owned by a different back-end module and would be isolated from and loosely coupled to the other modules.
+
+Let's build a simple composite UI using some exciting new .NET Core 3.0 technologies!
+
+### Configure Blazor Components
+
+We need to configure our host application to support the new blazor/razor components.
+
+1. Add the following script to `Pages/Shared/_Layout.cshtml`:
+
+```html
+<script src="_framework/blazor.server.js"></script>
+```
+
+2. In `Startup.cs` in `ConfigureServices` add:
+
+```csharp
+services.AddServerSideBlazor();
+```
+
+3. In the `Configure` method:
+
+```csharp
+app.UseEndpoints(endpoints =>
+{
+ endpoints.MapRazorPages();
+ endpoints.MapBlazorHub(); // Add this one.
+});
+```
+
+### Create Insurance Application Component
+
+Navigate to the `InsuranceApplication` project's root directory and execute the following:
+
+`dotnet new razorcomponent -o ./Components -n ApplicationDashboard`
+
+Replace the contents of your new razor component with the following:
+
+```html
+<h3>Application Dashboard</h3>
+
+<p>
+ Time: @currentTime
+</p>
+
+@code {
+ private string currentTime = DateTime.Now.ToString();
+}
+```
+
+### Create Medical Questions Component
+
+Do the same steps within the `MedicalQuestions` module to create a dummy razor component.
+
+### Putting It Together
+
+Now, back in your host application project, within the `Pages/Index.cshtml` page, add the following to the top of the file:
+
+```csharp
+@page
+@using InsuranceApplication.Components // Add this.
+@using MedicalQuestions.Components // Add this.
+@model IndexModel
+```
+
+Then, in the middle of your HTML page, add:
+
+```html
+<div class="row">
+ <div class="col-6">
+ @(await Html.RenderComponentAsync<ApplicationDashboard>(RenderMode.ServerPrerendered))
+ </div>
+ <div class="col-6">
+ @(await Html.RenderComponentAsync<QuestionsDashboard>(RenderMode.ServerPrerendered))
+ </div>
+</div>
+```
+
+Finally... start your host project using `dotnet run`!
+
+![composite ui](/img/razormodules/compositeuiscreenshot.png)
+
+Any time one of the components needs to be changed, the host application will (most likely) not need to change. Both bounded contexts are still isolated from each other but our architecture allows us to be smart about how we display that information.
+
+_Note: There are other ways to build these types of components: [view components](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/view-components?view=aspnetcore-3.1), [tag helpers](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/intro?view=aspnetcore-3.1), [tag helper components](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/th-components?view=aspnetcore-3.1), javascript components, etc._
+
 
 ## Other Considerations
 
-### Business Logic
+1. Modules can be deployed as NuGet packages so that they ultimately can be managed by independent teams and be isolated as true modules.
 
-If each module is a DDD bounded context then it can:
+2. Each bounded context can:
 
-- Use it's own isolated database
-- Have it's own DDD business logic
-- Communicate to other bounded contexts by using messaging and domain events
-- etc.
+  - Use its own isolated database
+  - Have it's own self-contained business logic
+  - Communicate with other bounded contexts by using messaging and domain events
+  - etc.
 
-### Deployment
+3. In terms of service/module interaction, any calls between modules would use a shared abstractions library which would be configured in DI at run-time to use the concrete service from the appropriate bounded context:
 
-You can also deploy each library as a NuGet package and allow individual teams have ownership of specific modules.
+![references](/img/razormodules/references.png)
 
-### Compositional UIs
+It doesn't show on the diagram, but the Medical Questions context might need to get some information from the Insurance Application context in some scenario where using messaging isn't appropriate.
 
-Using [razor components](https://docs.microsoft.com/en-us/aspnet/core/blazor/components?view=aspnetcore-3.0), [view components](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/view-components?view=aspnetcore-3.0), etc. you can allow each module to define it's own set of components (UI and backend logic included).
+In this case, the Medical Questions code would use the `IInsuranceApplicationService` interface (from DI) to make those calls.
 
-These can be plugged into a composite UI that might be housed from the host application.
+Then, at run-time, the host process would configure the concrete implementation (`InsuranceApplicationFacade`) to be given to any one who asks for the interface.
 
-### Next Steps
+This technique keeps each module loosely coupled and enforces a strict contract in terms of what one bounded context can be explicitly be "asked for".
 
-For more around what you can do with razor libraries, defining layouts, and more specifics [check out this article.](https://www.learnrazorpages.com/advanced/razor-class-library)
+_However, some might say the need to make direct calls to another bounded context is a sign that the boundaries are incorrect...a topic for another day._
+
+## Conclusion
+
+I hope you found this article helpful and informative. I'm sure you can see that razor class libraries are a really exciting feature of .NET Core that hasn't been talked about too much.
+
+This is one way to use them and for some it might work really well!
+
+Here are some resources about topics we covered:
+
+- [Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-3.1)
+- [Razor Components](https://docs.microsoft.com/en-us/aspnet/core/blazor/components?view=aspnetcore-3.1)
+- [View Components](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/view-components?view=aspnetcore-3.1)
+- [Modular Monoliths Talk By Simon Brown](https://www.youtube.com/watch?v=kbKxmEeuvc4)
+- [Composite UIs for Microservices - A Primer By Jimmy Bogard](https://jimmybogard.com/composite-uis-for-microservices-a-primer/)
+- [Microsoft: Creating composite UI based on microservices](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/microservice-based-composite-ui-shape-layout)
+
+# My Book
+
+Check out my book about keeping your code healthy!S
+
+[![Refactoring TypeScript book](/img/refactoringts.png)
+](https://leanpub.com/refactoringtypescript)
+
+# Keep In Touch
+
+Don't forget to connect with me on:
+
+- [Twitter](https://twitter.com/jamesmh_dev)
+- [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)
+
+You can also find me at my web site [www.jamesmichaelhickey.com](https://www.jamesmichaelhickey.com).
