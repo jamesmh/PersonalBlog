@@ -25,6 +25,8 @@ Here are the main sections in the article in case you would like to skip certain
 - [Building A Modular Monolith With .NET Core Razor Class Libraries](/#how-can-I-build-them)
 - [Building A Composite UI With Blazor/Razor Components](/#Composite-UIs-With-Blazor-Components)
 
+The GitHub repo for everything in this article [is here](https://github.com/jamesmh/net-core-modular-monolith-razor-lib).
+
 ## Why Modular Monoliths?
 
 The biggest benefits that microservices give us (loose coupling, code ownership, etc.) can be had in a well-designed modular monolith. By leveraging the domain-driven concept of bounded contexts, we can treat each context as an isolated application. 
