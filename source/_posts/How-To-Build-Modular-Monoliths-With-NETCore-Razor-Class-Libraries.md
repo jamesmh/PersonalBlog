@@ -27,7 +27,7 @@ Here are the main sections in the article in case you would like to skip certain
 - [Building A Modular Monolith With .NET Core Razor Class Libraries](#Creating-Our-Skeleton)
 - [Building A Composite UI With Blazor/Razor Components](#Composite-UIs-With-Blazor-Components)
 
-The GitHub repo for everything in this article [is here](https://github.com/jamesmh/net-core-modular-monolith-razor-lib).
+**The GitHub repo for everything in this article [is here](https://github.com/jamesmh/net-core-modular-monolith-razor-lib).**
 
 ## Why Modular Monoliths?
 
