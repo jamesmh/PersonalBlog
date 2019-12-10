@@ -23,9 +23,9 @@ This is part of the 2019 C# Advent! [Take a look at all the other awesome articl
 
 Here are the main sections in the article in case you would like to skip certain parts:
 
-- [Why Modular Monoliths?](/#why-modular-monoliths)
-- [Building A Modular Monolith With .NET Core Razor Class Libraries](/#how-can-I-build-them)
-- [Building A Composite UI With Blazor/Razor Components](/#Composite-UIs-With-Blazor-Components)
+- [Why Modular Monoliths?](#why-modular-monoliths)
+- [Building A Modular Monolith With .NET Core Razor Class Libraries](#how-can-I-build-them)
+- [Building A Composite UI With Blazor/Razor Components](#Composite-UIs-With-Blazor-Components)
 
 The GitHub repo for everything in this article [is here](https://github.com/jamesmh/net-core-modular-monolith-razor-lib).
 
