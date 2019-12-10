@@ -1,7 +1,9 @@
 ---
 title: Modular Monoliths And Composite UIs With .NET Core Razor Class Libraries
-tags: microservices, domain-driven design, modular monoliths
+tags: 'microservices, domain-driven design, modular monoliths'
+date: 2019-12-10 00:19:00
 ---
+
 
 **Microservices are all the rage now.** 
 
