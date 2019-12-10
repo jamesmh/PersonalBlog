@@ -311,20 +311,29 @@ Navigate to the `InsuranceApplication` project's root directory and execute the 
 Replace the contents of your new razor component with the following:
 
 ```html
+@using Microsoft.AspNetCore.Components.Web
+
 <h3>Application Dashboard</h3>
 
 <p>
- Time: @currentTime
+    Time: @currentTime
 </p>
 
+<button @onclick="Update">Update</button>
+
 @code {
- private string currentTime = DateTime.Now.ToString();
+    private string currentTime = DateTime.Now.ToString();
+
+    private void Update()
+    {
+        currentTime = DateTime.Now.ToString();       
+    }
 }
 ```
 
 ### Create Medical Questions Component
 
-Do the same steps within the `MedicalQuestions` module to create a dummy razor component.
+Do the same steps within the `MedicalQuestions` module to create a dummy razor component (but change the title of the component).
 
 ### Putting It Together
 
