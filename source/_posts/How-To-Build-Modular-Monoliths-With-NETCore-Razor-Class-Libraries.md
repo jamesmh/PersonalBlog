@@ -23,7 +23,7 @@ This is part of the 2019 C# Advent! [Take a look at all the other awesome articl
 
 Here are the main sections in the article in case you would like to skip certain parts:
 
-- [Introduction / Why Modular Monoliths?](#why-modular-monoliths)
+- [Introduction / Why Modular Monoliths?](#Why-Modular-Monoliths)
 - [Building A Modular Monolith With .NET Core Razor Class Libraries](#Creating-Our-Skeleton)
 - [Building A Composite UI With Blazor/Razor Components](#Composite-UIs-With-Blazor-Components)
 
