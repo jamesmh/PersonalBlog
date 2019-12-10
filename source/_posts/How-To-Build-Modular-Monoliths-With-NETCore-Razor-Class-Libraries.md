@@ -412,7 +412,7 @@ Here are some resources about the topics we covered:
 
 # My Book
 
-Check out my book about keeping your code healthy!S
+Check out my book about keeping your code healthy!
 
 [![Refactoring TypeScript book](/img/refactoringts.png)
 ](https://leanpub.com/refactoringtypescript)
@@ -423,5 +423,3 @@ Don't forget to connect with me on:
 
 - [Twitter](https://twitter.com/jamesmh_dev)
 - [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)
-
-You can also find me at my web site [www.jamesmichaelhickey.com](https://www.jamesmichaelhickey.com).
