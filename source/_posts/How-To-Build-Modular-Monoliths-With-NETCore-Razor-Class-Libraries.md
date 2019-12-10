@@ -381,7 +381,7 @@ _Note: There are other ways to build these types of components: [view components
   - Communicate with other bounded contexts by using messaging and domain events
   - etc.
 
-3. In terms of service/module interaction, any calls between modules would use a shared abstractions library which would be configured in DI at run-time to use the concrete service from the appropriate bounded context:
+3. In terms of service/module interaction, any calls between modules could use a shared abstractions library which would be configured in DI at run-time to use the concrete service from the appropriate bounded context:
 
 ![references](/img/razormodules/references.png)
 
