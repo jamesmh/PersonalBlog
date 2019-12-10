@@ -377,7 +377,7 @@ _Note: There are other ways to build these types of components: [view components
 2. Each bounded context can:
 
   - Use its own isolated database
-  - Have it's own self-contained business logic
+  - Have its own self-contained business logic
   - Communicate with other bounded contexts by using messaging and domain events
   - etc.
 
@@ -385,11 +385,11 @@ _Note: There are other ways to build these types of components: [view components
 
 ![references](/img/razormodules/references.png)
 
-It doesn't show on the diagram, but the Medical Questions context might need to get some information from the Insurance Application context in some scenario where using messaging isn't appropriate.
+It doesn't show on the diagram, but the Medical Questions context might need to get some information from the Insurance Application context in some scenarios where using messaging isn't appropriate.
 
 In this case, the Medical Questions code would use the `IInsuranceApplicationService` interface (from DI) to make those calls.
 
-Then, at run-time, the host process would configure the concrete implementation (`InsuranceApplicationFacade`) to be given to any one who asks for the interface.
+Then, at run-time, the host process would configure the concrete implementation (`InsuranceApplicationFacade`) to be given to anyone who asks for the interface.
 
 This technique keeps each module loosely coupled and enforces a strict contract in terms of what one bounded context can be explicitly be "asked for".
 
@@ -399,9 +399,9 @@ _However, some might say the need to make direct calls to another bounded contex
 
 I hope you found this article helpful and informative. I'm sure you can see that razor class libraries are a really exciting feature of .NET Core that hasn't been talked about too much.
 
-This is one way to use them and for some it might work really well!
+This is one way to use them and for some cases it might work really well!
 
-Here are some resources about topics we covered:
+Here are some resources about the topics we covered:
 
 - [Blazor](https://docs.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-3.1)
 - [Razor Components](https://docs.microsoft.com/en-us/aspnet/core/blazor/components?view=aspnetcore-3.1)
