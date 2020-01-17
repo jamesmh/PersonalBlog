@@ -37,6 +37,8 @@ But, instead of hosting each context as an independent process (like with micros
 
 For example, each module might be a .NET project/assembly. These assemblies would be combined at run-time and hosted within one main process.
 
+Each module would own everything from UI components, back-end business/domain logic to persistence.
+
 Compared to microservices, the benefits of modular monoliths include:
 
 - In-memory communication between contexts are more performant and reliable than doing it on the network
