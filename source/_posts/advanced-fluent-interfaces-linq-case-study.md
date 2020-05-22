@@ -47,9 +47,9 @@ For example, LINQ methods (normally) return an object using the `IEnumerable` in
 
 The `IOrderedEnumerable` interface inherits from `IEnumerable` - so it has all the methods you normally would have access to. But - it also defines the extra `ThenBy` and `ThenByDescending` methods.
 
-# Next Time... Maybe
+## New Site!
 
-I'd like to post sometime soon about creating our own "polymorphic" fluent objects and see how powerful they can become.
+I'll be writing new content over at my <a href="https://www.jamesmichaelhickey.com">new site/blog</a>. Check it out!
 
 # If You Enjoyed This...
 
@@ -62,20 +62,3 @@ I've been writing about Fluent Interfaces and Functional Programming lately - he
 # Keep In Touch
 
 Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
-
-<div style="padding:0   20px; border-radius:6px; background-color: #efefef; margin-bottom:50px; margin-top:20px">
-    <h1 class="margin-bottom:0"> Navigating Your Software Development Career
-</h1>
-An e-mail newsletter where I'll answer subscriber questions and offer advice around topics like:
-
-✔ What are the general stages of a software developer?
-✔ How do I know which stage I'm at? How do I get to the next stage?
-✔ What is a tech leader and how do I become one?
-
-
-<div class="text-center">
-    <a href="http://eepurl.com/gdIV5X">
-        <button class="btn btn-sign-up" style="margin-top:0;margin-bottom:0">Join The Community!</button>
-    </a>
-</div>
-</div>

@@ -183,24 +183,15 @@ All of Coravel's features can be used within these worker services - such as [qu
 
 One thing I'd love to try is to integrate [Coravel Pro](https://www.pro.coravel.net/) with a worker service. One step at a time though 🤣.
 
+## New Site!
+
+I'll be writing new content over at my <a href="https://www.jamesmichaelhickey.com">new site/blog</a>. Check it out!
+
 # Keep In Touch
 
 Don't forget to connect with me on:
 
 - [Twitter](https://twitter.com/jamesmh_dev)
 - [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)
-
-You can also find me at my web site [www.jamesmichaelhickey.com](https://www.jamesmichaelhickey.com).
-
-# Navigating Your Software Development Career Newsletter
-
-An e-mail newsletter that will help you level-up in your career as a software developer! Ever wonder:
-
-✔ What are the general stages of a software developer?
-✔ How do I know which stage I'm at? How do I get to the next stage?
-✔ What is a tech leader and how do I become one?
-✔ Is there someone willing to walk with me and answer my questions?
-
-Sound interesting? [Join the community!](https://eepurl.com/gdIV5X)
 
 

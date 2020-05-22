@@ -264,3 +264,8 @@ This was a somewhat primitive look at this domain. There's _so much more to it_.
 Hopefully you did learn something about modelling business processes though. Sometimes, just by changing how we process one step in a business flow we can make a huge impact!
 
 If enough people enjoy this and provide feedback then I might just dig into some more specific problems and do some more intense modelling 😉.
+
+
+## New Site!
+
+I'll be writing new content over at my <a href="https://www.jamesmichaelhickey.com">new site/blog</a>. Check it out!

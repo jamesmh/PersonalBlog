@@ -306,6 +306,10 @@ Doing this using Reflection can offer some conveniences and perhaps more flexibi
 
 <hr />
 
+## New Site!
+
+I'll be writing new content over at my <a href="https://www.jamesmichaelhickey.com">new site/blog</a>. Check it out!
+
 ## You Might Also Enjoy
 
 - [What I've Learned So Far Building Coravel (Open Source .NET Core Tooling)](https://www.blog.jamesmichaelhickey.com/What-I-ve-Learned-So-Far-Building-Coravel-Open-Source-NET-Core-Tooling/)
@@ -316,20 +320,3 @@ Doing this using Reflection can offer some conveniences and perhaps more flexibi
 # Keep In Touch
 
 Don't forget to connect with me on [twitter](https://twitter.com/jamesmh_dev) or [LinkedIn](https://www.linkedin.com/in/jamesmhickey/)!
-
-<div style="padding:0   20px; border-radius:6px; background-color: #efefef; margin-bottom:50px; margin-top:20px">
-    <h1 class="margin-bottom:0"> Navigating Your Software Development Career
-</h1>
-An e-mail newsletter where I'll answer subscriber questions and offer advice around topics like:
-
-✔ What are the general stages of a software developer?
-✔ How do I know which stage I'm at? How do I get to the next stage?
-✔ What is a tech leader and how do I become one?
-
-
-<div class="text-center">
-    <a href="http://eepurl.com/gdIV5X">
-        <button class="btn btn-sign-up" style="margin-top:0;margin-bottom:0">Join The Community!</button>
-    </a>
-</div>
-</div>

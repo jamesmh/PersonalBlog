@@ -419,6 +419,10 @@ Check out my book about keeping your code healthy!
 [![Refactoring TypeScript book](/img/refactoringts.png)
 ](https://leanpub.com/refactoringtypescript)
 
+## New Site!
+
+I'll be writing new content over at my <a href="https://www.jamesmichaelhickey.com">new site/blog</a>. Check it out!
+
 # Keep In Touch
 
 Don't forget to connect with me on:
